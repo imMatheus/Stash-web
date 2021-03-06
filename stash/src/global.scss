@@ -1,8 +1,8 @@
 // importing styles for diffrent componentscd
 //navbar
-@import './components/navbar/navbar';
-//sidebar
-@import './components/sidebar/sidebar';
+// @import './components/navbar/navbar';
+//stashesOverview
+@import './components/stashesOverview/stashesOverview';
 
 *,
 *::after,
@@ -20,9 +20,11 @@
     --main-white: #fdfffc;
     --dark-blue: #020887;
     --off-red: #de3c4b;
+    --font-logo: 'Titan One', cursive;
+    --font-display: 'Lato', sans-serif;
 }
 
 body {
-    height: 30vh;
+    height: 10vh;
     background-color: var(--main-white);
 }
