@@ -1,0 +1,13 @@
+.navbar {
+    width: 100vw;
+    height: 40px;
+    position: sticky;
+    top: 0;
+    background-color: var(--dark-blue);
+
+    & .navbar-logo {
+        color: var(--off-red);
+        font-size: 2rem;
+        font-family: 'Titan One', cursive;
+    }
+}

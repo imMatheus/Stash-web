@@ -1,0 +1,28 @@
+// importing styles for diffrent componentscd
+//navbar
+@import './components/navbar/navbar';
+//sidebar
+@import './components/sidebar/sidebar';
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-white: #fdfffc;
+    --dark-blue: #020887;
+    --off-red: #de3c4b;
+}
+
+body {
+    height: 30vh;
+    background-color: var(--main-white);
+}

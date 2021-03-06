@@ -1,0 +1,48 @@
+.navbar {
+  width: 100vw;
+  height: 10px;
+  position: sticky;
+  top: 0;
+  background-color: var(--dark-blue);
+}
+.navbar .navbar-logo {
+  color: var(--off-red);
+  font-size: 2rem;
+  font-family: "Titan One", cursive;
+}
+
+.sidebar {
+  height: 100vh;
+  background-color: var(--dark-blue);
+}
+.sidebar .sidebar-logo {
+  padding: 1.3rem;
+  background-color: aquamarine;
+  color: var(--off-red);
+  font-size: 2.9rem;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-white: #fdfffc;
+  --dark-blue: #020887;
+  --off-red: #de3c4b;
+}
+
+body {
+  height: 100vh;
+  background-color: var(--main-white);
+}
+
+/*# sourceMappingURL=global.css.map */
