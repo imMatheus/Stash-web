@@ -1,11 +1,15 @@
 import React from 'react'
+import StashCard from '../../../StashCard'
+import StashCreateNewCard from '../../../StashCreateNewCard'
 
 function StashStashes() {
     return (
         <div className='stashesContainer'>
-            <h4>Lorem, ipsum dolor.</h4>
-            <h4>Doloribus, ipsam tenetur.</h4>
-            <h4>Voluptatibus, aperiam error!</h4>
+            <div className='currentStashes'>
+                <StashCard /> <StashCard /> <StashCard /> <StashCard /> <StashCard />{' '}
+                <StashCard />
+                <StashCreateNewCard />
+            </div>
         </div>
     )
 }

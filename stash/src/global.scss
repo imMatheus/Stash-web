@@ -17,10 +17,26 @@
     text-decoration: none;
 }
 
+// :root {
+//     --main-white: #fdfffc;
+//     --dark-blue: #020887;
+//     --off-red: #de3c4b;
+//     --font-logo: 'Titan One', cursive;
+//     --font-display: 'Lato', sans-serif;
+// }
+
+// :root {
+//     --main-white: #fdfffc;
+//     --dark-blue: #326273;
+//     --off-red: #5c9ead;
+//     --font-logo: 'Titan One', cursive;
+//     --font-display: 'Lato', sans-serif;
+// }
+
 :root {
-    --main-white: #fdfffc;
-    --dark-blue: #020887;
-    --off-red: #de3c4b;
+    --main-white: #ffeddf;
+    --dark-blue: #0d1321;
+    --off-red: #c5d86d;
     --font-logo: 'Titan One', cursive;
     --font-display: 'Lato', sans-serif;
 }
@@ -29,4 +45,92 @@ body {
     height: 100vh;
     background-color: var(--main-white);
     overflow: hidden;
+
+    //genarl style for the stash card, will mostly be simple markup and might be
+    //changed in other files
+    & .stashcard {
+        margin: 0px 10px;
+        cursor: pointer;
+        width: 240px;
+        min-height: 350px;
+        border-radius: 3%;
+        background-color: var(--dark-blue);
+        box-shadow: 2px 2px 5px var(--off-red);
+        position: relative;
+
+        // following code is used to style a card that has store
+        & .stashcard-image {
+            height: 165px;
+            border-top-left-radius: inherit;
+            border-top-right-radius: inherit;
+            background-size: cover;
+        }
+
+        & .stashcard-info {
+            padding: 0.6rem 1rem;
+            font-family: var(--font-display);
+
+            & .stashcard-header {
+                font-size: 1.6rem;
+                font-weight: 500;
+                color: var(--off-red);
+                margin: 0px 0 13px 0;
+            }
+
+            & p {
+                margin: 3px 0px;
+                padding: 0.1rem 0;
+                letter-spacing: 2px;
+                font-size: 1rem;
+                font-weight: 300;
+                color: var(--main-white);
+
+                & span {
+                    color: var(--off-red);
+                    text-shadow: 0px 0px 0px var(--off-red);
+                }
+            }
+        }
+
+        // styling the creat new card, still using stashcard styling for markup
+        & .stashcard-CreateNew {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: absolute;
+
+            & .stashcard-Circle {
+                width: 82px;
+                height: 82px;
+                border-radius: 50%;
+                background-color: var(--off-red);
+                position: relative;
+
+                & div {
+                    width: 47px;
+                    height: 6px;
+                    border-radius: 5px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: var(--dark-blue);
+
+                    &:nth-child(1) {
+                        transform: translate(-50%, -50%) rotate(90deg);
+                    }
+                }
+            }
+            & p {
+                padding-top: 10px;
+                color: var(--off-red);
+                font-size: 1.2rem;
+                font-family: var(--font-display);
+                font-weight: 300;
+            }
+        }
+    }
 }
