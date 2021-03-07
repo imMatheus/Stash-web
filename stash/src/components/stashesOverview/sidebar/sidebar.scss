@@ -4,7 +4,6 @@
     flex: 0.2;
     min-width: 180px;
     overflow-x: hidden;
-    overflow-anchor: none;
     // overflow-y: scroll;
     & .sidebar-logo {
         cursor: pointer;
@@ -32,6 +31,7 @@
         & svg {
             font-size: 1.5rem;
             margin-right: 12px;
+            color: var(--main-white);
         }
         &:hover {
             opacity: 0.9;

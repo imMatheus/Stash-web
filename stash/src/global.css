@@ -8,7 +8,6 @@
   flex: 0.2;
   min-width: 180px;
   overflow-x: hidden;
-  overflow-anchor: none;
 }
 .stashesOverview .sidebar .sidebar-logo {
   cursor: pointer;
@@ -34,13 +33,19 @@
 .stashesOverview .sidebar .sidebar-option svg {
   font-size: 1.5rem;
   margin-right: 12px;
+  color: var(--main-white);
 }
 .stashesOverview .sidebar .sidebar-option:hover {
   opacity: 0.9;
   background-color: #091247;
 }
 .stashesOverview .stashstorage {
-  flex: 0.8;
+  flex: auto;
+}
+.stashesOverview .stashesContainer {
+  height: 100vh;
+  width: 100%;
+  background: #dacdcd;
 }
 
 *,
@@ -53,6 +58,7 @@
   font: inherit;
   vertical-align: baseline;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 :root {
