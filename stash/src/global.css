@@ -5,10 +5,10 @@
 .stashesOverview .sidebar {
   height: 100vh;
   background-color: var(--dark-blue);
-  flex: 0.18;
+  flex: 0.2;
   min-width: 180px;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-anchor: none;
 }
 .stashesOverview .sidebar .sidebar-logo {
   cursor: pointer;
@@ -21,21 +21,26 @@
 }
 .stashesOverview .sidebar .sidebar-option {
   cursor: pointer;
-  padding: 0.4rem 1.2rem;
+  padding: 0.3rem 0.7rem;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 8px 0px;
-  font-size: 1.2rem;
+  margin: 12px 0px;
+  font-size: 1.3rem;
   font-weight: 300;
   font-family: var(--font-display);
   color: var(--main-white);
   transition: background-color 100ms;
-  border-bottom: solid 1px rgba(255, 255, 255, 0.144);
+}
+.stashesOverview .sidebar .sidebar-option svg {
+  font-size: 1.5rem;
+  margin-right: 12px;
 }
 .stashesOverview .sidebar .sidebar-option:hover {
   opacity: 0.9;
-  background-color: #0e1958;
+  background-color: #091247;
+}
+.stashesOverview .stashstorage {
+  flex: 0.8;
 }
 
 *,
@@ -59,8 +64,9 @@
 }
 
 body {
-  height: 10vh;
+  height: 100vh;
   background-color: var(--main-white);
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=global.css.map */
