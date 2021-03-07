@@ -4,6 +4,9 @@
     flex: 0.2;
     min-width: 180px;
     overflow-x: hidden;
+    position: sticky;
+    top: 0;
+    left: 0;
     // overflow-y: scroll;
     & .sidebar-logo {
         cursor: pointer;
@@ -35,7 +38,12 @@
         }
         &:hover {
             opacity: 0.9;
-            background-color: #091247;
+            color: var(--off-red);
+
+            & svg {
+                color: var(--off-red);
+            }
+            // background-color: #091247;
         }
     }
 }

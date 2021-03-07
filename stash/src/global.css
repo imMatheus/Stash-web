@@ -8,6 +8,9 @@
   flex: 0.2;
   min-width: 180px;
   overflow-x: hidden;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 .stashesOverview .sidebar .sidebar-logo {
   cursor: pointer;
@@ -37,27 +40,60 @@
 }
 .stashesOverview .sidebar .sidebar-option:hover {
   opacity: 0.9;
-  background-color: #091247;
+  color: var(--off-red);
+}
+.stashesOverview .sidebar .sidebar-option:hover svg {
+  color: var(--off-red);
 }
 .stashesOverview .stashstorage {
   flex: auto;
+  height: 100vh;
+  overflow-y: scroll;
+}
+.stashesOverview .stashstorage .storage-sorting {
+  position: relative;
+  width: 90%;
+  height: 100px;
+  margin: 0 auto;
+  background: linear-gradient(red, pink);
+}
+.stashesOverview .stashstorage .storage-itemsContainer {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  place-items: center;
+  row-gap: 1.3em;
+  width: 90%;
+  margin: 0 auto;
+  background: orange;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem {
+  width: 260px;
+  height: 400px;
+  background: green;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-image {
+  height: 310px;
+  background-size: cover;
 }
 .stashesOverview .stashesContainer {
-  height: 100vh;
   width: 100%;
-  background: #dacdcd;
+  height: 100vh;
+  background: var(--main-white);
+  overflow-y: scroll;
 }
 .stashesOverview .stashesContainer .currentStashes {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
   width: 90%;
   border-radius: 12px;
   margin: 30px auto;
-  padding: 35px 45px;
+  padding: 35px 5px;
   box-shadow: 0px 0px 20px var(--dark-blue);
 }
 .stashesOverview .stashesContainer .currentStashes .stashcard {
-  margin: 10px;
+  margin: 10px 5px;
 }
 
 *,
@@ -89,34 +125,36 @@ body {
 body .stashcard {
   margin: 0px 10px;
   cursor: pointer;
-  width: 240px;
-  min-height: 350px;
+  width: 260px;
+  min-height: 380px;
   border-radius: 3%;
   background-color: var(--dark-blue);
   box-shadow: 2px 2px 5px var(--off-red);
   position: relative;
 }
 body .stashcard .stashcard-image {
-  height: 165px;
+  height: 185px;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 body .stashcard .stashcard-info {
   padding: 0.6rem 1rem;
   font-family: var(--font-display);
 }
 body .stashcard .stashcard-info .stashcard-header {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   font-weight: 500;
   color: var(--off-red);
-  margin: 0px 0 13px 0;
+  margin-bottom: 13px;
 }
 body .stashcard .stashcard-info p {
   margin: 3px 0px;
   padding: 0.1rem 0;
   letter-spacing: 2px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 300;
   color: var(--main-white);
 }

@@ -1,12 +1,16 @@
 import React from 'react'
 import background from '../images/stash-men.jpg'
 
-function StashCard() {
+function StashCard({ stashImage }) {
+    let selectedStashImage = stashImage || background
+
+    console.log('image')
+    console.log(selectedStashImage)
     return (
         <div className='stashcard'>
             <div
                 className='stashcard-image'
-                style={{ backgroundImage: `url(${background})` }}
+                style={{ backgroundImage: `url(${selectedStashImage})` }}
             ></div>
             <div className='stashcard-info'>
                 <div className='stashcard-header'>My store</div>

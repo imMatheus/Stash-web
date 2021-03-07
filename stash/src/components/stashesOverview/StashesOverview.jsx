@@ -10,7 +10,7 @@ function StashesOverview() {
         <Router>
             <div className='stashesOverview'>
                 <Sidebar />
-                <StashStashes />
+                <StashStorage />
                 {/* <Switch>
                     <Route exact path='/'>
                         hej

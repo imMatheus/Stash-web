@@ -51,8 +51,8 @@ body {
     & .stashcard {
         margin: 0px 10px;
         cursor: pointer;
-        width: 240px;
-        min-height: 350px;
+        width: 260px;
+        min-height: 380px;
         border-radius: 3%;
         background-color: var(--dark-blue);
         box-shadow: 2px 2px 5px var(--off-red);
@@ -60,10 +60,12 @@ body {
 
         // following code is used to style a card that has store
         & .stashcard-image {
-            height: 165px;
+            height: 185px;
             border-top-left-radius: inherit;
             border-top-right-radius: inherit;
             background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
         & .stashcard-info {
@@ -71,17 +73,17 @@ body {
             font-family: var(--font-display);
 
             & .stashcard-header {
-                font-size: 1.6rem;
+                font-size: 1.7rem;
                 font-weight: 500;
                 color: var(--off-red);
-                margin: 0px 0 13px 0;
+                margin-bottom: 13px;
             }
 
             & p {
                 margin: 3px 0px;
                 padding: 0.1rem 0;
                 letter-spacing: 2px;
-                font-size: 1rem;
+                font-size: 1.1rem;
                 font-weight: 300;
                 color: var(--main-white);
 

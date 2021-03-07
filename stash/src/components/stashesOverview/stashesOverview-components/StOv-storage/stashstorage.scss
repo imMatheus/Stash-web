@@ -1,3 +1,35 @@
 .stashstorage {
     flex: auto;
+    height: 100vh;
+    overflow-y: scroll;
+
+    .storage-sorting {
+        position: relative;
+        width: 90%;
+        height: 100px;
+        margin: 0 auto;
+        background: linear-gradient(red, pink);
+    }
+
+    .storage-itemsContainer {
+        padding: 10px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+        place-items: center;
+        row-gap: 1.3em;
+        width: 90%;
+        margin: 0 auto;
+        background: orange;
+
+        & .storageitem {
+            width: 260px;
+            height: 400px;
+            background: green;
+
+            & .storageitem-image {
+                height: 310px;
+                background-size: cover;
+            }
+        }
+    }
 }

@@ -1,8 +1,11 @@
 import React from 'react'
 
 function StashCreateNewCard() {
+    const addNewStashHandler = () => {
+        alert('click')
+    }
     return (
-        <div className='stashcard'>
+        <div className='stashcard' onClick={addNewStashHandler}>
             <div className='stashcard-CreateNew'>
                 <div className='stashcard-Circle'>
                     <div></div>
