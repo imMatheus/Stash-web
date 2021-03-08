@@ -4,6 +4,8 @@
 //stashesOverview
 @import './components/stashesOverview/stashesOverview';
 
+//sass --watch src/global.scss:src/global.css
+
 *,
 *::after,
 *::before {
@@ -28,15 +30,18 @@
 // :root {
 //     --main-white: #fdfffc;
 //     --dark-blue: #326273;
-//     --off-red: #5c9ead;
+//     --off-red: #e48100;
 //     --font-logo: 'Titan One', cursive;
 //     --font-display: 'Lato', sans-serif;
 // }
 
 :root {
     --main-white: #ffeddf;
+    $main-white: #ffeddf;
     --dark-blue: #0d1321;
+    $dark-blue: #0d1321;
     --off-red: #c5d86d;
+    $off-red: #c5d86d;
     --font-logo: 'Titan One', cursive;
     --font-display: 'Lato', sans-serif;
 }
