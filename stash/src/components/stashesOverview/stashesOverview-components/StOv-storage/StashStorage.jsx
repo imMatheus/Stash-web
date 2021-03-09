@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import StorageItem from './StorageItem'
+import LoadingSpinner from '../../../LoadingSpinner'
 
 function StashStorage() {
     // loading dat from api
@@ -92,11 +93,11 @@ function StashStorage() {
 
     return (
         <div className='stashstorage'>
-            <div className='storage-itemsContainer'>
-                {loading ? (
-                    'loading'
-                ) : (
-                    <>
+            {loading ? (
+                <LoadingSpinner />
+            ) : (
+                <>
+                    <div className='storage-itemsContainer'>
                         <div className='storage-sorting'>
                             <select
                                 name='sortBy'
@@ -111,9 +112,9 @@ function StashStorage() {
                         {/* <StorageItem />
                         <StorageItem itemImage={testImage} itemName='vatten flaska' /> */}
                         {loadedItems && loadedItems}
-                    </>
-                )}
-            </div>
+                    </div>
+                </>
+            )}
         </div>
     )
 }
