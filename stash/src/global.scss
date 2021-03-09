@@ -4,6 +4,8 @@
 //stashesOverview
 @import './components/stashesOverview/stashesOverview';
 
+//sass --watch src/global.scss:src/global.css
+
 *,
 *::after,
 *::before {
@@ -28,7 +30,7 @@
 // :root {
 //     --main-white: #fdfffc;
 //     --dark-blue: #326273;
-//     --off-red: #5c9ead;
+//     --off-red: #e48100;
 //     --font-logo: 'Titan One', cursive;
 //     --font-display: 'Lato', sans-serif;
 // }
@@ -45,6 +47,65 @@ body {
     height: 100vh;
     background-color: var(--main-white);
     overflow: hidden;
+
+    //the genarl stash loading spinner
+    & .loadingspinner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        & p {
+            padding: 2px;
+            font-size: 5rem;
+            font-family: var(--font-logo);
+            color: var(--dark-blue);
+            position: relative;
+            z-index: -1;
+        }
+
+        &-spinner {
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            padding: 10px;
+            z-index: 33030;
+
+            .circle-line {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                position: absolute;
+                border-radius: 100%;
+                animation: rotate180 2s infinite;
+                border: 5px solid transparent;
+                border-top-color: var(--off-red);
+                @for $i from 1 through 5 {
+                    &:nth-child(#{$i}) {
+                        left: 10% * ($i - 1);
+                        top: 10% * ($i - 1);
+                        width: 100% - 20% * ($i - 1);
+                        height: 100% - 20% * ($i - 1);
+                        animation-delay: 0.5s * ($i - 1);
+                    }
+                }
+            }
+
+            @keyframes rotate180 {
+                0% {
+                    transform: rotate(0deg);
+                }
+                50% {
+                    transform: rotate(180deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        }
+    }
 
     //genarl style for the stash card, will mostly be simple markup and might be
     //changed in other files

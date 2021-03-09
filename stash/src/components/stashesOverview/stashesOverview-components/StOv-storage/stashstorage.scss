@@ -12,24 +12,126 @@
     }
 
     .storage-itemsContainer {
-        padding: 10px;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+        padding: 15px;
+        grid-template-columns: 1fr;
         place-items: center;
-        row-gap: 1.3em;
-        width: 90%;
+        row-gap: 0.2em !important;
+        width: 100%;
         margin: 0 auto;
-        background: orange;
 
         & .storageitem {
-            width: 260px;
-            height: 400px;
-            background: green;
+            width: 98%;
+            position: relative;
 
-            & .storageitem-image {
-                height: 310px;
-                background-size: cover;
+            & input {
+                position: absolute;
+                z-index: -1;
+
+                &:checked {
+                    ~ .storageitem-dropdown {
+                        // making the box slide down
+                        height: 500px;
+                    }
+
+                    ~ .storageitem-overhall {
+                        border-left: solid 4px var(--off-red);
+                    }
+                }
+            }
+
+            & label {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                // background: rgba(255, 0, 0, 0.397);
+            }
+            & .storageitem-overhall {
+                cursor: pointer;
+                padding: 0.3rem 1.2rem;
+                min-height: 110px;
+                background: var(--dark-blue);
+                display: grid;
+                grid-template-columns: auto 1fr;
+                align-items: center;
+
+                & .storageitem-image {
+                    width: 195px;
+                    height: 95%;
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
+
+                & .storageitem-info {
+                    box-sizing: border-box;
+                    width: 95%;
+                    place-self: center;
+                    color: white;
+                    font-family: var(--font-display);
+                    font-size: 1.4rem;
+
+                    display: grid;
+                    grid-template-columns: repeat(3, minmax(100px, 1fr));
+
+                    & div {
+                        padding: 0.1rem 0.4rem;
+                        line-height: 1.2em;
+                        border-left: solid var(--off-red) 1px;
+                        word-wrap: break-word;
+                        // background: linear-gradient(0deg, blue, green);
+
+                        & h6 {
+                            font-weight: 100;
+                            font-size: 1rem;
+                        }
+                        & h3 {
+                            font-size: 1.5rem;
+                            font-weight: 300;
+                            color: var(--off-red);
+                        }
+
+                        & p {
+                            padding: 2px 0;
+                            font-weight: 300;
+                            font-size: 1.4rem;
+                        }
+                    }
+                }
+            }
+
+            .storageitem-dropdown {
+                // border-top: solid 1px rgb(158, 18, 18);
+                background: var(--dark-blue);
+                height: 0px;
+                transition: height 400ms;
+                overflow: hidden;
+                padding: 0 1.5rem;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                &-image {
+                    width: 330px;
+                    height: 450px;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+
+                &-info {
+                    width: 50%;
+                    height: 350px;
+                    background: blue;
+                    color: white;
+                }
             }
         }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .storage-itemsContainer {
+        background-color: red;
     }
 }

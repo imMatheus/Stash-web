@@ -58,23 +58,107 @@
   background: linear-gradient(red, pink);
 }
 .stashesOverview .stashstorage .storage-itemsContainer {
-  padding: 10px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  padding: 15px;
+  grid-template-columns: 1fr;
   place-items: center;
-  row-gap: 1.3em;
-  width: 90%;
+  row-gap: 0.2em !important;
+  width: 100%;
   margin: 0 auto;
-  background: orange;
 }
 .stashesOverview .stashstorage .storage-itemsContainer .storageitem {
-  width: 260px;
-  height: 400px;
-  background: green;
+  width: 98%;
+  position: relative;
 }
-.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-image {
-  height: 310px;
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem input {
+  position: absolute;
+  z-index: -1;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem input:checked ~ .storageitem-dropdown {
+  height: 500px;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem input:checked ~ .storageitem-overhall {
+  border-left: solid 4px var(--off-red);
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-overhall {
+  cursor: pointer;
+  padding: 0.3rem 1.2rem;
+  min-height: 110px;
+  background: var(--dark-blue);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-overhall .storageitem-image {
+  width: 195px;
+  height: 95%;
+  background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-overhall .storageitem-info {
+  box-sizing: border-box;
+  width: 95%;
+  place-self: center;
+  color: white;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-overhall .storageitem-info div {
+  padding: 0.1rem 0.4rem;
+  line-height: 1.2em;
+  border-left: solid var(--off-red) 1px;
+  word-wrap: break-word;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-overhall .storageitem-info div h6 {
+  font-weight: 100;
+  font-size: 1rem;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-overhall .storageitem-info div h3 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--off-red);
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-overhall .storageitem-info div p {
+  padding: 2px 0;
+  font-weight: 300;
+  font-size: 1.4rem;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-dropdown {
+  background: var(--dark-blue);
+  height: 0px;
+  transition: height 400ms;
+  overflow: hidden;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-dropdown-image {
+  width: 330px;
+  height: 450px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-dropdown-info {
+  width: 50%;
+  height: 350px;
+  background: blue;
+  color: white;
+}
+@media screen and (max-width: 1000px) {
+  .stashesOverview .storage-itemsContainer {
+    background-color: red;
+  }
 }
 .stashesOverview .stashesContainer {
   width: 100%;
@@ -121,6 +205,85 @@ body {
   height: 100vh;
   background-color: var(--main-white);
   overflow: hidden;
+}
+body .loadingspinner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body .loadingspinner p {
+  padding: 2px;
+  font-size: 5rem;
+  font-family: var(--font-logo);
+  color: var(--dark-blue);
+  position: relative;
+  z-index: -1;
+}
+body .loadingspinner-spinner {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  padding: 10px;
+  z-index: 33030;
+}
+body .loadingspinner-spinner .circle-line {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  border-radius: 100%;
+  animation: rotate180 2s infinite;
+  border: 5px solid transparent;
+  border-top-color: var(--off-red);
+}
+body .loadingspinner-spinner .circle-line:nth-child(1) {
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  animation-delay: 0s;
+}
+body .loadingspinner-spinner .circle-line:nth-child(2) {
+  left: 10%;
+  top: 10%;
+  width: 80%;
+  height: 80%;
+  animation-delay: 0.5s;
+}
+body .loadingspinner-spinner .circle-line:nth-child(3) {
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%;
+  animation-delay: 1s;
+}
+body .loadingspinner-spinner .circle-line:nth-child(4) {
+  left: 30%;
+  top: 30%;
+  width: 40%;
+  height: 40%;
+  animation-delay: 1.5s;
+}
+body .loadingspinner-spinner .circle-line:nth-child(5) {
+  left: 40%;
+  top: 40%;
+  width: 20%;
+  height: 20%;
+  animation-delay: 2s;
+}
+@keyframes rotate180 {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 body .stashcard {
   margin: 0px 10px;
