@@ -8,7 +8,56 @@
         width: 90%;
         height: 100px;
         margin: 0 auto;
-        background: linear-gradient(red, pink);
+        padding: 0.7rem;
+        background-color: #fbf9f9;
+        box-shadow: 2px 2px 2px var(--off-red), -2px -2px 2px var(--off-red);
+
+        & .sorting-layoutToggler {
+            cursor: pointer;
+            width: 60px;
+            height: 60px;
+            background-color: var(--dark-blue);
+            border-radius: 5px;
+            &:hover {
+                opacity: 0.8;
+            }
+
+            & span {
+                background-color: var(--off-red);
+                opacity: 0.9;
+                display: block;
+            }
+
+            &.sorting-rowsLayout {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
+                padding: 4px 0;
+
+                & span {
+                    width: 88%;
+                    height: 19%;
+                    border-radius: 6px;
+                }
+            }
+
+            &.sorting-cardLayout {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                column-gap: 6%;
+                row-gap: 10%;
+                padding: 0.2em;
+
+                & span {
+                    width: 95%;
+                    height: 95%;
+
+                    border-radius: 12%;
+                }
+            }
+        }
     }
 
     .storage-itemsContainer {

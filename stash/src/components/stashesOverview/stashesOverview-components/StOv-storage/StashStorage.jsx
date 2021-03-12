@@ -37,14 +37,6 @@ function StashStorage() {
         )
     }, [fetchedData])
 
-    // used to swap elements fro the sorting part
-    const swapNodes = (arr, node1, node2) => {
-        let temp = arr[node1]
-        arr[node1] = arr[node2]
-        arr[node2] = temp
-        return arr
-    }
-
     // sorting elements
     const sortByCheapest = (e) => {
         if (fetchedData) {
@@ -53,25 +45,34 @@ function StashStorage() {
                 return itemsArray.push(item)
             })
 
-            if (e.target.value !== 'standard') {
-                let len = itemsArray.length
-                for (let i = 0; i < len; i++) {
-                    for (let j = 0; j < len - 1; j++) {
-                        // if the selected input was 'cheap'
-                        if (e.target.value === 'cheap') {
-                            if (itemsArray[j].price > itemsArray[j + 1].price) {
-                                itemsArray = swapNodes(itemsArray, j, j + 1)
-                            }
-                        }
-                        // if the selected input was 'expensive'
-                        else if (e.target.value === 'expensive') {
-                            if (itemsArray[j].price < itemsArray[j + 1].price) {
-                                itemsArray = swapNodes(itemsArray, j, j + 1)
-                            }
-                        }
+            const quicksort = (testArr) => {
+                let array = testArr
+                if (array.length <= 1) {
+                    return array
+                }
+
+                var pivot = array[0]
+                var left = []
+                var right = []
+
+                for (var i = 1; i < array.length; i++) {
+                    if (e.target.value === 'cheap') {
+                        array[i]?.price < pivot?.price
+                            ? left.push(array[i])
+                            : right.push(array[i])
+                    } else if (e.target.value === 'expensive') {
+                        array[i]?.price > pivot?.price
+                            ? left.push(array[i])
+                            : right.push(array[i])
                     }
                 }
-                console.log('test')
+
+                return quicksort(left).concat(pivot, quicksort(right))
+            }
+
+            if (e.target.value !== 'standard') {
+                itemsArray = quicksort(itemsArray)
+                console.log(itemsArray)
             }
 
             setLoadedItems(
@@ -94,23 +95,30 @@ function StashStorage() {
     return (
         <div className='stashstorage'>
             {loading ? (
+                // if we dont have our items show loading spinner
                 <LoadingSpinner />
             ) : (
+                // else show the items
                 <>
-                    <div className='storage-itemsContainer'>
-                        <div className='storage-sorting'>
-                            <select
-                                name='sortBy'
-                                id='storage-sortBy'
-                                onChange={sortByCheapest}
-                            >
-                                <option value='standard'>Sort by</option>
-                                <option value='cheap'>lägsta pris</option>
-                                <option value='expensive'>högsta pris</option>
-                            </select>
+                    <div className='storage-sorting'>
+                        <select
+                            name='sortBy'
+                            id='storage-sortBy'
+                            onChange={sortByCheapest}
+                        >
+                            <option value='standard'>Sort by</option>
+                            <option value='cheap'>lägsta pris</option>
+                            <option value='expensive'>högsta pris</option>
+                        </select>
+                        <div className='sorting-layoutToggler sorting-rowsLayout'>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </div>
-                        {/* <StorageItem />
-                        <StorageItem itemImage={testImage} itemName='vatten flaska' /> */}
+                    </div>
+                    <div className='storage-itemsContainer'>
+                        <StorageItem />
                         {loadedItems && loadedItems}
                     </div>
                 </>
@@ -120,3 +128,24 @@ function StashStorage() {
 }
 
 export default StashStorage
+
+// if (e.target.value !== 'standard') {
+//     let len = itemsArray.length
+//     for (let i = 0; i < len; i++) {
+//         for (let j = 0; j < len - 1; j++) {
+//             // if the selected input was 'cheap'
+//             if (e.target.value === 'cheap') {
+//                 if (itemsArray[j].price > itemsArray[j + 1].price) {
+//                     itemsArray = swapNodes(itemsArray, j, j + 1)
+//                 }
+//             }
+//             // if the selected input was 'expensive'
+//             else if (e.target.value === 'expensive') {
+//                 if (itemsArray[j].price < itemsArray[j + 1].price) {
+//                     itemsArray = swapNodes(itemsArray, j, j + 1)
+//                 }
+//             }
+//         }
+//     }
+//     console.log('test')
+// }

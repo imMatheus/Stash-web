@@ -55,7 +55,49 @@
   width: 90%;
   height: 100px;
   margin: 0 auto;
-  background: linear-gradient(red, pink);
+  padding: 0.7rem;
+  background-color: #fbf9f9;
+  box-shadow: 2px 2px 2px var(--off-red), -2px -2px 2px var(--off-red);
+}
+.stashesOverview .stashstorage .storage-sorting .sorting-layoutToggler {
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  background-color: var(--dark-blue);
+  border-radius: 5px;
+}
+.stashesOverview .stashstorage .storage-sorting .sorting-layoutToggler:hover {
+  opacity: 0.8;
+}
+.stashesOverview .stashstorage .storage-sorting .sorting-layoutToggler span {
+  background-color: var(--off-red);
+  opacity: 0.9;
+  display: block;
+}
+.stashesOverview .stashstorage .storage-sorting .sorting-layoutToggler.sorting-rowsLayout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 4px 0;
+}
+.stashesOverview .stashstorage .storage-sorting .sorting-layoutToggler.sorting-rowsLayout span {
+  width: 88%;
+  height: 19%;
+  border-radius: 6px;
+}
+.stashesOverview .stashstorage .storage-sorting .sorting-layoutToggler.sorting-cardLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 6%;
+  row-gap: 10%;
+  padding: 0.2em;
+}
+.stashesOverview .stashstorage .storage-sorting .sorting-layoutToggler.sorting-cardLayout span {
+  width: 95%;
+  height: 95%;
+  border-radius: 12%;
 }
 .stashesOverview .stashstorage .storage-itemsContainer {
   display: grid;
@@ -194,9 +236,9 @@
 }
 
 :root {
-  --main-white: #ffeddf;
-  --dark-blue: #0d1321;
-  --off-red: #c5d86d;
+  --main-white: #ffffff;
+  --dark-blue: #1b1f3b;
+  --off-red: #e85d75;
   --font-logo: "Titan One", cursive;
   --font-display: "Lato", sans-serif;
 }
@@ -224,8 +266,8 @@ body .loadingspinner p {
 }
 body .loadingspinner-spinner {
   position: absolute;
-  width: 220px;
-  height: 220px;
+  width: 221px;
+  height: 221px;
   padding: 10px;
   z-index: 33030;
 }
