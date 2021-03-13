@@ -1,0 +1,58 @@
+.storage-sorting {
+    position: sticky;
+    margin: 9990px;
+    top: 10px;
+    width: 90%;
+    height: 100px;
+    margin: 0 auto;
+    padding: 0.8rem;
+    background-color: #fbf9f9;
+    z-index: 3;
+    box-shadow: 0px 0px 25px black;
+
+    & .sorting-layoutToggler {
+        cursor: pointer;
+        width: 46px;
+        height: 46px;
+        background-color: var(--dark-blue);
+        border-radius: 5px;
+        &:hover {
+            opacity: 0.8;
+        }
+
+        & span {
+            background-color: var(--off-red);
+            opacity: 0.9;
+            display: block;
+            transition: height 400ms;
+        }
+
+        &.sorting-rowLayout {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            padding: 4px 0;
+
+            & span {
+                width: 88%;
+                height: 19%;
+                border-radius: 6px;
+            }
+        }
+
+        &.sorting-cardLayout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            place-items: center;
+            padding: 0.1rem;
+
+            & span {
+                width: 80%;
+                height: 80%;
+                border-radius: 23%;
+            }
+        }
+    }
+}

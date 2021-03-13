@@ -34,20 +34,25 @@
 //     --font-logo: 'Titan One', cursive;
 //     --font-display: 'Lato', sans-serif;
 // }
-:root {
-    --main-white: #ffffff;
-    --dark-blue: #1b1f3b;
-    --off-red: #e85d75;
-    --font-logo: 'Titan One', cursive;
-    --font-display: 'Lato', sans-serif;
-}
 // :root {
-//     --main-white: #ffeddf;
-//     --dark-blue: #0d1321;
-//     --off-red: #c5d86d;
+//     --main-white: #fff;
+//     // --dark-blue: #1b1f3b;
+//     // --dark-blue: #1a1423;
+//     // --off-red: #65afff;
+//     --dark-blue: #240115;
+//     --off-red: #fc9f5b;
+
+//     // e85d75
 //     --font-logo: 'Titan One', cursive;
 //     --font-display: 'Lato', sans-serif;
 // }
+:root {
+    --main-white: #ffeddf;
+    --dark-blue: #0d1321;
+    --off-red: #c5d86d;
+    --font-logo: 'Titan One', cursive;
+    --font-display: 'Lato', sans-serif;
+}
 
 body {
     height: 100vh;

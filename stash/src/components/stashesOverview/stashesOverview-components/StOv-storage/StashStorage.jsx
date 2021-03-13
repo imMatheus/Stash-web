@@ -3,13 +3,13 @@ import StorageItem from './StorageItem'
 import LoadingSpinner from '../../../LoadingSpinner'
 
 function StashStorage() {
-    // loading dat from api
+    // loading data from api
     const [loading, setLoading] = useState(true)
     const [fetchedData, setFetchedData] = useState(null)
     const [loadedItems, setLoadedItems] = useState(null)
     useEffect(() => {
         const dummyFunction = async () => {
-            await fetch('https://fakestoreapi.com/products?limit=20')
+            await fetch('https://fakestoreapi.com/products?limit=18')
                 .then((res) => res.json())
                 .then((json) => setFetchedData(json))
             // setting all items in state
@@ -37,8 +37,23 @@ function StashStorage() {
         )
     }, [fetchedData])
 
-    // sorting elements
-    const sortByCheapest = (e) => {
+    const [layoutButton, setLayoutButton] = useState('sorting-cardLayout')
+    const [itemsDisplayLayout, setItemsDisplayLayout] = useState(
+        'storage-container-rowsLayout'
+    )
+
+    const changeLayoutHandler = () => {
+        layoutButton === 'sorting-cardLayout'
+            ? setLayoutButton('sorting-rowLayout')
+            : setLayoutButton('sorting-cardLayout')
+
+        itemsDisplayLayout === 'storage-container-cardsLayout'
+            ? setItemsDisplayLayout('storage-container-rowsLayout')
+            : setItemsDisplayLayout('storage-container-cardsLayout')
+    }
+
+    // sorting elements by price
+    const sortElementsByPrice = (e) => {
         if (fetchedData) {
             let itemsArray = []
             fetchedData.map((item) => {
@@ -75,6 +90,7 @@ function StashStorage() {
                 console.log(itemsArray)
             }
 
+            // updateing the loaded elements to be in order
             setLoadedItems(
                 itemsArray &&
                     itemsArray.map((item) => {
@@ -104,21 +120,24 @@ function StashStorage() {
                         <select
                             name='sortBy'
                             id='storage-sortBy'
-                            onChange={sortByCheapest}
+                            onChange={sortElementsByPrice}
                         >
                             <option value='standard'>Sort by</option>
                             <option value='cheap'>lägsta pris</option>
                             <option value='expensive'>högsta pris</option>
                         </select>
-                        <div className='sorting-layoutToggler sorting-rowsLayout'>
+                        <div
+                            className={' sorting-layoutToggler ' + layoutButton}
+                            onClick={changeLayoutHandler}
+                        >
                             <span></span>
                             <span></span>
                             <span></span>
                             <span></span>
                         </div>
                     </div>
-                    <div className='storage-itemsContainer'>
-                        <StorageItem />
+                    {/* the items */}
+                    <div className={'storage-itemsContainer ' + itemsDisplayLayout}>
                         {loadedItems && loadedItems}
                     </div>
                 </>
@@ -128,24 +147,3 @@ function StashStorage() {
 }
 
 export default StashStorage
-
-// if (e.target.value !== 'standard') {
-//     let len = itemsArray.length
-//     for (let i = 0; i < len; i++) {
-//         for (let j = 0; j < len - 1; j++) {
-//             // if the selected input was 'cheap'
-//             if (e.target.value === 'cheap') {
-//                 if (itemsArray[j].price > itemsArray[j + 1].price) {
-//                     itemsArray = swapNodes(itemsArray, j, j + 1)
-//                 }
-//             }
-//             // if the selected input was 'expensive'
-//             else if (e.target.value === 'expensive') {
-//                 if (itemsArray[j].price < itemsArray[j + 1].price) {
-//                     itemsArray = swapNodes(itemsArray, j, j + 1)
-//                 }
-//             }
-//         }
-//     }
-//     console.log('test')
-// }

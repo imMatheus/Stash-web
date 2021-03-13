@@ -51,18 +51,21 @@
   overflow-y: scroll;
 }
 .stashesOverview .stashstorage .storage-sorting {
-  position: relative;
+  position: sticky;
+  margin: 9990px;
+  top: 10px;
   width: 90%;
   height: 100px;
   margin: 0 auto;
-  padding: 0.7rem;
+  padding: 0.8rem;
   background-color: #fbf9f9;
-  box-shadow: 2px 2px 2px var(--off-red), -2px -2px 2px var(--off-red);
+  z-index: 3;
+  box-shadow: 0px 0px 25px black;
 }
 .stashesOverview .stashstorage .storage-sorting .sorting-layoutToggler {
   cursor: pointer;
-  width: 60px;
-  height: 60px;
+  width: 46px;
+  height: 46px;
   background-color: var(--dark-blue);
   border-radius: 5px;
 }
@@ -73,15 +76,16 @@
   background-color: var(--off-red);
   opacity: 0.9;
   display: block;
+  transition: height 400ms;
 }
-.stashesOverview .stashstorage .storage-sorting .sorting-layoutToggler.sorting-rowsLayout {
+.stashesOverview .stashstorage .storage-sorting .sorting-layoutToggler.sorting-rowLayout {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   padding: 4px 0;
 }
-.stashesOverview .stashstorage .storage-sorting .sorting-layoutToggler.sorting-rowsLayout span {
+.stashesOverview .stashstorage .storage-sorting .sorting-layoutToggler.sorting-rowLayout span {
   width: 88%;
   height: 19%;
   border-radius: 6px;
@@ -90,16 +94,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  column-gap: 6%;
-  row-gap: 10%;
-  padding: 0.2em;
+  place-items: center;
+  padding: 0.1rem;
 }
 .stashesOverview .stashstorage .storage-sorting .sorting-layoutToggler.sorting-cardLayout span {
-  width: 95%;
-  height: 95%;
-  border-radius: 12%;
+  width: 80%;
+  height: 80%;
+  border-radius: 23%;
 }
-.stashesOverview .stashstorage .storage-itemsContainer {
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout {
   display: grid;
   padding: 15px;
   grid-template-columns: 1fr;
@@ -108,27 +111,27 @@
   width: 100%;
   margin: 0 auto;
 }
-.stashesOverview .stashstorage .storage-itemsContainer .storageitem {
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout .storageitem {
   width: 98%;
   position: relative;
 }
-.stashesOverview .stashstorage .storage-itemsContainer .storageitem input {
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout .storageitem input {
   position: absolute;
   z-index: -1;
 }
-.stashesOverview .stashstorage .storage-itemsContainer .storageitem input:checked ~ .storageitem-dropdown {
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout .storageitem input:checked ~ .storageitem-dropdown {
   height: 500px;
 }
-.stashesOverview .stashstorage .storage-itemsContainer .storageitem input:checked ~ .storageitem-overhall {
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout .storageitem input:checked ~ .storageitem-overhall {
   border-left: solid 4px var(--off-red);
 }
-.stashesOverview .stashstorage .storage-itemsContainer .storageitem label {
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout .storageitem label {
   position: absolute;
   width: 100%;
   height: 100%;
   cursor: pointer;
 }
-.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-overhall {
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout .storageitem .storageitem-overhall {
   cursor: pointer;
   padding: 0.3rem 1.2rem;
   min-height: 110px;
@@ -137,14 +140,14 @@
   grid-template-columns: auto 1fr;
   align-items: center;
 }
-.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-overhall .storageitem-image {
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout .storageitem .storageitem-overhall .storageitem-image {
   width: 195px;
   height: 95%;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
-.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-overhall .storageitem-info {
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout .storageitem .storageitem-overhall .storageitem-info {
   box-sizing: border-box;
   width: 95%;
   place-self: center;
@@ -154,27 +157,27 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(100px, 1fr));
 }
-.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-overhall .storageitem-info div {
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout .storageitem .storageitem-overhall .storageitem-info div {
   padding: 0.1rem 0.4rem;
   line-height: 1.2em;
   border-left: solid var(--off-red) 1px;
   word-wrap: break-word;
 }
-.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-overhall .storageitem-info div h6 {
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout .storageitem .storageitem-overhall .storageitem-info div h6 {
   font-weight: 100;
   font-size: 1rem;
 }
-.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-overhall .storageitem-info div h3 {
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout .storageitem .storageitem-overhall .storageitem-info div h3 {
   font-size: 1.5rem;
   font-weight: 300;
   color: var(--off-red);
 }
-.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-overhall .storageitem-info div p {
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout .storageitem .storageitem-overhall .storageitem-info div p {
   padding: 2px 0;
   font-weight: 300;
   font-size: 1.4rem;
 }
-.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-dropdown {
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout .storageitem .storageitem-dropdown {
   background: var(--dark-blue);
   height: 0px;
   transition: height 400ms;
@@ -184,18 +187,112 @@
   justify-content: space-around;
   align-items: center;
 }
-.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-dropdown-image {
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout .storageitem .storageitem-dropdown-image {
   width: 330px;
   height: 450px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
-.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-dropdown-info {
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout .storageitem .storageitem-dropdown-info {
   width: 50%;
   height: 350px;
   background: blue;
   color: white;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: repeat(auto-fit);
+  place-items: center;
+  padding: 10px;
+  row-gap: 1em;
+  column-gap: 1em;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem {
+  width: 97%;
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+  background: var(--dark-blue);
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem input {
+  cursor: cell;
+  position: absolute;
+  z-index: -999;
+  background-color: orchid;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem input:checked ~ .storageitem-conatiner {
+  transform: translate(-50%, 0);
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: pointer;
+  background-color: transparent;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-conatiner {
+  width: 200%;
+  transform: translate(0, 0);
+  transition: transform 400ms;
+  height: 140%;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-conatiner .storageitem-overhall {
+  padding: 10px 0px;
+  height: 460px;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-conatiner .storageitem-overhall .storageitem-image {
+  width: 93%;
+  margin: 0 auto;
+  height: 215px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-conatiner .storageitem-overhall .storageitem-info {
+  box-sizing: border-box;
+  margin-top: 5px;
+  height: 225px;
+  color: white;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  padding: 0.2rem 0.6rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: space-between;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-conatiner .storageitem-overhall .storageitem-info div {
+  line-height: 1em;
+  word-wrap: break-word;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-conatiner .storageitem-overhall .storageitem-info div h6 {
+  font-weight: 100;
+  font-size: 0.9rem;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-conatiner .storageitem-overhall .storageitem-info div h3 {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--off-red);
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-conatiner .storageitem-overhall .storageitem-info div p {
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-conatiner .storageitem-overhall .storageitem-info div:nth-child(2) {
+  align-self: center;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-conatiner .storageitem-overhall .storageitem-info div:nth-child(3) {
+  align-self: flex-end;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-conatiner .storageitem-dropdown {
+  width: 100%;
+  height: 100%;
+  background-color: blue;
 }
 @media screen and (max-width: 1000px) {
   .stashesOverview .storage-itemsContainer {
@@ -236,9 +333,9 @@
 }
 
 :root {
-  --main-white: #ffffff;
-  --dark-blue: #1b1f3b;
-  --off-red: #e85d75;
+  --main-white: #ffeddf;
+  --dark-blue: #0d1321;
+  --off-red: #c5d86d;
   --font-logo: "Titan One", cursive;
   --font-display: "Lato", sans-serif;
 }
