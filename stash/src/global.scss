@@ -13,24 +13,36 @@
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
+    font-family: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
     text-decoration: none;
 }
 
+:root {
+    --main-white: #ffbc2c;
+    --dark-blue: #232538;
+    --dark-blue-light: #26273d;
+    --off-red: #6c66fb;
+    --analytics-text-color: white;
+    --font-logo: 'Titan One', cursive;
+    --font-display: 'Lato', sans-serif;
+}
+
 // :root {
-//     --main-white: #fdfffc;
-//     --dark-blue: #020887;
-//     --off-red: #de3c4b;
+//     --main-white: #8eb8e5;
+//     --dark-blue: #232538;
+//     --dark-blue-light: #26273d;
+//     --off-red: #a14cff;
+//     --text-color: black;
 //     --font-logo: 'Titan One', cursive;
 //     --font-display: 'Lato', sans-serif;
 // }
 
 // :root {
-//     --main-white: #fdfffc;
-//     --dark-blue: #326273;
-//     --off-red: #e48100;
+//     --main-white: #fffcf9;
+//     --dark-blue: #352d39;
+//     --off-red: #ff6978;
 //     --font-logo: 'Titan One', cursive;
 //     --font-display: 'Lato', sans-serif;
 // }
@@ -39,20 +51,20 @@
 //     // --dark-blue: #1b1f3b;
 //     // --dark-blue: #1a1423;
 //     // --off-red: #65afff;
-//     --dark-blue: #240115;
-//     --off-red: #fc9f5b;
+//     --dark-blue: #1d201f;
+//     --off-red: #ff6663;
 
 //     // e85d75
 //     --font-logo: 'Titan One', cursive;
 //     --font-display: 'Lato', sans-serif;
 // }
-:root {
-    --main-white: #ffeddf;
-    --dark-blue: #0d1321;
-    --off-red: #c5d86d;
-    --font-logo: 'Titan One', cursive;
-    --font-display: 'Lato', sans-serif;
-}
+// :root {
+//     --main-white: #ffeddf;
+//     --dark-blue: #0d1321;
+//     --off-red: #c5d86d;
+//     --font-logo: 'Titan One', cursive;
+//     --font-display: 'Lato', sans-serif;
+// }
 
 body {
     height: 100vh;

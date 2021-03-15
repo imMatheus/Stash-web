@@ -2,12 +2,12 @@ import React from 'react'
 import background from '../../../../images/stash-men.jpg'
 
 function StorageItem({ itemImage, itemName, itemsInStore, itemPrice }) {
-    let testId = itemImage + ''
+    let testId = itemImage + '' + Math.floor(Math.random() * 2000000)
     return (
         <div className='storageitem' load='lazy'>
-            <input type='checkbox' id={testId} />
-            <label htmlFor={testId}>h</label>
-            <div className='storageitem-conatiner'>
+            <input type='checkbox' className='storageItem-checkbox' id={testId} />
+            <label htmlFor={testId}></label>
+            <div className='storageitem-container'>
                 <div className='storageitem-overhall' for='testing'>
                     <div
                         className='storageitem-image'

@@ -9,7 +9,7 @@ function StashStorage() {
     const [loadedItems, setLoadedItems] = useState(null)
     useEffect(() => {
         const dummyFunction = async () => {
-            await fetch('https://fakestoreapi.com/products?limit=18')
+            await fetch('https://fakestoreapi.com/products?limit=20')
                 .then((res) => res.json())
                 .then((json) => setFetchedData(json))
             // setting all items in state
@@ -52,6 +52,20 @@ function StashStorage() {
             : setItemsDisplayLayout('storage-container-cardsLayout')
     }
 
+    const openItemsHandler = () => {
+        const items = document.getElementsByClassName('storageItem-checkbox')
+        for (let i = 0; i < items.length; i++) {
+            items[i].checked = false
+        }
+    }
+
+    const closeItemsHandler = () => {
+        const items = document.getElementsByClassName('storageItem-checkbox')
+        for (let i = 0; i < items.length; i++) {
+            items[i].checked = true
+        }
+    }
+
     // sorting elements by price
     const sortElementsByPrice = (e) => {
         if (fetchedData) {
@@ -87,7 +101,6 @@ function StashStorage() {
 
             if (e.target.value !== 'standard') {
                 itemsArray = quicksort(itemsArray)
-                console.log(itemsArray)
             }
 
             // updateing the loaded elements to be in order
@@ -133,6 +146,19 @@ function StashStorage() {
                             <span></span>
                             <span></span>
                             <span></span>
+                            <span></span>
+                        </div>
+                        <div
+                            className='toggleDropdowns openDropdowns'
+                            onClick={openItemsHandler}
+                        >
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div
+                            className='toggleDropdowns closeDropdowns'
+                            onClick={closeItemsHandler}
+                        >
                             <span></span>
                         </div>
                     </div>

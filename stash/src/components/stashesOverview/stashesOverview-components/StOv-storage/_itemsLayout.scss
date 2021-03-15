@@ -139,7 +139,7 @@
                 background-color: orchid;
 
                 &:checked {
-                    ~ .storageitem-conatiner {
+                    ~ .storageitem-container {
                         transform: translate(-50%, 0);
                     }
                 }
@@ -155,11 +155,11 @@
                 // background: rgba(255, 0, 0, 0.397);
             }
 
-            & .storageitem-conatiner {
+            & .storageitem-container {
                 width: 200%;
                 transform: translate(0, 0);
                 transition: transform 400ms;
-                height: 140%;
+                height: 100%;
                 position: relative;
                 display: grid;
                 grid-template-columns: 1fr 1fr;
