@@ -12,15 +12,13 @@
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
-    font-family: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
     text-decoration: none;
 }
 
 :root {
-    --main-white: #ffbc2c;
+    --main-white: #dfe3ff;
     --dark-blue: #232538;
     --dark-blue-light: #26273d;
     --off-red: #6c66fb;
@@ -42,6 +40,8 @@
 // :root {
 //     --main-white: #fffcf9;
 //     --dark-blue: #352d39;
+//     --dark-blue-light: #252027;
+
 //     --off-red: #ff6978;
 //     --font-logo: 'Titan One', cursive;
 //     --font-display: 'Lato', sans-serif;
@@ -61,6 +61,10 @@
 // :root {
 //     --main-white: #ffeddf;
 //     --dark-blue: #0d1321;
+//     --dark-blue-light: rgb(49, 44, 51);
+//     --text-color: rgb(228, 228, 228);
+//     --analytics-text-color: white;
+
 //     --off-red: #c5d86d;
 //     --font-logo: 'Titan One', cursive;
 //     --font-display: 'Lato', sans-serif;

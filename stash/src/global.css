@@ -349,6 +349,20 @@
   background-color: var(--dark-blue-light);
   overflow-y: scroll;
 }
+.stashesOverview .dashboard .analyticsheader {
+  width: 100%;
+  background-color: var(--dark-blue);
+  padding: 30px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-display);
+}
+.stashesOverview .dashboard .analyticsheader h2 {
+  font-size: 2.1rem;
+  font-weight: 300;
+  color: var(--analytics-text-color);
+}
 .stashesOverview .dashboard .quickShowContainer {
   width: 95%;
   margin: 42px auto;
@@ -360,8 +374,9 @@
 .stashesOverview .dashboard .quickShowContainer .quickShowItem {
   width: 31%;
   height: 140px;
+  color: var(--analytics-text-color);
   background-color: var(--dark-blue);
-  box-shadow: 1px 1px 10px #131313;
+  box-shadow: 1px 1px 10px #181818;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -369,13 +384,13 @@
 }
 .stashesOverview .dashboard .quickShowContainer .quickShowItem .quickShowItem-text h4 {
   font-weight: 600;
-  color: var(--analytics-text-color);
   font-size: 1.2rem;
+  color: inherit;
 }
 .stashesOverview .dashboard .quickShowContainer .quickShowItem .quickShowItem-text p {
-  color: var(--analytics-text-color);
   opacity: 0.7;
   font-size: 1rem;
+  color: inherit;
 }
 .stashesOverview .dashboard .quickShowContainer .quickShowItem .quickShowItem-icon {
   width: 75px;
@@ -389,6 +404,21 @@
   width: auto;
   height: 50%;
   color: var(--off-red);
+}
+.stashesOverview .dashboard .quickShowContainer .quickShowItem .quickShowItem-icon svg:nth-child(2) {
+  color: #45ffff;
+}
+.stashesOverview .dashboard .quickShowContainer .quickShowItem:nth-child(2) .quickShowItem-icon {
+  border-color: #45ffff;
+}
+.stashesOverview .dashboard .quickShowContainer .quickShowItem:nth-child(2) .quickShowItem-icon svg {
+  color: #45ffff;
+}
+.stashesOverview .dashboard .quickShowContainer .quickShowItem:nth-child(3) .quickShowItem-icon {
+  border-color: #ff23f0;
+}
+.stashesOverview .dashboard .quickShowContainer .quickShowItem:nth-child(3) .quickShowItem-icon svg {
+  color: #ff23f0;
 }
 .stashesOverview .dashboard .quickShowContainer .quickShowItem .quickShowItem-graph {
   padding-left: 5px;
@@ -411,6 +441,7 @@
   background-color: var(--dark-blue);
   position: relative;
   color: #ff00002d;
+  box-shadow: 0px 0px 8px #070707;
 }
 
 *,
@@ -419,15 +450,13 @@
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
-  font-family: inherit;
   vertical-align: baseline;
   box-sizing: border-box;
   text-decoration: none;
 }
 
 :root {
-  --main-white: #ffbc2c;
+  --main-white: #dfe3ff;
   --dark-blue: #232538;
   --dark-blue-light: #26273d;
   --off-red: #6c66fb;

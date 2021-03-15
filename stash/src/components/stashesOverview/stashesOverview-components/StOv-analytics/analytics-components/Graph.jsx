@@ -24,7 +24,7 @@ function Graph() {
         var dataArray1 = []
         var dataArray2 = []
         var dataArray3 = []
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 17; i++) {
             dataArray1.push(Math.ceil(Math.random() * 50))
             dataArray2.push(Math.ceil(Math.random() * 50))
             dataArray3.push(Math.ceil(Math.random() * 50))
@@ -39,21 +39,21 @@ function Graph() {
                     {
                         label: '# of Votes',
                         data: dataArray1,
-                        backgroundColor: stashColor + '00',
+                        backgroundColor: stashColor + '1d',
                         borderColor: stashColor,
                         borderWidth: 1,
                     },
                     {
                         label: '# of Votes',
                         data: dataArray2,
-                        backgroundColor: stashColor + '00',
+                        backgroundColor: stashColor + '1d',
                         borderColor: '#45ffff',
                         borderWidth: 1,
                     },
                     {
                         label: '# of Votes',
                         data: dataArray3,
-                        backgroundColor: stashColor + '00',
+                        backgroundColor: stashColor + '1d',
                         borderColor: '#ff23f0',
                         borderWidth: 1,
                     },
