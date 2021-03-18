@@ -128,18 +128,45 @@
     //
     &.storage-container-cardsLayout {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        grid-template-rows: repeat(auto-fit);
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(auto-fit, 1f);
         place-items: center;
         padding: 10px;
         row-gap: 1em;
         column-gap: 1em;
         & .storageitem {
-            width: 97%;
+            width: 100%;
+            height: 410px;
             overflow: hidden;
-            height: 100%;
             position: relative;
-            background: var(--dark-blue);
+
+            & .storageitem-customizeIcon {
+                position: absolute;
+                width: 42px;
+                height: 42px;
+                right: 5px;
+                bottom: 5px;
+                border-radius: 50%;
+                border: solid 1px black;
+                display: grid;
+                place-items: center;
+                transition: 400ms;
+                cursor: pointer;
+
+                & svg {
+                    height: 100%;
+                    transition: 400ms;
+                    color: black;
+                }
+
+                &:hover {
+                    border: solid 1px var(--off-red);
+
+                    & svg {
+                        color: var(--off-red);
+                    }
+                }
+            }
 
             & input {
                 cursor: cell;
@@ -173,56 +200,40 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 & .storageitem-overhall {
-                    padding: 10px 0px;
-                    height: 460px;
+                    height: 100%;
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: auto 1fr;
 
                     & .storageitem-image {
-                        width: 93%;
-                        margin: 0 auto;
-                        height: 215px;
+                        display: block;
+                        height: 280px;
+
                         background-position: center;
                         background-size: cover;
                         background-repeat: no-repeat;
                     }
 
                     & .storageitem-info {
-                        box-sizing: border-box;
-                        margin-top: 5px;
-                        height: 225px;
-                        color: white;
+                        padding: 6px 0px 0px 10px;
+                        color: black;
                         font-family: var(--font-display);
-                        font-size: 1.4rem;
-                        padding: 0.2rem 0.6rem;
-                        display: grid;
-                        grid-template-columns: 1fr;
-                        align-content: space-between;
-                        // grid-template-rows: repeat(3, 1fr);
 
-                        & div {
-                            line-height: 1em;
-                            word-wrap: break-word;
-                            // background: linear-gradient(0deg, blue, green);
+                        & h3 {
+                            font-size: 1.3rem;
+                            font-weight: 300;
+                        }
 
+                        & span {
+                            opacity: 0.8;
                             & h6 {
-                                font-weight: 100;
-                                font-size: 0.9rem;
-                            }
-                            & h3 {
-                                font-size: 1.3rem;
-                                font-weight: 300;
-                                color: var(--off-red);
+                                font-size: 1rem;
+                                font-weight: 200;
                             }
 
                             & p {
-                                font-weight: 300;
-                                font-size: 1.2rem;
-                            }
-
-                            &:nth-child(2) {
-                                align-self: center;
-                            }
-                            &:nth-child(3) {
-                                align-self: flex-end;
+                                font-weight: 200;
+                                font-size: 0.9rem;
                             }
                         }
                     }

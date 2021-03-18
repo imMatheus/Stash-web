@@ -72,7 +72,7 @@
 
 body {
     height: 100vh;
-    background-color: var(--main-white);
+    background-color: white;
     overflow: hidden;
 
     //the genarl stash loading spinner
@@ -95,8 +95,8 @@ body {
 
         &-spinner {
             position: absolute;
-            width: 221px;
-            height: 221px;
+            width: 351px;
+            height: 351px;
             padding: 10px;
             z-index: 33030;
 
@@ -106,7 +106,7 @@ body {
                 box-sizing: border-box;
                 position: absolute;
                 border-radius: 100%;
-                animation: rotate180 2s infinite;
+                animation: rotate180 2000ms infinite;
                 border: 5px solid transparent;
                 border-top-color: var(--off-red);
                 @for $i from 1 through 5 {
@@ -115,7 +115,7 @@ body {
                         top: 10% * ($i - 1);
                         width: 100% - 20% * ($i - 1);
                         height: 100% - 20% * ($i - 1);
-                        animation-delay: 0.5s * ($i - 1);
+                        animation-delay: 0.4s * ($i - 1);
                     }
                 }
             }

@@ -1,12 +1,13 @@
 import React from 'react'
 import background from '../../../../images/stash-men.jpg'
+import CreateIcon from '@material-ui/icons/Create'
 
 function StorageItem({ itemImage, itemName, itemsInStore, itemPrice }) {
     let testId = itemImage + '' + Math.floor(Math.random() * 2000000)
     return (
         <div className='storageitem' load='lazy'>
-            <input type='checkbox' className='storageItem-checkbox' id={testId} />
-            <label htmlFor={testId}></label>
+            {/* <input type='checkbox' className='storageItem-checkbox' id={testId} />
+            <label htmlFor={testId}></label> */}
             <div className='storageitem-container'>
                 <div className='storageitem-overhall' for='testing'>
                     <div
@@ -14,18 +15,15 @@ function StorageItem({ itemImage, itemName, itemsInStore, itemPrice }) {
                         style={{ backgroundImage: `url(${itemImage || background})` }}
                     ></div>
                     <div className='storageitem-info'>
-                        <div>
-                            <h6>Product Name:</h6>
-                            <h3>{itemName || 'No Name Given'}</h3>
-                        </div>
-                        <div>
+                        <h3>{itemName || 'No Name Given'}</h3>
+                        <span>
                             <h6>Items In Store:</h6>
                             <p>{itemsInStore || '0'}</p>
-                        </div>
-                        <div>
+                        </span>
+                        <span>
                             <h6>Product Price:</h6>
                             <p>${itemPrice || '0'}</p>
-                        </div>
+                        </span>
                     </div>
                 </div>
                 {/* a drop down menu for a more detailed status of the product */}
@@ -36,6 +34,9 @@ function StorageItem({ itemImage, itemName, itemsInStore, itemPrice }) {
                     ></div>
                     <div className='storageitem-dropdown-info'></div>
                 </div>
+            </div>
+            <div className='storageitem-customizeIcon'>
+                <CreateIcon />
             </div>
         </div>
     )

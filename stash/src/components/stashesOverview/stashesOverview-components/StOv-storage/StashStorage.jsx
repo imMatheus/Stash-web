@@ -8,12 +8,15 @@ function StashStorage() {
     const [fetchedData, setFetchedData] = useState(null)
     const [loadedItems, setLoadedItems] = useState(null)
     useEffect(() => {
+        console.log(fetchedData)
+
         const dummyFunction = async () => {
             await fetch('https://fakestoreapi.com/products?limit=20')
                 .then((res) => res.json())
                 .then((json) => setFetchedData(json))
             // setting all items in state
 
+            console.log(fetchedData)
             setLoading(false)
         }
 
@@ -39,7 +42,7 @@ function StashStorage() {
 
     const [layoutButton, setLayoutButton] = useState('sorting-cardLayout')
     const [itemsDisplayLayout, setItemsDisplayLayout] = useState(
-        'storage-container-rowsLayout'
+        'storage-container-cardsLayout'
     )
 
     const changeLayoutHandler = () => {
@@ -47,9 +50,10 @@ function StashStorage() {
             ? setLayoutButton('sorting-rowLayout')
             : setLayoutButton('sorting-cardLayout')
 
-        itemsDisplayLayout === 'storage-container-cardsLayout'
-            ? setItemsDisplayLayout('storage-container-rowsLayout')
-            : setItemsDisplayLayout('storage-container-cardsLayout')
+        // itemsDisplayLayout === 'storage-container-cardsLayout'
+        //     ? setItemsDisplayLayout('storage-container-rowsLayout')
+        //     : setItemsDisplayLayout('storage-container-cardsLayout')
+        setItemsDisplayLayout('storage-container-cardsLayout')
     }
 
     const openItemsHandler = () => {
