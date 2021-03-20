@@ -4,41 +4,65 @@ import LoadingSpinner from '../../../LoadingSpinner'
 
 function StashStorage() {
     // loading data from api
+
     const [loading, setLoading] = useState(true)
     const [fetchedData, setFetchedData] = useState(null)
     const [loadedItems, setLoadedItems] = useState(null)
     useEffect(() => {
-        console.log(fetchedData)
-
         const dummyFunction = async () => {
-            await fetch('https://fakestoreapi.com/products?limit=20')
-                .then((res) => res.json())
-                .then((json) => setFetchedData(json))
-            // setting all items in state
+            // url(https://unsplash.com/collections/57989476/male-models)
+            // https://source.unsplash.com/collection/
+            // 'https://api.unsplash.com/collections/57989476/&client_id=IW7o-gg6dHhJ5UBDGi5jyoCPoMtn_2zg1hWHrWLHKwM'
+            // 'https://api.unsplash.com/collections/57989476/?client_id=IW7o-gg6dHhJ5UBDGi5jyoCPoMtn_2zg1hWHrWLHKwM'
 
+            //unsplash.com/collections/1394103/tokyo
+            const url =
+                'https://api.unsplash.com/collections/4303779/photos?per_page=60&client_id=IW7o-gg6dHhJ5UBDGi5jyoCPoMtn_2zg1hWHrWLHKwM'
+            await fetch(url)
+                .then((response) => response.json())
+                .then((json) => setFetchedData(json))
             console.log(fetchedData)
-            setLoading(false)
         }
 
         dummyFunction()
     }, [])
 
     useEffect(() => {
-        setLoadedItems(
-            fetchedData &&
+        setLoading(false)
+    }, [loadedItems])
+
+    useEffect(() => {
+        console.log('4')
+        console.log(fetchedData)
+        if (fetchedData) {
+            console.log('------------')
+            console.log(fetchedData)
+            setLoadedItems(
                 fetchedData.map((item) => {
                     return (
                         <StorageItem
                             key={item.id}
-                            itemImage={item.image}
-                            itemName={item.title}
-                            itemPrice={item.price}
-                            itemsInStore={item.id}
+                            itemImage={item.urls.raw}
+                            itemName={item.alt_description}
                         />
                     )
                 })
-        )
-    }, [fetchedData])
+            )
+        } else {
+            setLoadedItems(
+                <StorageItem
+                // key={fetchedData.id}
+                // itemImage={fetchedData.thumbnailUrl}
+                // itemName={fetchedData.title}
+                // itemPrice={fetchedData.itemsDisplayLayout}
+                // itemsInStore={fetchedData.id}
+                />
+            )
+        }
+
+        console.log('3')
+        // console.log(loadedItems)
+    }, [fetchedData, loading])
 
     const [layoutButton, setLayoutButton] = useState('sorting-cardLayout')
     const [itemsDisplayLayout, setItemsDisplayLayout] = useState(
@@ -168,6 +192,8 @@ function StashStorage() {
                     </div>
                     {/* the items */}
                     <div className={'storage-itemsContainer ' + itemsDisplayLayout}>
+                        <StorageItem />
+
                         {loadedItems && loadedItems}
                     </div>
                 </>

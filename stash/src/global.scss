@@ -17,25 +17,25 @@
     text-decoration: none;
 }
 
-:root {
-    --main-white: #dfe3ff;
-    --dark-blue: #232538;
-    --dark-blue-light: #26273d;
-    --off-red: #6c66fb;
-    --analytics-text-color: white;
-    --font-logo: 'Titan One', cursive;
-    --font-display: 'Lato', sans-serif;
-}
-
 // :root {
-//     --main-white: #8eb8e5;
+//     --main-white: #dfe3ff;
 //     --dark-blue: #232538;
 //     --dark-blue-light: #26273d;
-//     --off-red: #a14cff;
-//     --text-color: black;
+//     --off-red: #6c66fb;
+//     --analytics-text-color: white;
 //     --font-logo: 'Titan One', cursive;
 //     --font-display: 'Lato', sans-serif;
 // }
+
+:root {
+    --main-white: #0197f6;
+    --dark-blue: #02182b;
+    --dark-blue-light: #023150;
+    --off-red: #d7263d;
+    --text-color: black;
+    --font-logo: 'Titan One', cursive;
+    --font-display: 'Lato', sans-serif;
+}
 
 // :root {
 //     --main-white: #fffcf9;
@@ -71,9 +71,7 @@
 // }
 
 body {
-    height: 99vh;
-    background-color: white;
-    overflow: hidden;
+    height: 100vh;
 
     //the genarl stash loading spinner
     & .loadingspinner {
