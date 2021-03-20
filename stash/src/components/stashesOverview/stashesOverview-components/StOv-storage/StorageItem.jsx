@@ -1,17 +1,18 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import background from '../../../../images/stash-men.jpg'
 import CreateIcon from '@material-ui/icons/Create'
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined'
+import FavoriteIcon from '@material-ui/icons/Favorite'
 
 function StorageItem({ itemImage, itemName, itemsInStore, itemPrice }) {
-    useEffect(() => {
-        const dummyFunction = async () => {
-            console.log('hej')
-        }
+    const [heartFilled, setHeartFilled] = useState(false)
 
-        dummyFunction()
-        // url(https://unsplash.com/collections/57989476/male-models)
-    }, [])
+    //fill heart handler
+    const fillHeartHandler = () => {
+        //inverting the boolean that is the value of heartFilled
+        setHeartFilled(!heartFilled)
+    }
+
     let testId = itemImage + '' + Math.floor(Math.random() * 2000000)
     itemImage = itemImage || background
     itemName = itemName || 'No Name Given'
@@ -19,8 +20,11 @@ function StorageItem({ itemImage, itemName, itemsInStore, itemPrice }) {
     itemPrice = itemPrice || Math.floor(Math.random() * 40)
     return (
         <div className='storageitem' load='lazy'>
-            <div className='hearticon'>
-                <FavoriteBorderOutlinedIcon />
+            <div
+                className={heartFilled ? 'hearticon hearticon-filledHeart' : 'hearticon'}
+                onClick={fillHeartHandler}
+            >
+                <FavoriteIcon />
             </div>
         </div>
     )

@@ -1,14 +1,7 @@
 .stashstorage {
-    flex: auto;
-    height: 100vh;
-    overflow-y: scroll;
-
+    flex: 0.9;
+    background-color: rgb(43, 1, 73);
+    height: 100%;
     @import './sorting';
     @import './itemsLayout';
-}
-
-@media screen and (max-width: 1000px) {
-    .storage-itemsContainer {
-        background-color: red;
-    }
 }

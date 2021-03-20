@@ -1,13 +1,10 @@
 .sidebar {
     height: 100vh;
     background-color: var(--dark-blue);
-    flex: 0.2;
-    min-width: 180px;
-    overflow-x: hidden;
+    flex: 0.1;
     position: sticky;
-    top: 0;
     left: 0;
-    // overflow-y: scroll;
+    top: 0;
     & .sidebar-logo {
         cursor: pointer;
         padding: 1.2rem;
