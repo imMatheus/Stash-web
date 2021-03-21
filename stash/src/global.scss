@@ -33,8 +33,11 @@
     --dark-blue-light: #023150;
     --off-red: #d7263d;
     --text-color: black;
+
     --font-logo: 'Titan One', cursive;
-    --font-display: 'Lato', sans-serif;
+    // --font-display: 'Lato', sans-serif;
+    // --font-display: 'Manrope', sans-serif;
+    --font-display: 'Mukta', sans-serif;
 }
 
 // :root {
@@ -71,7 +74,11 @@
 // }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
+
+    & div {
+        background-color: transparent;
+    }
 
     //the genarl stash loading spinner
     & .loadingspinner {

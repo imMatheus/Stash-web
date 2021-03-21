@@ -1,6 +1,5 @@
 .stashesOverview {
   width: 100vw;
-  height: 100vh;
   display: flex;
   justify-content: space-between;
 }
@@ -46,14 +45,13 @@
   color: var(--off-red);
 }
 .stashesOverview .stashstorage {
-  flex: 0.9;
-  background-color: #2b0149;
-  height: 100%;
+  flex: 1;
+  min-height: 100vh;
 }
 .stashesOverview .stashstorage .storage-sorting {
   position: sticky;
   top: 15px;
-  width: 82%;
+  width: 84%;
   height: 90px;
   margin: 32px auto;
   padding: 0.8rem;
@@ -61,59 +59,24 @@
   z-index: 3;
   box-shadow: 0px 0px 5px black;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   place-items: center;
 }
-.stashesOverview .stashstorage .storage-sorting .sorting-layoutToggler {
+.stashesOverview .stashstorage .storage-sorting select {
   cursor: pointer;
-  width: 50px;
-  height: 50px;
-  background-color: var(--dark-blue);
-  position: relative;
-  border-radius: 5px;
+  width: 230px;
+  background-color: #dbdbec;
+  padding: 0.3rem 0.2rem;
+  font-size: 1.4rem;
+  font-family: var(--font-display);
 }
-.stashesOverview .stashstorage .storage-sorting .sorting-layoutToggler:hover {
-  opacity: 0.8;
+.stashesOverview .stashstorage .storage-sorting select option .option {
+  width: 100%;
+  padding: 6rem;
 }
-.stashesOverview .stashstorage .storage-sorting .sorting-layoutToggler span {
-  background-color: var(--off-red);
-  opacity: 0.9;
-  display: block;
-  transition: height 400ms;
-}
-.stashesOverview .stashstorage .storage-sorting .sorting-layoutToggler.sorting-cardLayout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  place-items: center;
-  padding: 0.1rem;
-}
-.stashesOverview .stashstorage .storage-sorting .sorting-layoutToggler.sorting-cardLayout span {
-  width: 80%;
-  height: 80%;
-  border-radius: 23%;
-}
-.stashesOverview .stashstorage .storage-sorting .toggleDropdowns {
-  width: 50px;
-  height: 50px;
-  border-radius: 5px;
-  background-color: var(--dark-blue);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  cursor: pointer;
-}
-.stashesOverview .stashstorage .storage-sorting .toggleDropdowns span {
-  width: 80%;
-  height: 11%;
-  background-color: var(--off-red);
-  display: block;
-  position: absolute;
-  border-radius: 12px;
-}
-.stashesOverview .stashstorage .storage-sorting .toggleDropdowns span:nth-child(2) {
-  transform: rotate(90deg);
+.stashesOverview .stashstorage .storage-itemsContainer {
+  width: 84%;
+  margin: 0 auto;
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout {
   height: auto;
@@ -121,21 +84,78 @@
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(auto-fit, 1fr);
   place-items: center;
-  padding: 10px 20px;
-  row-gap: 1em;
-  column-gap: 1em;
+  padding: 10px 0px;
+  row-gap: 1.5em;
+  column-gap: 1.5em;
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem {
   width: 100%;
-  background-color: indigo;
-  height: 360px;
+  height: 480px;
   position: relative;
 }
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-image {
+  cursor: pointer;
+  height: 350px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details {
+  padding: 10px 0px;
+  font-family: var(--font-display);
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .name {
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .name:hover {
+  text-decoration: underline;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .info {
+  border-right: 1px var(--off-red);
+  border-style: dashed;
+  font-size: 1.05rem;
+  font-weight: 200;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 10px;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors-circle {
+  cursor: pointer;
+  width: 11px;
+  height: 11px;
+  margin: 0 3px;
+  background: #cf0847;
+  border-radius: 50%;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors-circle:nth-child(2) {
+  background: skyblue;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors-circle:nth-child(3) {
+  background: seagreen;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors-circle:nth-child(4) {
+  background: black;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors span {
+  cursor: pointer;
+  font-weight: 400;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  padding-left: 5px;
+}
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .hearticon {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   position: absolute;
   top: 7px;
   right: 7px;
@@ -143,16 +163,16 @@
   place-items: center;
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .hearticon svg {
+  cursor: pointer;
   width: 100%;
   height: 100%;
-  display: block;
-  font-weight: 100;
   color: #333;
-  opacity: 0.5;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .hearticon svg:hover {
+  opacity: 0.8;
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .hearticon-filledHeart svg {
   fill: red;
-  opacity: 1;
 }
 .stashesOverview .stashesContainer {
   width: 100%;
@@ -292,11 +312,14 @@
   --off-red: #d7263d;
   --text-color: black;
   --font-logo: "Titan One", cursive;
-  --font-display: "Lato", sans-serif;
+  --font-display: "Mukta", sans-serif;
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
+}
+body div {
+  background-color: transparent;
 }
 body .loadingspinner {
   width: 100%;

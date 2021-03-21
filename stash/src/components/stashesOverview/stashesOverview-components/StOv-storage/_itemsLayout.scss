@@ -1,4 +1,6 @@
 .storage-itemsContainer {
+    width: 84%;
+    margin: 0 auto;
     &.storage-container-rowsLayout {
         height: auto;
     }
@@ -10,22 +12,87 @@
     &.storage-container-cardsLayout {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(auto-fit, 1fr);
         place-items: center;
-        padding: 10px 20px;
-        row-gap: 1em;
-        column-gap: 1em;
+        padding: 10px 0px;
+        row-gap: 1.5em;
+        column-gap: 1.5em;
 
         & .storageitem {
             width: 100%;
-            background-color: indigo;
-            height: 360px;
+            height: 480px;
             position: relative;
+
+            & .storageitem-image {
+                cursor: pointer;
+                height: 350px;
+                width: 100%;
+                background-size: cover;
+                background-position: center;
+            }
+
+            & .details {
+                padding: 10px 0px;
+                font-family: var(--font-display);
+
+                & .name {
+                    cursor: pointer;
+                    font-weight: 400;
+                    font-size: 1.1rem;
+                    line-height: 1.4rem;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                & .info {
+                    border-right: 1px var(--off-red);
+                    border-style: dashed;
+                    font-size: 1.05rem;
+                    font-weight: 200;
+                    display: flex;
+                    justify-content: space-between;
+                    padding-right: 10px;
+                }
+
+                & .colors {
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    margin-top: 6px;
+
+                    &-circle {
+                        cursor: pointer;
+                        width: 11px;
+                        height: 11px;
+                        margin: 0 3px;
+                        background: #cf0847;
+                        border-radius: 50%;
+
+                        &:nth-child(2) {
+                            background: skyblue;
+                        }
+                        &:nth-child(3) {
+                            background: seagreen;
+                        }
+                        &:nth-child(4) {
+                            background: black;
+                        }
+                    }
+                    & span {
+                        cursor: pointer;
+                        font-weight: 400;
+                        font-family: var(--font-display);
+                        font-size: 0.85rem;
+                        padding-left: 5px;
+                    }
+                }
+            }
 
             // heart icon in the top rigth corner
             & .hearticon {
-                width: 35px;
-                height: 35px;
+                width: 30px;
+                height: 30px;
                 position: absolute;
                 top: 7px;
                 right: 7px;
@@ -33,18 +100,18 @@
                 place-items: center;
 
                 & svg {
+                    cursor: pointer;
                     width: 100%;
                     height: 100%;
-                    display: block;
-                    font-weight: 100;
                     color: #333;
-                    opacity: 0.5;
+                    &:hover {
+                        opacity: 0.8;
+                    }
                 }
 
                 &-filledHeart {
                     & svg {
                         fill: red;
-                        opacity: 1;
                     }
                 }
             }

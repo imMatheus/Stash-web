@@ -16,7 +16,7 @@ function StashesOverview() {
                         <StashAnalytics />
                     </Route>
                     <Route exact path='/storage'>
-                        <Sidebar />
+                        {/* <Sidebar /> */}
                         <StashStorage />
                     </Route>
                     <Route exact path='/shop'>

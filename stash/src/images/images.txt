@@ -1,1 +1,2 @@
 stash-men: https://images.pexels.com/photos/6626999/pexels-photo-6626999.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
+hm blue hoodie: https://lp2.hm.com/hmgoepprod?set=source[/9d/7c/9d7ce2e06dcc0b8adbbe429502fe95107986befa.jpg],origin[dam],category[men_hoodiessweatshirts_hoodies],type[DESCRIPTIVESTILLLIFE],res[y],hmver[1]&call=url[file:/product/main]

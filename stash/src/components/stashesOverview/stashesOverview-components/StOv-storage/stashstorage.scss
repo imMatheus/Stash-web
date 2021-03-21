@@ -1,7 +1,9 @@
 .stashstorage {
-    flex: 0.9;
-    background-color: rgb(43, 1, 73);
-    height: 100%;
+    flex: 1;
+    min-height: 100vh;
+    // background-color: #f1f1f1;
+    // background-color: #e4e4e4;
+    // background-color: #f7f5f6;
     @import './sorting';
     @import './itemsLayout';
 }

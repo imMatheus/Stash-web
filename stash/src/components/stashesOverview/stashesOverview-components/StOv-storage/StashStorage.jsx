@@ -8,6 +8,7 @@ function StashStorage() {
     const [loading, setLoading] = useState(true)
     const [fetchedData, setFetchedData] = useState(null)
     const [loadedItems, setLoadedItems] = useState(null)
+    /*
     useEffect(() => {
         const dummyFunction = async () => {
             // url(https://unsplash.com/collections/57989476/male-models)
@@ -30,7 +31,7 @@ function StashStorage() {
     useEffect(() => {
         setLoading(false)
     }, [loadedItems])
-
+    
     useEffect(() => {
         console.log('4')
         console.log(fetchedData)
@@ -63,11 +64,15 @@ function StashStorage() {
         console.log('3')
         // console.log(loadedItems)
     }, [fetchedData, loading])
-
+*/
     const [layoutButton, setLayoutButton] = useState('sorting-cardLayout')
     const [itemsDisplayLayout, setItemsDisplayLayout] = useState(
         'storage-container-cardsLayout'
     )
+
+    setTimeout(() => {
+        setLoading(false)
+    }, 1200)
 
     const changeLayoutHandler = () => {
         layoutButton === 'sorting-cardLayout'
@@ -164,37 +169,19 @@ function StashStorage() {
                             onChange={sortElementsByPrice}
                         >
                             <option value='standard'>Sort by</option>
-                            <option value='cheap'>lägsta pris</option>
-                            <option value='expensive'>högsta pris</option>
+                            <option value='cheap'>Lowest price</option>
+                            <option value='expensive'>Highest Price</option>
                         </select>
-                        <div
-                            className={' sorting-layoutToggler ' + layoutButton}
-                            onClick={changeLayoutHandler}
-                        >
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div
-                            className='toggleDropdowns openDropdowns'
-                            onClick={openItemsHandler}
-                        >
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div
-                            className='toggleDropdowns closeDropdowns'
-                            onClick={closeItemsHandler}
-                        >
-                            <span></span>
-                        </div>
                     </div>
                     {/* the items */}
                     <div className={'storage-itemsContainer ' + itemsDisplayLayout}>
                         <StorageItem />
-
-                        {loadedItems && loadedItems}
+                        <StorageItem /> <StorageItem /> <StorageItem />
+                        <StorageItem /> <StorageItem /> <StorageItem /> <StorageItem />
+                        <StorageItem /> <StorageItem />
+                        <StorageItem />
+                        <StorageItem /> <StorageItem /> <StorageItem />
+                        {/* {loadedItems && loadedItems} */}
                     </div>
                 </>
             )}
