@@ -75,7 +75,7 @@
   padding: 6rem;
 }
 .stashesOverview .stashstorage .storage-itemsContainer {
-  width: 84%;
+  width: 90%;
   margin: 0 auto;
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout {
@@ -89,17 +89,33 @@
   row-gap: 1.5em;
   column-gap: 1.5em;
 }
+@media screen and (max-width: 1080px) {
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1em;
+    column-gap: 0.4em;
+  }
+}
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem {
   width: 100%;
   height: 480px;
   position: relative;
 }
+@media screen and (max-width: 1080px) {
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem {
+    height: 430px;
+  }
+}
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-image {
   cursor: pointer;
   height: 350px;
-  width: 100%;
   background-size: cover;
   background-position: center;
+}
+@media screen and (max-width: 1080px) {
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-image {
+    height: 310px;
+  }
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details {
   padding: 10px 0px;
