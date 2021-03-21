@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Link } from 'react-router-dom'
 import StorageIcon from '@material-ui/icons/Storage'
 import AssessmentIcon from '@material-ui/icons/Assessment'
 import ChatIcon from '@material-ui/icons/Chat'
@@ -16,10 +16,12 @@ function Sidebar() {
                         <span>Storage</span>
                     </div>
                 </Link>
-                <div className='sidebar-option'>
-                    <AssessmentIcon />
-                    <span>Anilitics</span>
-                </div>
+                <Link to='/'>
+                    <div className='sidebar-option'>
+                        <AssessmentIcon />
+                        <span>Analytics</span>
+                    </div>
+                </Link>
                 <div className='sidebar-option'>
                     <ChatIcon />
                     <span>Messages</span>

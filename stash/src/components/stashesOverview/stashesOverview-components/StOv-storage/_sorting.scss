@@ -1,0 +1,30 @@
+.storage-sorting {
+    position: sticky;
+    top: 15px;
+    width: 84%;
+    height: 90px;
+    margin: 32px auto;
+    padding: 0.8rem;
+    background-color: #fbf9f9;
+    z-index: 3;
+    box-shadow: 0px 0px 5px black;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+
+    & select {
+        cursor: pointer;
+        width: 230px;
+        background-color: #dbdbec;
+        padding: 0.3rem 0.2rem;
+        font-size: 1.4rem;
+        font-family: var(--font-display);
+
+        & option {
+            & .option {
+                width: 100%;
+                padding: 6rem;
+            }
+        }
+    }
+}

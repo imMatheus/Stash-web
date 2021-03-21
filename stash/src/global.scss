@@ -12,41 +12,73 @@
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
     text-decoration: none;
 }
 
 // :root {
-//     --main-white: #fdfffc;
-//     --dark-blue: #020887;
-//     --off-red: #de3c4b;
-//     --font-logo: 'Titan One', cursive;
-//     --font-display: 'Lato', sans-serif;
-// }
-
-// :root {
-//     --main-white: #fdfffc;
-//     --dark-blue: #326273;
-//     --off-red: #e48100;
+//     --main-white: #dfe3ff;
+//     --dark-blue: #232538;
+//     --dark-blue-light: #26273d;
+//     --off-red: #6c66fb;
+//     --analytics-text-color: white;
 //     --font-logo: 'Titan One', cursive;
 //     --font-display: 'Lato', sans-serif;
 // }
 
 :root {
-    --main-white: #ffeddf;
-    --dark-blue: #0d1321;
-    --off-red: #c5d86d;
+    --main-white: #0197f6;
+    --dark-blue: #02182b;
+    --dark-blue-light: #023150;
+    --off-red: #d7263d;
+    --text-color: black;
+
     --font-logo: 'Titan One', cursive;
-    --font-display: 'Lato', sans-serif;
+    // --font-display: 'Lato', sans-serif;
+    // --font-display: 'Manrope', sans-serif;
+    --font-display: 'Mukta', sans-serif;
 }
 
+// :root {
+//     --main-white: #fffcf9;
+//     --dark-blue: #352d39;
+//     --dark-blue-light: #252027;
+
+//     --off-red: #ff6978;
+//     --font-logo: 'Titan One', cursive;
+//     --font-display: 'Lato', sans-serif;
+// }
+// :root {
+//     --main-white: #fff;
+//     // --dark-blue: #1b1f3b;
+//     // --dark-blue: #1a1423;
+//     // --off-red: #65afff;
+//     --dark-blue: #1d201f;
+//     --off-red: #ff6663;
+
+//     // e85d75
+//     --font-logo: 'Titan One', cursive;
+//     --font-display: 'Lato', sans-serif;
+// }
+// :root {
+//     --main-white: #ffeddf;
+//     --dark-blue: #0d1321;
+//     --dark-blue-light: rgb(49, 44, 51);
+//     --text-color: rgb(228, 228, 228);
+//     --analytics-text-color: white;
+
+//     --off-red: #c5d86d;
+//     --font-logo: 'Titan One', cursive;
+//     --font-display: 'Lato', sans-serif;
+// }
+
 body {
-    height: 100vh;
-    background-color: var(--main-white);
-    overflow: hidden;
+    min-height: 100vh;
+
+    & div {
+        background-color: transparent;
+    }
 
     //the genarl stash loading spinner
     & .loadingspinner {
@@ -68,8 +100,8 @@ body {
 
         &-spinner {
             position: absolute;
-            width: 220px;
-            height: 220px;
+            width: 351px;
+            height: 351px;
             padding: 10px;
             z-index: 33030;
 
@@ -79,7 +111,7 @@ body {
                 box-sizing: border-box;
                 position: absolute;
                 border-radius: 100%;
-                animation: rotate180 2s infinite;
+                animation: rotate180 2000ms infinite;
                 border: 5px solid transparent;
                 border-top-color: var(--off-red);
                 @for $i from 1 through 5 {
@@ -88,7 +120,7 @@ body {
                         top: 10% * ($i - 1);
                         width: 100% - 20% * ($i - 1);
                         height: 100% - 20% * ($i - 1);
-                        animation-delay: 0.5s * ($i - 1);
+                        animation-delay: 0.4s * ($i - 1);
                     }
                 }
             }
