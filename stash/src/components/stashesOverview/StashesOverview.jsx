@@ -6,7 +6,7 @@ function StashesOverview() {
     return (
         <Router>
             <div className='stashesOverview'>
-                <StashStorage />
+                <StashStorage />k
             </div>
         </Router>
     )
