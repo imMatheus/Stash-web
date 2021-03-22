@@ -1,7 +1,7 @@
 import React from 'react'
 import StorageItem from './StorageItem'
 
-function FilterForm({ items, setItems }) {
+function FilterForm({ items, setItems, setToggleCreateNewItem, toggleCreateNewItem }) {
     /*
     const sortElementsByPrice = (e) => {
         if (fetchedData) {
@@ -58,7 +58,16 @@ function FilterForm({ items, setItems }) {
     }
     */
     const addItemHandler = () => {
-        setItems(items.concat(<StorageItem itemName={'stashing'} itemPrice={9999} />))
+        // setItems(
+        //     [
+        //         <StorageItem
+        //             itemName={Math.floor(Math.random() * 200 + 1000)}
+        //             itemPrice={99}
+        //         />,
+        //     ].concat(items)
+        //     // concating so that the new item is first in the list
+        // )
+        setToggleCreateNewItem(!toggleCreateNewItem)
     }
     return (
         <div className='filterform'>

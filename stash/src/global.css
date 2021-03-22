@@ -279,6 +279,58 @@
     display: grid;
   }
 }
+.stashesOverview .stashstorage .newitemform {
+  width: 100vw;
+  height: 490px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: hotpink;
+  font-family: var(--font-display);
+}
+.stashesOverview .stashstorage .newitemform .content {
+  height: 440px;
+  background-color: palegoldenrod;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.stashesOverview .stashstorage .newitemform .content .form {
+  height: 100%;
+  background-color: blue;
+}
+.stashesOverview .stashstorage .newitemform .content .showcase {
+  display: grid;
+  place-items: center;
+  background-color: orange;
+}
+.stashesOverview .stashstorage .newitemform .content .showcase .card {
+  width: 190px;
+  max-width: 90%;
+  height: 320px;
+  background-color: rosybrown;
+}
+.stashesOverview .stashstorage .newitemform .content .showcase .card .image {
+  height: 210px;
+  background-color: green;
+}
+.stashesOverview .stashstorage .newitemform .content .showcase .card .details .name {
+  font-size: 1rem;
+}
+.stashesOverview .stashstorage .newitemform .footer {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 0px 6px;
+  background-color: #a57c6d;
+}
+.stashesOverview .stashstorage .newitemform .footer .button {
+  cursor: pointer;
+  padding: 0 2rem;
+  font-size: 1.65rem;
+  font-weight: 300;
+  border-radius: 15px;
+  background-color: var(--off-red);
+}
 .stashesOverview .stashesContainer {
   width: 100%;
   height: 100vh;
@@ -423,9 +475,6 @@
 body {
   min-height: 100vh;
 }
-body div {
-  background-color: transparent;
-}
 body .loadingspinner {
   width: 100%;
   height: 100%;
@@ -446,8 +495,10 @@ body .loadingspinner-spinner {
   position: absolute;
   width: 351px;
   height: 351px;
+  max-width: 90vw;
+  max-height: 90vw;
   padding: 10px;
-  z-index: 33030;
+  z-index: 999;
 }
 body .loadingspinner-spinner .circle-line {
   -webkit-box-sizing: border-box;

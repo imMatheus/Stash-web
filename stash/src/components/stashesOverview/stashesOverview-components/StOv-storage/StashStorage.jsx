@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import StorageItem from './StorageItem'
+import CreateNewItem from './CreateNewItem'
 import FilterForm from './FilterForm'
 import LoadingSpinner from '../../../LoadingSpinner'
 
 function StashStorage() {
     // loading data from api
-
     const [loading, setLoading] = useState(true)
     const [fetchedData, setFetchedData] = useState(null)
-    const [loadedItems, setLoadedItems] = useState([
-        <StorageItem />,
-        <StorageItem />,
-        <StorageItem />,
-        <StorageItem />,
-    ])
+    const [loadedItems, setLoadedItems] = useState([<StorageItem />])
+    const [toggleCreateNewItem, setToggleCreateNewItem] = useState(false)
     /*
     useEffect(() => {
         const dummyFunction = async () => {
@@ -113,11 +109,17 @@ function StashStorage() {
             ) : (
                 // else show the items
                 <>
-                    <FilterForm items={loadedItems} setItems={setLoadedItems} />
+                    <FilterForm
+                        setToggleCreateNewItem={setToggleCreateNewItem}
+                        toggleCreateNewItem={toggleCreateNewItem}
+                        items={loadedItems}
+                        setItems={setLoadedItems}
+                    />
                     {/* the items */}
                     <div className={'storage-itemsContainer ' + itemsDisplayLayout}>
                         {loadedItems && loadedItems}
                     </div>
+                    {toggleCreateNewItem && <CreateNewItem />}
                 </>
             )}
         </div>

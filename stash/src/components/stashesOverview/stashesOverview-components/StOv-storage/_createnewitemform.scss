@@ -1,0 +1,61 @@
+.newitemform {
+    width: 100vw;
+    height: 490px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: hotpink;
+    font-family: var(--font-display);
+
+    & .content {
+        height: 440px;
+        background-color: palegoldenrod;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        & .form {
+            height: 100%;
+            background-color: blue;
+        }
+        & .showcase {
+            display: grid;
+            place-items: center;
+            background-color: orange;
+
+            & .card {
+                width: 190px;
+                max-width: 90%;
+                height: 320px;
+                background-color: rosybrown;
+
+                .image {
+                    height: 210px;
+                    background-color: green;
+                }
+
+                & .details {
+                    & .name {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    & .footer {
+        width: 100%;
+        display: grid;
+        place-items: center;
+        padding: 0px 6px;
+        background-color: rgb(165, 124, 109);
+
+        & .button {
+            cursor: pointer;
+            padding: 0 2rem;
+            font-size: 1.65rem;
+            font-weight: 300;
+            border-radius: 15px;
+            background-color: var(--off-red);
+        }
+    }
+}
