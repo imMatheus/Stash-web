@@ -1,41 +1,59 @@
 .newitemform {
     width: 100vw;
     height: 490px;
-    position: absolute;
+    position: fixed;
+    background-color: rgb(255, 251, 209);
     bottom: 0;
     left: 0;
-    background-color: hotpink;
     font-family: var(--font-display);
 
     & .content {
         height: 440px;
-        background-color: palegoldenrod;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 0.65fr 0.35fr;
 
         & .form {
             height: 100%;
             background-color: blue;
         }
         & .showcase {
-            display: grid;
-            place-items: center;
-            background-color: orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
+            & .sidetext {
+                writing-mode: vertical-lr;
+                background: linear-gradient(var(--off-red), var(--dark-blue));
+                background-clip: text;
+                color: transparent;
+                font-size: 1.8rem;
+                font-weight: 200;
+                font-family: var(--font-logo);
+            }
             & .card {
-                width: 190px;
+                width: 300px;
                 max-width: 90%;
-                height: 320px;
-                background-color: rosybrown;
+                min-height: 380px;
+                max-height: 96%;
 
-                .image {
-                    height: 210px;
-                    background-color: green;
+                & .image {
+                    height: 290px;
+                    background: url('./images/rick1.jpg') center center;
+                    background-size: cover;
                 }
 
                 & .details {
+                    padding-right: 0.3rem;
                     & .name {
-                        font-size: 1rem;
+                        font-size: 1.4rem;
+                        font-family: 300;
+                    }
+
+                    & .info {
+                        display: flex;
+                        font-size: 1.2rem;
+                        font-size: 200;
+                        justify-content: space-between;
                     }
                 }
             }
@@ -47,7 +65,6 @@
         display: grid;
         place-items: center;
         padding: 0px 6px;
-        background-color: rgb(165, 124, 109);
 
         & .button {
             cursor: pointer;
