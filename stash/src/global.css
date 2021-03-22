@@ -86,7 +86,7 @@
   grid-template-columns: repeat(4, 1fr);
   place-items: center;
   padding: 10px 0px;
-  row-gap: 1.5em;
+  row-gap: 1.49em;
   column-gap: 1.5em;
 }
 @media screen and (max-width: 1080px) {
