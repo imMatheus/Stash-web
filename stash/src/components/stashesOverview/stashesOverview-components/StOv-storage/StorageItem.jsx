@@ -11,11 +11,7 @@ function StorageItem({ itemImage, itemName, itemsInStore, itemPrice }) {
     let testId = itemImage + '' + Math.floor(Math.random() * 2000000)
 
     itemImage = itemImage || background2
-
-    itemName =
-        itemName || Math.random() > 0.4
-            ? 'Huvudtröja med tryck Huvudtröja med tryck ugagagagagag'
-            : 'hej'
+    itemName = itemName || 'Huvudtröja med tryck '
     itemsInStore = itemsInStore || Math.floor(Math.random() * 20 + 1)
     itemPrice = itemPrice || Math.floor(Math.random() * 100 + 100)
 
@@ -49,12 +45,13 @@ function StorageItem({ itemImage, itemName, itemsInStore, itemPrice }) {
                 style={{ backgroundImage: `url(${itemImage})` }}
             ></div>
             <div className='details'>
-                <span className='name'>{itemName}</span>
+                <p className='name'>{itemName}</p>
                 <div className='info'>
                     <span>{itemPrice}.20kr</span>
                     <span>{itemsInStore} in store</span>
                 </div>
                 <div className='colors'>
+                    <div className='colors-circle'></div>
                     <div className='colors-circle'></div>
                     <div className='colors-circle'></div>
                     <div className='colors-circle'></div>

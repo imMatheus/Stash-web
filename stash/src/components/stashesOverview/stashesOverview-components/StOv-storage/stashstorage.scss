@@ -1,9 +1,32 @@
+@mixin mq--bigScreen {
+    @media screen and (max-width: 1480px) {
+        @content;
+    }
+}
+
+@mixin mq--normal {
+    @media screen and (max-width: 1080px) {
+        @content;
+    }
+}
+@mixin mq--tablet {
+    @media screen and (max-width: 710px) {
+        @content;
+    }
+}
+
+@mixin mq--mobile {
+    @media screen and (max-width: 420px) {
+        @content;
+    }
+}
+
 .stashstorage {
     flex: 1;
     min-height: 100vh;
     // background-color: #f1f1f1;
     // background-color: #e4e4e4;
     // background-color: #f7f5f6;
-    @import './sorting';
+    @import './filterform';
     @import './itemsLayout';
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import StorageItem from './StorageItem'
+import FilterForm from './FilterForm'
 import LoadingSpinner from '../../../LoadingSpinner'
 
 function StashStorage() {
@@ -7,7 +8,12 @@ function StashStorage() {
 
     const [loading, setLoading] = useState(true)
     const [fetchedData, setFetchedData] = useState(null)
-    const [loadedItems, setLoadedItems] = useState(null)
+    const [loadedItems, setLoadedItems] = useState([
+        <StorageItem />,
+        <StorageItem />,
+        <StorageItem />,
+        <StorageItem />,
+    ])
     /*
     useEffect(() => {
         const dummyFunction = async () => {
@@ -99,61 +105,6 @@ function StashStorage() {
         }
     }
 
-    // sorting elements by price
-    const sortElementsByPrice = (e) => {
-        if (fetchedData) {
-            let itemsArray = []
-            fetchedData.map((item) => {
-                return itemsArray.push(item)
-            })
-
-            const quicksort = (testArr) => {
-                let array = testArr
-                if (array.length <= 1) {
-                    return array
-                }
-
-                var pivot = array[0]
-                var left = []
-                var right = []
-
-                for (var i = 1; i < array.length; i++) {
-                    if (e.target.value === 'cheap') {
-                        array[i]?.price < pivot?.price
-                            ? left.push(array[i])
-                            : right.push(array[i])
-                    } else if (e.target.value === 'expensive') {
-                        array[i]?.price > pivot?.price
-                            ? left.push(array[i])
-                            : right.push(array[i])
-                    }
-                }
-
-                return quicksort(left).concat(pivot, quicksort(right))
-            }
-
-            if (e.target.value !== 'standard') {
-                itemsArray = quicksort(itemsArray)
-            }
-
-            // updateing the loaded elements to be in order
-            setLoadedItems(
-                itemsArray &&
-                    itemsArray.map((item) => {
-                        return (
-                            <StorageItem
-                                key={item.id}
-                                itemImage={item.image}
-                                itemName={item.title}
-                                itemPrice={item.price}
-                                itemsInStore={item.id}
-                            />
-                        )
-                    })
-            )
-        }
-    }
-
     return (
         <div className='stashstorage'>
             {loading ? (
@@ -162,26 +113,10 @@ function StashStorage() {
             ) : (
                 // else show the items
                 <>
-                    <div className='storage-sorting'>
-                        <select
-                            name='sortBy'
-                            id='storage-sortBy'
-                            onChange={sortElementsByPrice}
-                        >
-                            <option value='standard'>Sort by</option>
-                            <option value='cheap'>Lowest price</option>
-                            <option value='expensive'>Highest Price</option>
-                        </select>
-                    </div>
+                    <FilterForm items={loadedItems} setItems={setLoadedItems} />
                     {/* the items */}
                     <div className={'storage-itemsContainer ' + itemsDisplayLayout}>
-                        <StorageItem />
-                        <StorageItem /> <StorageItem /> <StorageItem />
-                        <StorageItem /> <StorageItem /> <StorageItem /> <StorageItem />
-                        <StorageItem /> <StorageItem />
-                        <StorageItem />
-                        <StorageItem /> <StorageItem /> <StorageItem />
-                        {/* {loadedItems && loadedItems} */}
+                        {loadedItems && loadedItems}
                     </div>
                 </>
             )}

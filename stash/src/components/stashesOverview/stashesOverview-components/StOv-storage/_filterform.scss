@@ -1,4 +1,4 @@
-.storage-sorting {
+.filterform {
     position: sticky;
     top: 15px;
     width: 84%;
@@ -12,11 +12,14 @@
     grid-template-columns: repeat(2, 1fr);
     place-items: center;
 
+    @include mq--normal() {
+        background-color: red;
+    }
     & select {
         cursor: pointer;
         width: 230px;
         background-color: #dbdbec;
-        padding: 0.3rem 0.2rem;
+        padding: 0.3rem 0.4rem;
         font-size: 1.4rem;
         font-family: var(--font-display);
 
@@ -26,5 +29,14 @@
                 padding: 6rem;
             }
         }
+    }
+
+    & .addnewitem {
+        cursor: pointer;
+        font-size: 1.8rem;
+        padding: 0.3rem;
+        font-family: var(--font-display);
+        font-weight: 400;
+        background-color: var(--off-red);
     }
 }

@@ -48,7 +48,7 @@
   flex: 1;
   min-height: 100vh;
 }
-.stashesOverview .stashstorage .storage-sorting {
+.stashesOverview .stashstorage .filterform {
   position: sticky;
   top: 15px;
   width: 84%;
@@ -62,17 +62,30 @@
   grid-template-columns: repeat(2, 1fr);
   place-items: center;
 }
-.stashesOverview .stashstorage .storage-sorting select {
+@media screen and (max-width: 1080px) {
+  .stashesOverview .stashstorage .filterform {
+    background-color: red;
+  }
+}
+.stashesOverview .stashstorage .filterform select {
   cursor: pointer;
   width: 230px;
   background-color: #dbdbec;
-  padding: 0.3rem 0.2rem;
+  padding: 0.3rem 0.4rem;
   font-size: 1.4rem;
   font-family: var(--font-display);
 }
-.stashesOverview .stashstorage .storage-sorting select option .option {
+.stashesOverview .stashstorage .filterform select option .option {
   width: 100%;
   padding: 6rem;
+}
+.stashesOverview .stashstorage .filterform .addnewitem {
+  cursor: pointer;
+  font-size: 1.8rem;
+  padding: 0.3rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  background-color: var(--off-red);
 }
 .stashesOverview .stashstorage .storage-itemsContainer {
   margin: 0 auto;
@@ -155,12 +168,13 @@
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .name {
   cursor: pointer;
+  padding-bottom: 9px;
+  line-height: 1rem;
   font-weight: 400;
   font-size: 1.1rem;
 }
 @media screen and (max-width: 710px) {
   .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .name {
-    line-height: 0.1rem;
     font-size: 1rem;
   }
 }
@@ -204,9 +218,9 @@
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors-circle {
   cursor: pointer;
-  width: 9px;
-  height: 9px;
-  margin: 0 3px;
+  width: 12px;
+  height: 12px;
+  margin: 0 2px;
   background: #cf0847;
   border-radius: 50%;
 }
@@ -218,6 +232,15 @@
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors-circle:nth-child(4) {
   background: black;
+}
+@media screen and (max-width: 1080px) {
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors-circle {
+    width: 10px;
+    height: 10px;
+  }
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors-circle:nth-child(2) {
+    background: #5e1668;
+  }
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors span {
   cursor: pointer;
