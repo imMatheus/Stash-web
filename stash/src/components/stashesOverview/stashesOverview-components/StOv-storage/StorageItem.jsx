@@ -12,7 +12,10 @@ function StorageItem({ itemImage, itemName, itemsInStore, itemPrice }) {
 
     itemImage = itemImage || background2
 
-    itemName = itemName || 'Huvudtröja med tryck'
+    itemName =
+        itemName || Math.random() > 0.4
+            ? 'Huvudtröja med tryck Huvudtröja med tryck ugagagagagag'
+            : 'hej'
     itemsInStore = itemsInStore || Math.floor(Math.random() * 20 + 1)
     itemPrice = itemPrice || Math.floor(Math.random() * 100 + 100)
 
@@ -48,7 +51,7 @@ function StorageItem({ itemImage, itemName, itemsInStore, itemPrice }) {
             <div className='details'>
                 <span className='name'>{itemName}</span>
                 <div className='info'>
-                    <span>{itemPrice}.00kr</span>
+                    <span>{itemPrice}.20kr</span>
                     <span>{itemsInStore} in store</span>
                 </div>
                 <div className='colors'>

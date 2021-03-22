@@ -1,16 +1,27 @@
-@mixin media-1080 {
+@mixin mq--bigScreen {
+    @media screen and (max-width: 1480px) {
+        @content;
+    }
+}
+
+@mixin mq--normal {
     @media screen and (max-width: 1080px) {
         @content;
     }
 }
-@mixin media-710 {
+@mixin mq--tablet {
     @media screen and (max-width: 710px) {
         @content;
     }
 }
 
+@mixin mq--mobile {
+    @media screen and (max-width: 420px) {
+        @content;
+    }
+}
+
 .storage-itemsContainer {
-    width: 90%;
     margin: 0 auto;
 
     &.storage-container-rowsLayout {
@@ -22,24 +33,39 @@
     //
     //
     &.storage-container-cardsLayout {
+        width: 90%;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        place-items: center;
         padding: 10px 0px;
         row-gap: 1.49em;
         column-gap: 1.5em;
-        @include media-1080() {
+        @include mq--normal() {
             grid-template-columns: repeat(3, 1fr);
             row-gap: 1em;
             column-gap: 0.4em;
         }
 
+        @include mq--mobile() {
+            width: 93%;
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 0.7em;
+            column-gap: 0.4em;
+        }
+
         & .storageitem {
             width: 100%;
-            height: 480px;
+            min-height: 480px;
             position: relative;
-            @include media-1080() {
-                height: 430px;
+            @include mq--normal() {
+                min-height: 430px;
+            }
+
+            @include mq--tablet() {
+                min-height: 390px;
+            }
+
+            @include mq--mobile() {
+                min-height: 320px;
             }
 
             & .storageitem-image {
@@ -47,34 +73,68 @@
                 height: 350px;
                 background-size: cover;
                 background-position: center;
-                @include media-1080() {
+                @include mq--normal() {
                     height: 310px;
+                }
+
+                @include mq--tablet() {
+                    height: 240px;
+                }
+                @include mq--mobile() {
+                    height: 210px;
                 }
             }
 
             & .details {
                 padding: 10px 0px;
                 font-family: var(--font-display);
+                @include mq--tablet() {
+                    padding: 5px 0px;
+                }
 
                 & .name {
                     cursor: pointer;
                     font-weight: 400;
                     font-size: 1.1rem;
-                    line-height: 1.4rem;
+                    @include mq--tablet() {
+                        line-height: 0.1rem;
+                        font-size: 1rem;
+                    }
 
-                    &:hover {
+                    @include mq--mobile() {
+                        font-size: 0.94rem;
+                    }
+
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        cursor: pointer;
                         text-decoration: underline;
                     }
                 }
 
                 & .info {
-                    border-right: 1px var(--off-red);
+                    // border-right: 1px var(--off-red);
                     border-style: dashed;
                     font-size: 1.05rem;
+                    line-height: 1rem;
                     font-weight: 200;
                     display: flex;
+                    flex-wrap: wrap;
                     justify-content: space-between;
                     padding-right: 10px;
+                    & span {
+                        &:nth-child(1) {
+                            padding-right: 11px;
+                        }
+                    }
+                    @include mq--tablet() {
+                        font-size: 1rem;
+                    }
+
+                    @include mq--mobile() {
+                        font-size: 0.88rem;
+                    }
                 }
 
                 & .colors {
@@ -85,8 +145,8 @@
 
                     &-circle {
                         cursor: pointer;
-                        width: 11px;
-                        height: 11px;
+                        width: 9px;
+                        height: 9px;
                         margin: 0 3px;
                         background: #cf0847;
                         border-radius: 50%;
@@ -127,7 +187,7 @@
                     height: 100%;
                     color: #333;
                     &:hover {
-                        opacity: 0.8;
+                        fill: red;
                     }
                 }
 
@@ -135,6 +195,14 @@
                     & svg {
                         fill: red;
                     }
+                }
+
+                @include mq--mobile() {
+                    width: 27px;
+                    height: 27px;
+                    top: 5px;
+                    right: 5px;
+                    display: grid;
                 }
             }
         }

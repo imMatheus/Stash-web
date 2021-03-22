@@ -75,16 +75,15 @@
   padding: 6rem;
 }
 .stashesOverview .stashstorage .storage-itemsContainer {
-  width: 90%;
   margin: 0 auto;
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout {
   height: auto;
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout {
+  width: 90%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  place-items: center;
   padding: 10px 0px;
   row-gap: 1.49em;
   column-gap: 1.5em;
@@ -96,14 +95,32 @@
     column-gap: 0.4em;
   }
 }
+@media screen and (max-width: 420px) {
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout {
+    width: 93%;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 0.7em;
+    column-gap: 0.4em;
+  }
+}
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem {
   width: 100%;
-  height: 480px;
+  min-height: 480px;
   position: relative;
 }
 @media screen and (max-width: 1080px) {
   .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem {
-    height: 430px;
+    min-height: 430px;
+  }
+}
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem {
+    min-height: 390px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem {
+    min-height: 320px;
   }
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-image {
@@ -117,27 +134,67 @@
     height: 310px;
   }
 }
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-image {
+    height: 240px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-image {
+    height: 210px;
+  }
+}
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details {
   padding: 10px 0px;
   font-family: var(--font-display);
+}
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details {
+    padding: 5px 0px;
+  }
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .name {
   cursor: pointer;
   font-weight: 400;
   font-size: 1.1rem;
-  line-height: 1.4rem;
 }
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .name:hover {
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .name {
+    line-height: 0.1rem;
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 420px) {
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .name {
+    font-size: 0.94rem;
+  }
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .name:hover, .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .name:active, .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .name:focus {
+  cursor: pointer;
   text-decoration: underline;
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .info {
-  border-right: 1px var(--off-red);
   border-style: dashed;
   font-size: 1.05rem;
+  line-height: 1rem;
   font-weight: 200;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding-right: 10px;
+}
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .info span:nth-child(1) {
+  padding-right: 11px;
+}
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .info {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 420px) {
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .info {
+    font-size: 0.88rem;
+  }
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors {
   display: flex;
@@ -147,8 +204,8 @@
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors-circle {
   cursor: pointer;
-  width: 11px;
-  height: 11px;
+  width: 9px;
+  height: 9px;
   margin: 0 3px;
   background: #cf0847;
   border-radius: 50%;
@@ -185,10 +242,19 @@
   color: #333;
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .hearticon svg:hover {
-  opacity: 0.8;
+  fill: red;
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .hearticon-filledHeart svg {
   fill: red;
+}
+@media screen and (max-width: 420px) {
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .hearticon {
+    width: 27px;
+    height: 27px;
+    top: 5px;
+    right: 5px;
+    display: grid;
+  }
 }
 .stashesOverview .stashesContainer {
   width: 100%;
