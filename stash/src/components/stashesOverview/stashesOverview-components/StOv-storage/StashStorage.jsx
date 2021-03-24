@@ -111,7 +111,9 @@ function StashStorage() {
 
     return (
         <div className='stashstorage'>
-            {loading ? (
+            {toggleCreateNewItem ? (
+                <CreateNewItem />
+            ) : loading ? (
                 // if we dont have our items show loading spinner
                 <LoadingSpinner />
             ) : (
@@ -127,7 +129,6 @@ function StashStorage() {
                     <div className={'storage-itemsContainer ' + itemsDisplayLayout}>
                         {loadedItems && loadedItems}
                     </div>
-                    {toggleCreateNewItem && <CreateNewItem />}
                 </>
             )}
         </div>

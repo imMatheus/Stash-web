@@ -70,15 +70,18 @@ function FilterForm({ items, setItems, setToggleCreateNewItem, toggleCreateNewIt
         setToggleCreateNewItem(!toggleCreateNewItem)
     }
     return (
-        <div className='filterform'>
-            <select name='sortBy' id='storage-sortBy'>
-                <option value='standard'>Sort by</option>
-                <option value='cheap'>Lowest price</option>
-                <option value='expensive'>Highest Price</option>
-            </select>
-            <div className='addnewitem' onClick={addItemHandler}>
-                Add new item
-            </div>
+        // <div className='filterform'>
+        //     <select name='sortBy' id='storage-sortBy'>
+        //         <option value='standard'>Sort by</option>
+        //         <option value='cheap'>Lowest price</option>
+        //         <option value='expensive'>Highest Price</option>
+        //     </select>
+        //     <div className='addnewitem' onClick={addItemHandler}>
+        //         Add new item
+        //     </div>
+        // </div>
+        <div className='addnewitem' onClick={addItemHandler}>
+            Add new item
         </div>
     )
 }

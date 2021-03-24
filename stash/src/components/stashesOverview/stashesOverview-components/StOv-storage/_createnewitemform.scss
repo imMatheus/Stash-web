@@ -1,60 +1,197 @@
 .newitemform {
     width: 100vw;
-    height: 490px;
-    position: fixed;
-    background-color: rgb(255, 251, 209);
-    bottom: 0;
-    left: 0;
+    height: 100vh;
+    padding: 20px;
+    position: relative;
+    background-color: rgb(255, 253, 234);
     font-family: var(--font-display);
 
     & .content {
-        height: 440px;
+        height: 77%;
+        background-color: blue;
         display: grid;
-        grid-template-columns: 0.65fr 0.35fr;
+        grid-template-columns: 0.35fr 0.65fr;
 
-        & .form {
-            height: 100%;
-            background-color: blue;
-        }
-        & .showcase {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        --input-color: #99a3ba;
+        --input-border: #cdd9ed;
+        --input-background: #fff;
+        --input-placeholder: #cbd1dc;
 
-            & .sidetext {
-                writing-mode: vertical-lr;
-                background: linear-gradient(var(--off-red), var(--dark-blue));
-                background-clip: text;
-                color: transparent;
-                font-size: 1.8rem;
-                font-weight: 200;
-                font-family: var(--font-logo);
-            }
-            & .card {
-                width: 300px;
-                max-width: 90%;
-                min-height: 380px;
-                max-height: 96%;
+        --input-border-focus: var(--off-red);
+        // --input-border-focus: #275efe;
 
-                & .image {
-                    height: 290px;
-                    background: url('./images/rick1.jpg') center center;
-                    background-size: cover;
+        --group-color: var(--input-color);
+        --group-border: var(--input-border);
+        --group-background: #eef4ff;
+
+        --group-color-focus: #fff;
+        --group-border-focus: var(--input-border-focus);
+        --group-background-focus: var(--off-red);
+        // --group-background-focus: #678efe;
+
+        & .inputs {
+            width: 70%;
+            margin: 40px auto 0 auto;
+            // height: 200px;
+            background-color: green;
+
+            & .form {
+                background-color: rgba(255, 17, 0, 0.555);
+                padding: 10px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                column-gap: 1em;
+                .form-field {
+                    display: block;
+                    margin: 5px 0px;
+                    width: 100%;
+                    padding: 8px 16px;
+                    line-height: 25px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    font-family: inherit;
+                    border-radius: 6px;
+                    -webkit-appearance: none;
+                    color: var(--input-color);
+                    border: 1px solid var(--input-border);
+                    background: var(--input-background);
+                    transition: border 0.3s ease;
+                    &::placeholder {
+                        color: var(--input-placeholder);
+                    }
+                    &:focus {
+                        outline: none;
+                        border-color: var(--input-border-focus);
+                    }
                 }
 
-                & .details {
-                    padding-right: 0.3rem;
-                    & .name {
-                        font-size: 1.4rem;
-                        font-family: 300;
+                .form-group {
+                    position: relative;
+                    display: flex;
+                    width: 100%;
+                    margin: 5px 0;
+                    grid-column-start: auto;
+                    grid-row-start: auto;
+
+                    &.wideForm {
+                        grid-column-end: span 2;
                     }
 
-                    & .info {
-                        display: flex;
-                        font-size: 1.2rem;
-                        font-size: 200;
-                        justify-content: space-between;
+                    & > span,
+                    .form-field {
+                        white-space: nowrap;
+                        display: block;
+                        &:not(:first-child):not(:last-child) {
+                            border-radius: 0;
+                        }
+                        &:first-child {
+                            border-radius: 6px 0 0 6px;
+                        }
+                        &:last-child {
+                            border-radius: 0 6px 6px 0;
+                        }
+                        &:not(:first-child) {
+                            margin-left: -1px;
+                        }
                     }
+                    .form-field {
+                        position: relative;
+                        z-index: 1;
+                        flex: 1 1 auto;
+                        width: 1%;
+                        margin-top: 0;
+                        margin-bottom: 0;
+                    }
+                    & > span {
+                        text-align: center;
+                        padding: 8px 12px;
+                        font-size: 14px;
+                        line-height: 25px;
+                        color: var(--group-color);
+                        background: var(--group-background);
+                        border: 1px solid var(--group-border);
+                        transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
+                    }
+                    &:focus-within {
+                        & > span {
+                            color: var(--group-color-focus);
+                            background: var(--group-background-focus);
+                            border-color: var(--group-border-focus);
+                        }
+                    }
+                    & .sizes-container {
+                        position: relative;
+                        padding-left: 12px;
+                        display: flex;
+                        justify-content: space-evenly;
+                        align-items: center;
+                        background: linear-gradient(to right, blue, red);
+                        & .size-box {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            position: relative;
+                            width: 30px;
+                            height: 30px;
+                            background: #12098f;
+                        }
+                    }
+                }
+            }
+        }
+        & .gallery {
+            padding: 12px;
+            // background-color: red;
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: repeat(10, 1fr);
+            // grid-auto-rows: 100px;
+            // grid-auto-flow: row dense;
+            row-gap: 0.5em;
+            column-gap: 0.5em;
+
+            & .image {
+                border-radius: 10px;
+                position: relative;
+                grid-column-start: auto;
+                grid-row-start: auto;
+                background: url('https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F3a%2Ff8%2F3af8a9d35e804a3ce64591f3fcb743d12072fb5a.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_hoodiessweatshirts_hoodies%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]')
+                    center center;
+                background-size: cover;
+                transition: transform 300ms ease-in-out;
+
+                //darkening the image
+                &:after {
+                    content: '';
+                    border-radius: 10px;
+                    transition: opacity 300ms ease-in-out;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0.25;
+                    background-color: black;
+                }
+
+                &:hover,
+                &:active {
+                    transform: scale(1.03);
+
+                    &:after {
+                        opacity: 0;
+                    }
+                }
+                &-small {
+                    grid-row-end: span 10;
+                    grid-column-end: span 4;
+                }
+
+                &-flat {
+                    grid-row-end: span 4;
+                    grid-column-end: span 6;
+                }
+                &-square {
+                    grid-row-end: span 6;
+                    grid-column-end: span 3;
                 }
             }
         }
@@ -62,9 +199,12 @@
 
     & .footer {
         width: 100%;
+        height: 10%;
         display: grid;
         place-items: center;
         padding: 0px 6px;
+        margin: 10px 0;
+        background-color: brown;
 
         & .button {
             cursor: pointer;
