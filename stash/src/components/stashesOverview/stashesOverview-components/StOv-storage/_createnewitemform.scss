@@ -7,7 +7,7 @@
     font-family: var(--font-display);
 
     & .content {
-        height: 77%;
+        height: 90%;
         display: grid;
         grid-template-columns: 0.35fr 0.65fr;
 
@@ -29,8 +29,8 @@
         // --group-background-focus: #678efe;
 
         & .inputs {
-            width: 70%;
-            margin: 40px auto 0 auto;
+            width: 90%;
+            margin: 0px auto;
 
             & .form {
                 padding: 10px;
@@ -64,10 +64,35 @@
                 .form-group {
                     position: relative;
                     display: flex;
+                    flex-wrap: wrap;
                     width: 100%;
                     margin: 5px 0;
                     grid-column-start: auto;
                     grid-row-start: auto;
+
+                    & .error {
+                        padding: 0px 0px;
+                        display: flex;
+                        width: 100%;
+                        align-items: center;
+                        box-sizing: border-box;
+                        overflow: hidden;
+                        color: rgb(201, 3, 3);
+                        height: 0px;
+                        transition: height 430ms, padding 430ms;
+                        line-height: 1rem;
+
+                        &.show {
+                            // padding: 8px 10px;
+                            height: 45px;
+
+                            & svg {
+                                width: 22px;
+                                height: 22px;
+                                margin: 0px 5px;
+                            }
+                        }
+                    }
 
                     &.wideForm {
                         grid-column-end: span 2;
@@ -78,13 +103,13 @@
                         white-space: nowrap;
                         display: block;
                         &:not(:first-child):not(:last-child) {
-                            border-radius: 0;
+                            border-radius: 0 6px 6px 0;
                         }
                         &:first-child {
                             border-radius: 6px 0 0 6px;
                         }
                         &:last-child {
-                            border-radius: 0 6px 6px 0;
+                            border-radius: 0px 6px 6px 0;
                         }
                         &:not(:first-child) {
                             margin-left: -1px;
@@ -153,11 +178,11 @@
                                 height: 100%;
                                 display: grid;
                                 place-items: center;
-                                cursor: zoom-in;
+                                cursor: pointer;
                                 position: absolute;
-                                font-size: 1.3rem;
-                                font-weight: 400;
-                                color: black;
+                                font-size: 1.1rem;
+                                font-weight: 300;
+                                color: #333;
                                 font-family: var(--font-display);
                                 &:after {
                                     content: '';
@@ -182,24 +207,39 @@
         }
         & .gallery {
             padding: 12px;
-            // background-color: red;
             display: grid;
             grid-template-columns: repeat(10, 1fr);
             grid-template-rows: repeat(10, 1fr);
-            // grid-auto-rows: 100px;
-            // grid-auto-flow: row dense;
             row-gap: 0.5em;
             column-gap: 0.5em;
 
             & .image {
+                cursor: pointer;
                 border-radius: 10px;
                 position: relative;
                 grid-column-start: auto;
                 grid-row-start: auto;
-                background: url('https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F3a%2Ff8%2F3af8a9d35e804a3ce64591f3fcb743d12072fb5a.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_hoodiessweatshirts_hoodies%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]')
-                    center center;
+                background: url('https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F3a%2Ff8%2F3af8a9d35e804a3ce64591f3fcb743d12072fb5a.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_hoodiessweatshirts_hoodies%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]');
+                background-position: center;
                 background-size: cover;
                 transition: transform 300ms ease-in-out;
+
+                & input[type='file'] {
+                    display: none;
+                }
+                & .textbox {
+                    cursor: pointer;
+                    z-index: 4;
+                    background-color: var(--off-red);
+                    padding: 5px;
+                    width: 100%;
+                    text-align: center;
+                    font-family: var(--font-display);
+                    font-size: 1.1rem;
+                    font-weight: 300;
+                    position: absolute;
+                    bottom: 0px;
+                }
 
                 //darkening the image
                 &:after {
@@ -209,7 +249,7 @@
                     position: absolute;
                     width: 100%;
                     height: 100%;
-                    opacity: 0.25;
+                    opacity: 0.15;
                     background-color: black;
                 }
 
@@ -245,15 +285,18 @@
         place-items: center;
         padding: 0px 6px;
         margin: 10px 0;
-        background-color: brown;
 
         & .button {
             cursor: pointer;
             padding: 0 2rem;
             font-size: 1.65rem;
-            font-weight: 300;
-            border-radius: 15px;
+            font-weight: 400;
+            border-radius: 20px;
             background-color: var(--off-red);
+
+            &:hover {
+                opacity: 0.92;
+            }
         }
     }
 }

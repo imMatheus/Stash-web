@@ -288,7 +288,7 @@
   font-family: var(--font-display);
 }
 .stashesOverview .stashstorage .newitemform .content {
-  height: 77%;
+  height: 90%;
   display: grid;
   grid-template-columns: 0.35fr 0.65fr;
   --input-color: #99a3ba;
@@ -304,8 +304,8 @@
   --group-background-focus: var(--off-red);
 }
 .stashesOverview .stashstorage .newitemform .content .inputs {
-  width: 70%;
-  margin: 40px auto 0 auto;
+  width: 90%;
+  margin: 0px auto;
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form {
   padding: 10px;
@@ -339,10 +339,31 @@
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   margin: 5px 0;
   grid-column-start: auto;
   grid-row-start: auto;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .error {
+  padding: 0px 0px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: #c90303;
+  height: 0px;
+  transition: height 430ms, padding 430ms;
+  line-height: 1rem;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .error.show {
+  height: 45px;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .error.show svg {
+  width: 22px;
+  height: 22px;
+  margin: 0px 5px;
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group.wideForm {
   grid-column-end: span 2;
@@ -354,7 +375,7 @@
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group > span:not(:first-child):not(:last-child),
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .form-field:not(:first-child):not(:last-child) {
-  border-radius: 0;
+  border-radius: 0 6px 6px 0;
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group > span:first-child,
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .form-field:first-child {
@@ -362,7 +383,7 @@
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group > span:last-child,
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .form-field:last-child {
-  border-radius: 0 6px 6px 0;
+  border-radius: 0px 6px 6px 0;
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group > span:not(:first-child),
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .form-field:not(:first-child) {
@@ -423,11 +444,11 @@
   height: 100%;
   display: grid;
   place-items: center;
-  cursor: zoom-in;
+  cursor: pointer;
   position: absolute;
-  font-size: 1.3rem;
-  font-weight: 400;
-  color: black;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #333;
   font-family: var(--font-display);
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box label:after {
@@ -454,13 +475,31 @@
   column-gap: 0.5em;
 }
 .stashesOverview .stashstorage .newitemform .content .gallery .image {
+  cursor: pointer;
   border-radius: 10px;
   position: relative;
   grid-column-start: auto;
   grid-row-start: auto;
-  background: url("https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F3a%2Ff8%2F3af8a9d35e804a3ce64591f3fcb743d12072fb5a.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_hoodiessweatshirts_hoodies%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]") center center;
+  background: url("https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F3a%2Ff8%2F3af8a9d35e804a3ce64591f3fcb743d12072fb5a.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_hoodiessweatshirts_hoodies%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]");
+  background-position: center;
   background-size: cover;
   transition: transform 300ms ease-in-out;
+}
+.stashesOverview .stashstorage .newitemform .content .gallery .image input[type=file] {
+  display: none;
+}
+.stashesOverview .stashstorage .newitemform .content .gallery .image .textbox {
+  cursor: pointer;
+  z-index: 4;
+  background-color: var(--off-red);
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 300;
+  position: absolute;
+  bottom: 0px;
 }
 .stashesOverview .stashstorage .newitemform .content .gallery .image:after {
   content: "";
@@ -469,7 +508,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  opacity: 0.25;
+  opacity: 0.15;
   background-color: black;
 }
 .stashesOverview .stashstorage .newitemform .content .gallery .image:hover, .stashesOverview .stashstorage .newitemform .content .gallery .image:active {
@@ -497,15 +536,17 @@
   place-items: center;
   padding: 0px 6px;
   margin: 10px 0;
-  background-color: brown;
 }
 .stashesOverview .stashstorage .newitemform .footer .button {
   cursor: pointer;
   padding: 0 2rem;
   font-size: 1.65rem;
-  font-weight: 300;
-  border-radius: 15px;
+  font-weight: 400;
+  border-radius: 20px;
   background-color: var(--off-red);
+}
+.stashesOverview .stashstorage .newitemform .footer .button:hover {
+  opacity: 0.92;
 }
 .stashesOverview .stashesContainer {
   width: 100%;

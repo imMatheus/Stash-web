@@ -76,18 +76,14 @@ function StashStorage() {
     }, [fetchedData, loading])
 */
     const [layoutButton, setLayoutButton] = useState('sorting-cardLayout')
-    const [itemsDisplayLayout, setItemsDisplayLayout] = useState(
-        'storage-container-cardsLayout'
-    )
+    const [itemsDisplayLayout, setItemsDisplayLayout] = useState('storage-container-cardsLayout')
 
     setTimeout(() => {
         setLoading(false)
     }, 1200)
 
     const changeLayoutHandler = () => {
-        layoutButton === 'sorting-cardLayout'
-            ? setLayoutButton('sorting-rowLayout')
-            : setLayoutButton('sorting-cardLayout')
+        layoutButton === 'sorting-cardLayout' ? setLayoutButton('sorting-rowLayout') : setLayoutButton('sorting-cardLayout')
 
         // itemsDisplayLayout === 'storage-container-cardsLayout'
         //     ? setItemsDisplayLayout('storage-container-rowsLayout')
@@ -111,7 +107,7 @@ function StashStorage() {
 
     return (
         <div className='stashstorage'>
-            {toggleCreateNewItem ? (
+            {true ? (
                 <CreateNewItem />
             ) : loading ? (
                 // if we dont have our items show loading spinner
@@ -126,9 +122,7 @@ function StashStorage() {
                         setItems={setLoadedItems}
                     />
                     {/* the items */}
-                    <div className={'storage-itemsContainer ' + itemsDisplayLayout}>
-                        {loadedItems && loadedItems}
-                    </div>
+                    <div className={'storage-itemsContainer ' + itemsDisplayLayout}>{loadedItems && loadedItems}</div>
                 </>
             )}
         </div>
