@@ -10,7 +10,14 @@ function CreateNewItem() {
     }
 
     const priceChangeHandler = (e) => {
-        setPrice(e.target.value)
+        if (!isNaN(e.target.value)) {
+            setPrice(e.target.value)
+            return
+        } else {
+            setPrice(price)
+            alert('hej')
+            return
+        }
     }
 
     const itemsInStoreChangeHandler = (e) => {
@@ -53,15 +60,34 @@ function CreateNewItem() {
                         <div className='form-group wideForm'>
                             <span>Sizes</span>
                             <div className='form-field sizes-container'>
-                                <input className='size-box' type='checkbox' name='s-size' id='medium' />
-                                <input className='size-box' type='checkbox' name='s-size' id='large' />
-                                <input className='size-box' type='checkbox' name='s-size' id='x-large' />
-                                <input className='size-box' type='checkbox' name='s-size' id='xx-large' />
-
-                                {/* <label for='small'>S</label>
-                                <label for='medium'>M</label>
-                                <label for='large'>L</label>
-                                <label for='x-large'>XL</label>
+                                <div className='size-box'>
+                                    <input type='checkbox' name='medium' id='xs' />
+                                    <label htmlFor='xs'>xs</label>
+                                </div>
+                                <div className='size-box'>
+                                    <input type='checkbox' name='medium' id='s' />
+                                    <label htmlFor='s'>S</label>
+                                </div>
+                                <div className='size-box'>
+                                    <input type='checkbox' name='medium' id='medium' />
+                                    <label htmlFor='medium'>M</label>
+                                </div>
+                                <div className='size-box'>
+                                    <input type='checkbox' name='medium' id='l' />
+                                    <label htmlFor='l'>L</label>
+                                </div>
+                                <div className='size-box'>
+                                    <input type='checkbox' name='medium' id='xl' />
+                                    <label htmlFor='xl'>XL</label>
+                                </div>
+                                {/* <div className='sizebox'>
+                                    <input type='checkbox' name='s-size' id='large' />
+                                    <label for='large'>L</label>
+                                </div> */}
+                                {/* <input className='size-box' type='checkbox' name='s-size' id='x-large' />
+                                <input className='size-box' type='checkbox' name='s-size' id='xx-large' /> */}
+                                {/* <label for='medium'>M</label> */}
+                                {/* <label for='x-large'>XL</label>
                                 <label for='xx-large'>XXL</label> */}
                             </div>
                         </div>
