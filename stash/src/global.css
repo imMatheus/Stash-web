@@ -251,6 +251,9 @@
     font-size: 0.74rem;
   }
 }
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .sizes .size-box.fill {
+  background-color: var(--off-red);
+}
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .hearticon {
   width: 30px;
   height: 30px;
@@ -283,7 +286,7 @@
 }
 .stashesOverview .stashstorage .newitemform {
   width: 100vw;
-  height: 100vh;
+  height: 750px;
   padding: 20px;
   position: relative;
   background-color: white;
@@ -493,7 +496,6 @@
 }
 .stashesOverview .stashstorage .newitemform .content .gallery .image {
   cursor: pointer;
-  border-radius: 10px;
   position: relative;
   grid-column-start: auto;
   grid-row-start: auto;
@@ -520,7 +522,6 @@
 }
 .stashesOverview .stashstorage .newitemform .content .gallery .image:after {
   content: "";
-  border-radius: 10px;
   transition: opacity 300ms ease-in-out;
   position: absolute;
   width: 100%;

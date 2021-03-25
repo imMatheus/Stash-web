@@ -5,7 +5,7 @@ import background2 from '../../../../images/hmgoepprod.jpeg'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 
-function StorageItem({ itemModelImage, itemProductImage, itemName, itemsInStore, itemPrice }) {
+function StorageItem({ itemModelImage, itemProductImage, itemName, itemsInStore, itemPrice, itemSizes }) {
     const [heartFilled, setHeartFilled] = useState(false)
 
     let testId = itemModelImage + '' + Math.floor(Math.random() * 2000000)
@@ -45,17 +45,27 @@ function StorageItem({ itemModelImage, itemProductImage, itemName, itemsInStore,
             <div className='details'>
                 <p className='name'>{itemName}</p>
                 <div className='info'>
-                    <span>{itemPrice}.20kr</span>
+                    <span>{itemPrice}.00kr</span>
                     <span>{itemsInStore} in store</span>
                 </div>
                 <div className='sizes'>
-                    <div className='size-box'>XXS</div>
-                    <div className='size-box'>XS</div>
-                    <div className='size-box'>S</div>
-                    <div className='size-box'>M</div>
-                    <div className='size-box'>L</div>
-                    <div className='size-box'>XL</div>
-                    <div className='size-box'>XLL</div>
+                    {itemSizes ? (
+                        itemSizes.map((size) => {
+                            return (
+                                <div className={size.inStore ? 'size-box fill' : 'size-box'}>{size.size.toUpperCase()}</div>
+                            )
+                        })
+                    ) : (
+                        <>
+                            <div className='size-box'>XXS</div>
+                            <div className='size-box'>XS</div>
+                            <div className='size-box'>S</div>
+                            <div className='size-box'>M</div>
+                            <div className='size-box'>L</div>
+                            <div className='size-box'>XL</div>
+                            <div className='size-box'>XLL</div>
+                        </>
+                    )}
                 </div>
             </div>
         </div>

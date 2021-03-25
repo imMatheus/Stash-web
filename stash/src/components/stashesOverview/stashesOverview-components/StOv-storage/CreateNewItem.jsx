@@ -12,6 +12,15 @@ function CreateNewItem({ items, setItems, setToogler }) {
     const [name, setName] = useState('')
     const [price, setPrice] = useState('')
     const [itemsInStore, setItemsInStore] = useState('')
+    const [itemSizes, setitemSizes] = useState([
+        { size: 'xxs', inStore: false },
+        { size: 'xs', inStore: false },
+        { size: 's', inStore: false },
+        { size: 'm', inStore: false },
+        { size: 'l', inStore: false },
+        { size: 'xl', inStore: false },
+        { size: 'xxl', inStore: false },
+    ])
 
     const [nameError, setNameError] = useState({ show: false, msg: '' })
     const [priceError, setPriceError] = useState({ show: false, msg: '' })
@@ -62,7 +71,7 @@ function CreateNewItem({ items, setItems, setToogler }) {
             if (!isNumber) {
                 setItemsInStoreError({ show: true, msg: 'Please enter digits only' })
             } else if (num > 10 ** 5) {
-                setItemsInStoreError({ show: true, msg: 'Price cant be more then 100´000' })
+                setItemsInStoreError({ show: true, msg: 'Items in store can´t be more then 100´000' })
                 setTimeout(() => {
                     setItemsInStoreError({ show: false, msg: '' })
                 }, 3500)
@@ -128,6 +137,10 @@ function CreateNewItem({ items, setItems, setToogler }) {
         }
     }
 
+    // let testItem = itemSizes.find((size) => size.size === 'xs'.toLowerCase())
+    // console.log(...itemSizes, (testItem.inStore = !testItem.inStore))
+    // console.log(itemSizes)
+
     const addProductHandler = () => {
         if (name === '') {
             setNameError({ show: true, msg: 'Name can not be empty' })
@@ -149,6 +162,7 @@ function CreateNewItem({ items, setItems, setToogler }) {
                         itemsInStore={itemsInStore}
                         itemModelImage={modelImg}
                         itemProductImage={productImg}
+                        itemSizes={itemSizes}
                     />,
                 ].concat(items)
                 // concating so that the new item is first in the list
@@ -206,37 +220,98 @@ function CreateNewItem({ items, setItems, setToogler }) {
                             <div className='form-field sizes-container'>
                                 <div className='size-box'>
                                     <input type='checkbox' id='xxs' />
-                                    <label htmlFor='xxs'>XXS</label>
+                                    <label
+                                        htmlFor='xxs'
+                                        onClick={() => {
+                                            let index = itemSizes.findIndex((size) => size.size.toLowerCase() === 'xxs')
+                                            setitemSizes(itemSizes, (itemSizes[index].inStore = !itemSizes[index].inStore))
+                                        }}
+                                    >
+                                        XXS
+                                    </label>
                                 </div>
                                 <div className='size-box'>
                                     <input type='checkbox' id='xs' />
-                                    <label htmlFor='xs'>XS</label>
+                                    <label
+                                        htmlFor='xs'
+                                        onClick={() => {
+                                            let index = itemSizes.findIndex((size) => size.size.toLowerCase() === 'xs')
+                                            setitemSizes(itemSizes, (itemSizes[index].inStore = !itemSizes[index].inStore))
+                                        }}
+                                    >
+                                        XS
+                                    </label>
                                 </div>
                                 <div className='size-box'>
                                     <input type='checkbox' id='s' />
-                                    <label htmlFor='s'>S</label>
+                                    <label
+                                        htmlFor='s'
+                                        onClick={() => {
+                                            let index = itemSizes.findIndex((size) => size.size.toLowerCase() === 's')
+                                            setitemSizes(itemSizes, (itemSizes[index].inStore = !itemSizes[index].inStore))
+                                        }}
+                                    >
+                                        S
+                                    </label>
                                 </div>
                                 <div className='size-box'>
                                     <input type='checkbox' id='medium' />
-                                    <label htmlFor='medium'>M</label>
+                                    <label
+                                        htmlFor='medium'
+                                        onClick={() => {
+                                            let index = itemSizes.findIndex((size) => size.size.toLowerCase() === 'm')
+                                            setitemSizes(itemSizes, (itemSizes[index].inStore = !itemSizes[index].inStore))
+                                            console.log(itemSizes)
+                                        }}
+                                    >
+                                        M
+                                    </label>
                                 </div>
                                 <div className='size-box'>
                                     <input type='checkbox' id='l' />
-                                    <label htmlFor='l'>L</label>
+                                    <label
+                                        htmlFor='l'
+                                        onClick={() => {
+                                            let index = itemSizes.findIndex((size) => size.size.toLowerCase() === 'l')
+                                            setitemSizes(itemSizes, (itemSizes[index].inStore = !itemSizes[index].inStore))
+                                        }}
+                                    >
+                                        L
+                                    </label>
                                 </div>
                                 <div className='size-box'>
                                     <input type='checkbox' id='xl' />
-                                    <label htmlFor='xl'>XL</label>
+                                    <label
+                                        htmlFor='xl'
+                                        onClick={() => {
+                                            let index = itemSizes.findIndex((size) => size.size.toLowerCase() === 'xl')
+                                            setitemSizes(itemSizes, (itemSizes[index].inStore = !itemSizes[index].inStore))
+                                        }}
+                                    >
+                                        XL
+                                    </label>
                                 </div>
                                 <div className='size-box'>
                                     <input type='checkbox' id='xxl' />
-                                    <label htmlFor='xxl'>XXL</label>
+                                    <label
+                                        htmlFor='xxl'
+                                        onClick={() => {
+                                            let index = itemSizes.findIndex((size) => size.size.toLowerCase() === 'xxl')
+                                            setitemSizes(itemSizes, (itemSizes[index].inStore = !itemSizes[index].inStore))
+                                        }}
+                                    >
+                                        XXL
+                                    </label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className='button' onClick={addProductHandler}>
                         Create
+                    </div>
+
+                    <div className='button' onClick={() => setToogler(false)}>
+                        Go back
                     </div>
                 </div>
                 <div className='gallery'>
