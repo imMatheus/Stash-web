@@ -32,6 +32,22 @@
             width: 90%;
             margin: 0px auto;
 
+            & .button {
+                cursor: pointer;
+                padding: 0 1.2rem;
+                margin: 20px auto;
+                width: 140px;
+                text-align: center;
+                font-size: 1.65rem;
+                font-weight: 200;
+                border-radius: 20px;
+                background-color: var(--off-red);
+
+                &:hover {
+                    opacity: 0.92;
+                }
+            }
+
             & .form {
                 padding: 10px;
                 display: grid;
@@ -102,6 +118,8 @@
                     .form-field {
                         white-space: nowrap;
                         display: block;
+                        //max-height so the div wont exeed and expand with the error
+                        max-height: 46px;
                         &:not(:first-child):not(:last-child) {
                             border-radius: 0 6px 6px 0;
                         }
@@ -288,9 +306,9 @@
 
         & .button {
             cursor: pointer;
-            padding: 0 2rem;
+            padding: 0 3rem;
             font-size: 1.65rem;
-            font-weight: 400;
+            font-weight: 200;
             border-radius: 20px;
             background-color: var(--off-red);
 

@@ -210,44 +210,46 @@
     font-size: 0.88rem;
   }
 }
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors {
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .sizes {
+  position: relative;
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  margin-top: 6px;
-}
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors-circle {
-  cursor: pointer;
-  width: 12px;
-  height: 12px;
-  margin: 0 2px;
-  background: #cf0847;
-  border-radius: 50%;
-}
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors-circle:nth-child(2) {
-  background: skyblue;
-}
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors-circle:nth-child(3) {
-  background: seagreen;
-}
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors-circle:nth-child(4) {
-  background: black;
+  padding-top: 8px;
 }
 @media screen and (max-width: 1080px) {
-  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors-circle {
-    width: 10px;
-    height: 10px;
-  }
-  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors-circle:nth-child(2) {
-    background: #5e1668;
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .sizes {
+    padding-top: 6px;
   }
 }
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .colors span {
-  cursor: pointer;
-  font-weight: 400;
+.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .sizes .size-box {
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  margin: 3px 3px;
+  width: 28px;
+  height: 28px;
+  border: solid 1px black;
+  border-radius: 7px;
   font-family: var(--font-display);
-  font-size: 0.85rem;
-  padding-left: 5px;
+  color: #333;
+  font-weight: 200;
+  font-size: 0.9rem;
+}
+@media screen and (max-width: 1080px) {
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .sizes .size-box {
+    width: 25px;
+    height: 25px;
+    margin: 2px 2px;
+    font-size: 0.84rem;
+  }
+}
+@media screen and (max-width: 420px) {
+  .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .sizes .size-box {
+    width: 22px;
+    height: 22px;
+    margin: 1px 1px;
+    font-size: 0.74rem;
+  }
 }
 .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .hearticon {
   width: 30px;
@@ -306,6 +308,20 @@
 .stashesOverview .stashstorage .newitemform .content .inputs {
   width: 90%;
   margin: 0px auto;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .button {
+  cursor: pointer;
+  padding: 0 1.2rem;
+  margin: 20px auto;
+  width: 140px;
+  text-align: center;
+  font-size: 1.65rem;
+  font-weight: 200;
+  border-radius: 20px;
+  background-color: var(--off-red);
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .button:hover {
+  opacity: 0.92;
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form {
   padding: 10px;
@@ -372,6 +388,7 @@
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .form-field {
   white-space: nowrap;
   display: block;
+  max-height: 46px;
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group > span:not(:first-child):not(:last-child),
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .form-field:not(:first-child):not(:last-child) {
@@ -539,9 +556,9 @@
 }
 .stashesOverview .stashstorage .newitemform .footer .button {
   cursor: pointer;
-  padding: 0 2rem;
+  padding: 0 3rem;
   font-size: 1.65rem;
-  font-weight: 400;
+  font-weight: 200;
   border-radius: 20px;
   background-color: var(--off-red);
 }

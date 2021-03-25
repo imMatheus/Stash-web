@@ -5,12 +5,13 @@ import background2 from '../../../../images/hmgoepprod.jpeg'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 
-function StorageItem({ itemImage, itemName, itemsInStore, itemPrice }) {
+function StorageItem({ itemModelImage, itemProductImage, itemName, itemsInStore, itemPrice }) {
     const [heartFilled, setHeartFilled] = useState(false)
 
-    let testId = itemImage + '' + Math.floor(Math.random() * 2000000)
+    let testId = itemModelImage + '' + Math.floor(Math.random() * 2000000)
 
-    itemImage = itemImage || background2
+    itemModelImage = itemModelImage || background2
+    itemProductImage = itemProductImage || background1
     itemName = itemName || 'Huvudtröja med tryck '
     itemsInStore = itemsInStore || Math.floor(Math.random() * 20 + 1)
     itemPrice = itemPrice || Math.floor(Math.random() * 100 + 100)
@@ -26,23 +27,20 @@ function StorageItem({ itemImage, itemName, itemsInStore, itemPrice }) {
         //reasigning the background to background1 or background2
         //depending on wich one its not at the moment
         e.target.style.backgroundImage =
-            e.target.style.backgroundImage === 'url("' + background2 + '")'
-                ? 'url("' + background1 + '")'
-                : 'url("' + background2 + '")'
+            e.target.style.backgroundImage === 'url("' + itemModelImage + '")'
+                ? 'url("' + itemProductImage + '")'
+                : 'url("' + itemModelImage + '")'
     }
     return (
         <div className='storageitem' load='lazy'>
-            <div
-                className={heartFilled ? 'hearticon hearticon-filledHeart' : 'hearticon'}
-                onClick={fillHeartHandler}
-            >
+            <div className={heartFilled ? 'hearticon hearticon-filledHeart' : 'hearticon'} onClick={fillHeartHandler}>
                 {heartFilled ? <FavoriteIcon /> : <FavoriteBorderIcon />}
             </div>
             <div
                 className='storageitem-image'
                 onMouseEnter={toggleImageHoverHandler}
                 onMouseLeave={toggleImageHoverHandler}
-                style={{ backgroundImage: `url(${itemImage})` }}
+                style={{ backgroundImage: `url(${itemModelImage})` }}
             ></div>
             <div className='details'>
                 <p className='name'>{itemName}</p>
@@ -50,12 +48,14 @@ function StorageItem({ itemImage, itemName, itemsInStore, itemPrice }) {
                     <span>{itemPrice}.20kr</span>
                     <span>{itemsInStore} in store</span>
                 </div>
-                <div className='colors'>
-                    <div className='colors-circle'></div>
-                    <div className='colors-circle'></div>
-                    <div className='colors-circle'></div>
-                    <div className='colors-circle'></div>
-                    <span>+3</span>
+                <div className='sizes'>
+                    <div className='size-box'>XXS</div>
+                    <div className='size-box'>XS</div>
+                    <div className='size-box'>S</div>
+                    <div className='size-box'>M</div>
+                    <div className='size-box'>L</div>
+                    <div className='size-box'>XL</div>
+                    <div className='size-box'>XLL</div>
                 </div>
             </div>
         </div>

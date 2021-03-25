@@ -115,49 +115,46 @@
                     }
                 }
 
-                & .colors {
+                & .sizes {
+                    position: relative;
                     display: flex;
-                    align-items: center;
                     flex-wrap: wrap;
-                    margin-top: 6px;
-
-                    &-circle {
-                        cursor: pointer;
-                        width: 12px;
-                        height: 12px;
-                        margin: 0 2px;
-                        background: #cf0847;
-                        border-radius: 50%;
-
-                        &:nth-child(2) {
-                            background: skyblue;
-                        }
-                        &:nth-child(3) {
-                            background: seagreen;
-                        }
-                        &:nth-child(4) {
-                            background: black;
-                        }
-                        @include mq--normal() {
-                            width: 10px;
-                            height: 10px;
-
-                            &:nth-child(2) {
-                                background: rgb(94, 22, 104);
-                            }
-                        }
+                    padding-top: 8px;
+                    @include mq--normal() {
+                        padding-top: 6px;
                     }
-                    & span {
-                        cursor: pointer;
-                        font-weight: 400;
+                    & .size-box {
+                        overflow: hidden;
+                        display: grid;
+                        place-items: center;
+                        margin: 3px 3px;
+                        @include mq--normal() {
+                            width: 25px;
+                            height: 25px;
+                            margin: 2px 2px;
+
+                            font-size: 0.84rem;
+                        }
+                        @include mq--mobile() {
+                            width: 22px;
+                            height: 22px;
+                            margin: 1px 1px;
+
+                            font-size: 0.74rem;
+                        }
+                        width: 28px;
+                        height: 28px;
+                        border: solid 1px black;
+                        border-radius: 7px;
                         font-family: var(--font-display);
-                        font-size: 0.85rem;
-                        padding-left: 5px;
+                        color: #333;
+                        font-weight: 200;
+                        font-size: 0.9rem;
                     }
                 }
-            }
 
-            // heart icon in the top rigth corner
+                // heart icon in the top rigth corner
+            }
             & .hearticon {
                 width: 30px;
                 height: 30px;

@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import WarningIcon from '@material-ui/icons/Warning'
+import StorageItem from './StorageItem'
 
-function CreateNewItem() {
-    const [modelImg, setModelImg] = useState(
+function CreateNewItem({ items, setItems, setToogler }) {
+    const url =
         'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fd5%2F58%2Fd558d5eff3e0de84c68b909af2c7da91f4f545d7.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_hoodiessweatshirts_hoodies%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]'
-    )
+    const [modelImg, setModelImg] = useState(url)
+    const [secondModelImg, setSecondModelImg] = useState(url)
+    const [CloseUpImg, setCloseUpImg] = useState(url)
+    const [productImg, setProductImg] = useState(url)
     const [name, setName] = useState('')
     const [price, setPrice] = useState('')
     const [itemsInStore, setItemsInStore] = useState('')
@@ -14,21 +18,16 @@ function CreateNewItem() {
     const [itemsInStoreError, setItemsInStoreError] = useState({ show: false, msg: '' })
 
     const nameChangeHandler = (e) => {
-        if (!nameError.show) {
-            let inputName = e.target.value
-            if (inputName.length >= 43) {
-                setNameError({ show: true, msg: 'The product name can not exeed 43 charecters' })
-            } else if (!/[a-zA-Z]/.test(inputName.charAt(0))) {
-                setNameError({ show: true, msg: 'Product name may not start with a non-alphanumeric character' })
-            }
+        let inputName = e.target.value
+        if (inputName.length >= 40) {
+            setNameError({ show: true, msg: 'The product name can not exeed 40 charecters' })
+        } else if (!/[a-zA-Z]/.test(inputName.charAt(0))) {
+            setNameError({ show: true, msg: 'Product name may not start with a non-alphanumeric character' })
+        }
 
-            if (inputName.length < 43 && (/[a-zA-Z]/.test(inputName.charAt(0)) || inputName.charAt(0) === '')) {
-                setName(inputName)
-            }
-            //removing the msg after 3.5 sec
-            setTimeout(() => {
-                setNameError({ show: false, msg: '' })
-            }, 3500)
+        if (inputName.length <= 40 && (/[a-zA-Z]/.test(inputName.charAt(0)) || inputName.charAt(0) === '')) {
+            setName(inputName)
+            setNameError({ show: false, msg: '' })
         }
     }
 
@@ -36,28 +35,47 @@ function CreateNewItem() {
         let num = e.target.value
         let isNumber = !isNaN(num)
 
-        if (!isNumber) {
-            setPriceError({ show: true, msg: 'The price is not a number' })
+        //checking if we already have an error
+        if (!priceError.show) {
+            if (!isNumber) {
+                setPriceError({ show: true, msg: 'Please enter digits only' })
+            } else if (num > 10 ** 5) {
+                setPriceError({ show: true, msg: 'Price cant be more then 100´000' })
+                setTimeout(() => {
+                    setPriceError({ show: false, msg: '' })
+                }, 3500)
+            }
         }
 
-        if (isNumber && num % 1 === 0 && num.indexOf('.') === -1 && num < 10 ** 6) {
+        if (isNumber && num % 1 === 0 && num.indexOf('.') === -1 && num < 10 ** 5) {
             setPrice(num)
-        }
-
-        setTimeout(() => {
             setPriceError({ show: false, msg: '' })
-        }, 3500)
+        }
     }
 
     const itemsInStoreChangeHandler = (e) => {
         let num = e.target.value
         let isNumber = !isNaN(num)
-        if (isNumber && num % 1 === 0 && num.indexOf('.') === -1 && num < 10 ** 6) {
-            setItemsInStore(e.target.value)
+
+        //checking if we already have an error
+        if (!itemsInStoreError.show) {
+            if (!isNumber) {
+                setItemsInStoreError({ show: true, msg: 'Please enter digits only' })
+            } else if (num > 10 ** 5) {
+                setItemsInStoreError({ show: true, msg: 'Price cant be more then 100´000' })
+                setTimeout(() => {
+                    setItemsInStoreError({ show: false, msg: '' })
+                }, 3500)
+            }
+        }
+
+        if (isNumber && num % 1 === 0 && num.indexOf('.') === -1 && num < 10 ** 5) {
+            setItemsInStore(num)
+            setItemsInStoreError({ show: false, msg: '' })
         }
     }
 
-    const imageUploadHandler = (e) => {
+    const imageUploadModelImgHandler = (e) => {
         const reader = new FileReader()
 
         reader.onload = () => {
@@ -66,14 +84,75 @@ function CreateNewItem() {
                 console.log(e.target)
             }
         }
-        reader.readAsDataURL(e.target.files[0])
+        if (e.target.files[0]) {
+            reader.readAsDataURL(e?.target?.files[0])
+        }
+    }
+    const imageUploadSecondModelImgHandler = (e) => {
+        const reader = new FileReader()
+
+        reader.onload = () => {
+            if (reader.readyState === 2) {
+                setSecondModelImg(reader.result)
+                console.log(e.target)
+            }
+        }
+        if (e.target.files[0]) {
+            reader.readAsDataURL(e?.target?.files[0])
+        }
+    }
+    const imageUploadCloseUpImgHandler = (e) => {
+        const reader = new FileReader()
+
+        reader.onload = () => {
+            if (reader.readyState === 2) {
+                setCloseUpImg(reader.result)
+                console.log(e.target)
+            }
+        }
+        if (e.target.files[0]) {
+            reader.readAsDataURL(e?.target?.files[0])
+        }
+    }
+    const imageUploadProductHandler = (e) => {
+        const reader = new FileReader()
+
+        reader.onload = () => {
+            if (reader.readyState === 2) {
+                setProductImg(reader.result)
+                console.log(e.target)
+            }
+        }
+        if (e.target.files[0]) {
+            reader.readAsDataURL(e?.target?.files[0])
+        }
     }
 
     const addProductHandler = () => {
-        if (name.length > 0) {
-            console.log('bra')
+        if (name === '') {
+            setNameError({ show: true, msg: 'Name can not be empty' })
+        } else if (!price) {
+            setPriceError({ show: true, msg: 'Price can´t be empty' })
+        } else if (!itemsInStore) {
+            setItemsInStoreError({ show: true, msg: 'Items in store can´t be empty' })
+        } else if (modelImg === url) {
+            alert('fill model picture please')
+        } else if (productImg === url) {
+            alert('choose a product picture please')
         } else {
-            alert('inte bra')
+            setToogler(false)
+            setItems(
+                [
+                    <StorageItem
+                        itemName={name}
+                        itemPrice={price}
+                        itemsInStore={itemsInStore}
+                        itemModelImage={modelImg}
+                        itemProductImage={productImg}
+                    />,
+                ].concat(items)
+                // concating so that the new item is first in the list
+            )
         }
     }
 
@@ -97,7 +176,7 @@ function CreateNewItem() {
                         </div>
 
                         <div className='form-group '>
-                            <span>Price</span>
+                            <span>Price(kr)</span>
                             <input
                                 className='form-field'
                                 type='text'
@@ -118,6 +197,9 @@ function CreateNewItem() {
                                 onChange={itemsInStoreChangeHandler}
                                 value={itemsInStore}
                             />
+                            <div className={itemsInStoreError.show ? 'error show' : 'error'}>
+                                <WarningIcon /> {itemsInStoreError.msg}
+                            </div>
                         </div>
                         <div className='form-group wideForm'>
                             <span>Sizes</span>
@@ -153,28 +235,40 @@ function CreateNewItem() {
                             </div>
                         </div>
                     </div>
+                    <div className='button' onClick={addProductHandler}>
+                        Create
+                    </div>
                 </div>
                 <div className='gallery'>
                     <div className='image image-small' style={{ backgroundImage: `url(${modelImg})` }}>
-                        <input type='file' id='modelPic' accept='image/*' onChange={imageUploadHandler} />
+                        <input type='file' id='modelPic' accept='image/*' onChange={imageUploadModelImgHandler} />
                         <label htmlFor='modelPic'>
                             <div className='textbox'>Model Picture</div>
                         </label>
                     </div>
-                    <div className='image image-flat'>
-                        <div className='textbox'>Model Picture</div>
+                    <div className='image image-flat' style={{ backgroundImage: `url(${CloseUpImg})` }}>
+                        <input type='file' id='closeUpPic' accept='image/*' onChange={imageUploadCloseUpImgHandler} />
+                        <label htmlFor='closeUpPic'>
+                            <div className='textbox'>Close Up Picture</div>
+                        </label>
                     </div>
-                    <div className='image image-square'>
-                        <div className='textbox'>Model Picture</div>
+                    <div className='image image-square' style={{ backgroundImage: `url(${secondModelImg})` }}>
+                        <input
+                            type='file'
+                            id='secondModelPic'
+                            accept='image/*'
+                            onChange={imageUploadSecondModelImgHandler}
+                        />
+                        <label htmlFor='secondModelPic'>
+                            <div className='textbox'>Second Model Picture</div>
+                        </label>
                     </div>
-                    <div className='image image-square' style={{ backgroundImage: `url(${modelImg})` }}>
-                        <div className='textbox'>Model Picture</div>
+                    <div className='image image-square' style={{ backgroundImage: `url(${productImg})` }}>
+                        <input type='file' id='productImg' accept='image/*' onChange={imageUploadProductHandler} />
+                        <label htmlFor='productImg'>
+                            <div className='textbox'>Product Picture</div>
+                        </label>
                     </div>
-                </div>
-            </div>
-            <div className='footer'>
-                <div className='button' onClick={addProductHandler}>
-                    Create
                 </div>
             </div>
         </div>
