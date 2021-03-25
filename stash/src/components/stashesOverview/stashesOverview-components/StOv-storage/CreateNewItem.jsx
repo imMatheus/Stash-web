@@ -144,8 +144,8 @@ function CreateNewItem({ items, setItems, setToogler }) {
     const addProductHandler = () => {
         if (name === '') {
             setNameError({ show: true, msg: 'Name can not be empty' })
-        } else if (!price) {
-            setPriceError({ show: true, msg: 'Price can´t be empty' })
+        } else if (!price && price > 0) {
+            setPriceError({ show: true, msg: 'Price can´t be empty or zero' })
         } else if (!itemsInStore) {
             setItemsInStoreError({ show: true, msg: 'Items in store can´t be empty' })
         } else if (modelImg === url) {
@@ -163,6 +163,7 @@ function CreateNewItem({ items, setItems, setToogler }) {
                         itemModelImage={modelImg}
                         itemProductImage={productImg}
                         itemSizes={itemSizes}
+                        updateToogler={setToogler}
                     />,
                 ].concat(items)
                 // concating so that the new item is first in the list

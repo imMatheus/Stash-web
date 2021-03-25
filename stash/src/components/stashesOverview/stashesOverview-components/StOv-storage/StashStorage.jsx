@@ -8,7 +8,7 @@ function StashStorage() {
     // loading data from api
     const [loading, setLoading] = useState(true)
     const [fetchedData, setFetchedData] = useState(null)
-    const [loadedItems, setLoadedItems] = useState([<StorageItem />, <StorageItem />, <StorageItem />])
+    const [loadedItems, setLoadedItems] = useState([<StorageItem />, <StorageItem />])
     const [toggleCreateNewItem, setToggleCreateNewItem] = useState(false)
     /*
     useEffect(() => {

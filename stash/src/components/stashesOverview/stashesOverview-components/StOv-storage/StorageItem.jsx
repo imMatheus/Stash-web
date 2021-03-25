@@ -5,7 +5,7 @@ import background2 from '../../../../images/hmgoepprod.jpeg'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 
-function StorageItem({ itemModelImage, itemProductImage, itemName, itemsInStore, itemPrice, itemSizes }) {
+function StorageItem({ itemModelImage, itemProductImage, itemName, itemsInStore, itemPrice, itemSizes, updateToogler }) {
     const [heartFilled, setHeartFilled] = useState(false)
 
     let testId = itemModelImage + '' + Math.floor(Math.random() * 2000000)
@@ -43,7 +43,16 @@ function StorageItem({ itemModelImage, itemProductImage, itemName, itemsInStore,
                 style={{ backgroundImage: `url(${itemModelImage})` }}
             ></div>
             <div className='details'>
-                <p className='name'>{itemName}</p>
+                <p
+                    className='name'
+                    onClick={() => {
+                        if (updateToogler) {
+                            updateToogler(true)
+                        }
+                    }}
+                >
+                    {itemName}
+                </p>
                 <div className='info'>
                     <span>{itemPrice}.00kr</span>
                     <span>{itemsInStore} in store</span>

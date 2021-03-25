@@ -495,7 +495,6 @@
   column-gap: 0.5em;
 }
 .stashesOverview .stashstorage .newitemform .content .gallery .image {
-  cursor: pointer;
   position: relative;
   grid-column-start: auto;
   grid-row-start: auto;
