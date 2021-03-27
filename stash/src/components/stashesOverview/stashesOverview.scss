@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     @import './sidebar/sidebar';
-    @import './stashesOverview-components//StOv-storage/stashstorage';
-    @import './stashesOverview-components//StOv-stashes/stashstashes';
+    @import './stashesOverview-components/StOv-storage/stashstorage';
+    @import './stashesOverview-components/StOv-stashes/stashstashes';
     @import './stashesOverview-components/StOv-analytics/StashAnalytics';
 }

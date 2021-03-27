@@ -22,25 +22,18 @@ function StashStorage() {
             const dummyItems = []
             querySnapshot.forEach((doc) => {
                 dummyItems.push(doc.data())
-                console.log(doc.data())
             })
-            setFetchedData(dummyItems)
-            console.log(fetchedData)
+            console.log(dummyItems)
+            setLoadedItems(
+                dummyItems?.map((item) => {
+                    return <StorageItem itemsInStore={item.inStore} itemPrice={item.price} itemName={item.name} />
+                })
+            )
+            setLoading(false)
         })
     }
     useEffect(() => {
-        const dummyFunc = () => {
-            getItems()
-            console.log(fetchedData)
-            setLoadedItems(
-                fetchedData?.map((item) => {
-                    return <StorageItem itemName={item.name} />
-                })
-            )
-            console.log(fetchedData)
-            setLoading(false)
-        }
-        dummyFunc()
+        getItems()
     }, [])
 
     const [loading, setLoading] = useState(false)
@@ -64,9 +57,9 @@ function StashStorage() {
                         items={loadedItems}
                         setItems={setLoadedItems}
                     />
+
                     {/* the items */}
                     <div className={'storage-itemsContainer'}>{loadedItems && loadedItems}</div>
-                    <StorageItem />
                 </>
             )}
         </div>

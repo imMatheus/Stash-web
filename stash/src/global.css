@@ -1,981 +1,1610 @@
 .stashesOverview {
-    width: 100vw;
-    display: flex;
-    justify-content: space-between;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
 }
 .stashesOverview .sidebar {
-    height: 100vh;
-    background-color: var(--dark-blue);
-    flex: 0.1;
-    position: sticky;
-    left: 0;
-    top: 0;
+  height: 100vh;
+  background-color: var(--dark-blue);
+  flex: 0.1;
+  position: sticky;
+  left: 0;
+  top: 0;
 }
 .stashesOverview .sidebar .sidebar-logo {
-    cursor: pointer;
-    padding: 1.2rem;
-    color: var(--off-red);
-    font-size: 2.7rem;
-    font-family: var(--font-logo);
-    font-weight: 900;
-    text-align: center;
+  cursor: pointer;
+  padding: 1.2rem;
+  color: var(--off-red);
+  font-size: 2.7rem;
+  font-family: var(--font-logo);
+  font-weight: 900;
+  text-align: center;
 }
 .stashesOverview .sidebar .sidebar-option {
-    cursor: pointer;
-    padding: 0.3rem 0.7rem;
-    display: flex;
-    align-items: center;
-    margin: 12px 0px;
-    font-size: 1.3rem;
-    font-weight: 300;
-    font-family: var(--font-display);
-    color: var(--main-white);
-    transition: background-color 100ms;
+  cursor: pointer;
+  padding: 0.3rem 0.7rem;
+  display: flex;
+  align-items: center;
+  margin: 12px 0px;
+  font-size: 1.3rem;
+  font-weight: 300;
+  font-family: var(--font-display);
+  color: var(--main-white);
+  transition: background-color 100ms;
 }
 .stashesOverview .sidebar .sidebar-option svg {
-    font-size: 1.5rem;
-    margin-right: 12px;
-    color: var(--main-white);
+  font-size: 1.5rem;
+  margin-right: 12px;
+  color: var(--main-white);
 }
 .stashesOverview .sidebar .sidebar-option:hover {
-    opacity: 0.9;
-    color: var(--off-red);
+  opacity: 0.9;
+  color: var(--off-red);
 }
 .stashesOverview .sidebar .sidebar-option:hover svg {
-    color: var(--off-red);
+  color: var(--off-red);
 }
 .stashesOverview .stashstorage {
-    flex: 1;
-    min-height: 100vh;
+  flex: 1;
+  min-height: 100vh;
 }
 .stashesOverview .stashstorage .filterform {
-    position: sticky;
-    top: 15px;
-    width: 84%;
-    height: 90px;
-    margin: 32px auto;
-    padding: 0.8rem;
-    background-color: #fbf9f9;
-    z-index: 3;
-    box-shadow: 0px 0px 5px black;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    place-items: center;
+  position: sticky;
+  cursor: alias;
+  top: 15px;
+  width: 84%;
+  height: 90px;
+  margin: 32px auto;
+  padding: 0.8rem;
+  background-color: #fbf9f9;
+  z-index: 3;
+  box-shadow: 0px 0px 5px black;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
 }
 @media screen and (max-width: 1080px) {
-    .stashesOverview .stashstorage .filterform {
-        background-color: red;
-    }
+  .stashesOverview .stashstorage .filterform {
+    background-color: red;
+  }
 }
 .stashesOverview .stashstorage .filterform select {
-    cursor: pointer;
-    width: 230px;
-    background-color: #dbdbec;
-    padding: 0.3rem 0.4rem;
-    font-size: 1.4rem;
-    font-family: var(--font-display);
+  cursor: pointer;
+  width: 230px;
+  background-color: #dbdbec;
+  padding: 0.3rem 0.4rem;
+  font-size: 1.4rem;
+  font-family: var(--font-display);
 }
 .stashesOverview .stashstorage .filterform select option .option {
-    width: 100%;
-    padding: 6rem;
+  width: 100%;
+  padding: 6rem;
 }
 .stashesOverview .stashstorage .filterform .addnewitem {
-    cursor: pointer;
-    font-size: 1.8rem;
-    padding: 0.3rem;
-    font-family: var(--font-display);
-    font-weight: 400;
-    background-color: var(--off-red);
+  cursor: cursor;
+  font-size: 1.8rem;
+  padding: 0.3rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  background-color: var(--off-red);
 }
 .stashesOverview .stashstorage .storage-itemsContainer {
-    margin: 0 auto;
-}
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-rowsLayout {
-    height: auto;
-}
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout {
-    width: 90%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 10px 0px;
-    row-gap: 1.49em;
-    column-gap: 1.5em;
+  margin: 0 auto;
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 10px 0px;
+  row-gap: 1.49em;
+  column-gap: 1.5em;
 }
 @media screen and (max-width: 1080px) {
-    .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout {
-        grid-template-columns: repeat(3, 1fr);
-        row-gap: 1em;
-        column-gap: 0.4em;
-    }
+  .stashesOverview .stashstorage .storage-itemsContainer {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1em;
+    column-gap: 0.4em;
+  }
 }
 @media screen and (max-width: 420px) {
-    .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout {
-        width: 93%;
-        grid-template-columns: repeat(2, 1fr);
-        row-gap: 0.7em;
-        column-gap: 0.4em;
-    }
+  .stashesOverview .stashstorage .storage-itemsContainer {
+    width: 93%;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 0.7em;
+    column-gap: 0.4em;
+  }
 }
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem {
-    width: 100%;
-    min-height: 480px;
-    position: relative;
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem {
+  width: 100%;
+  min-height: 480px;
+  position: relative;
 }
 @media screen and (max-width: 1080px) {
-    .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem {
-        min-height: 430px;
-    }
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem {
+    min-height: 430px;
+  }
 }
 @media screen and (max-width: 710px) {
-    .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem {
-        min-height: 390px;
-    }
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem {
+    min-height: 390px;
+  }
 }
 @media screen and (max-width: 420px) {
-    .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem {
-        min-height: 320px;
-    }
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem {
+    min-height: 320px;
+  }
 }
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-image {
-    cursor: pointer;
-    height: 350px;
-    background-size: cover;
-    background-position: center;
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-image {
+  cursor: pointer;
+  height: 350px;
+  background-size: cover;
+  background-position: center;
 }
 @media screen and (max-width: 1080px) {
-    .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-image {
-        height: 310px;
-    }
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-image {
+    height: 310px;
+  }
 }
 @media screen and (max-width: 710px) {
-    .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-image {
-        height: 240px;
-    }
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-image {
+    height: 240px;
+  }
 }
 @media screen and (max-width: 420px) {
-    .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .storageitem-image {
-        height: 210px;
-    }
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-image {
+    height: 210px;
+  }
 }
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details {
-    padding: 10px 0px;
-    font-family: var(--font-display);
-}
-@media screen and (max-width: 710px) {
-    .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details {
-        padding: 5px 0px;
-    }
-}
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .name {
-    cursor: pointer;
-    padding-bottom: 9px;
-    line-height: 1rem;
-    font-weight: 400;
-    font-size: 1.1rem;
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .details {
+  padding: 10px 0px;
+  font-family: var(--font-display);
 }
 @media screen and (max-width: 710px) {
-    .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .name {
-        font-size: 1rem;
-    }
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details {
+    padding: 5px 0px;
+  }
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .name {
+  cursor: pointer;
+  padding-bottom: 9px;
+  line-height: 1rem;
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .name {
+    font-size: 1rem;
+  }
 }
 @media screen and (max-width: 420px) {
-    .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .name {
-        font-size: 0.94rem;
-    }
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .name {
+    font-size: 0.94rem;
+  }
 }
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .name:hover,
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .name:active,
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .name:focus {
-    cursor: pointer;
-    text-decoration: underline;
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .name:hover, .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .name:active, .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .name:focus {
+  cursor: pointer;
+  text-decoration: underline;
 }
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .info {
-    border-style: dashed;
-    font-size: 1.05rem;
-    line-height: 1rem;
-    font-weight: 200;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-right: 10px;
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .info {
+  border-style: dashed;
+  font-size: 1.05rem;
+  line-height: 1rem;
+  font-weight: 200;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-right: 10px;
 }
-.stashesOverview
-    .stashstorage
-    .storage-itemsContainer.storage-container-cardsLayout
-    .storageitem
-    .details
-    .info
-    span:nth-child(1) {
-    padding-right: 11px;
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .info span:nth-child(1) {
+  padding-right: 11px;
 }
 @media screen and (max-width: 710px) {
-    .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .info {
-        font-size: 1rem;
-    }
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .info {
+    font-size: 1rem;
+  }
 }
 @media screen and (max-width: 420px) {
-    .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .info {
-        font-size: 0.88rem;
-    }
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .info {
+    font-size: 0.88rem;
+  }
 }
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .sizes {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 8px;
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .sizes {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 8px;
 }
 @media screen and (max-width: 1080px) {
-    .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .sizes {
-        padding-top: 6px;
-    }
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .sizes {
+    padding-top: 6px;
+  }
 }
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .details .sizes .size-box {
-    overflow: hidden;
-    display: grid;
-    place-items: center;
-    margin: 3px 3px;
-    width: 28px;
-    height: 28px;
-    border: solid 1px black;
-    border-radius: 7px;
-    font-family: var(--font-display);
-    color: #333;
-    font-weight: 200;
-    font-size: 0.9rem;
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .sizes .size-box {
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  margin: 3px 3px;
+  width: 28px;
+  height: 28px;
+  border: solid 1px black;
+  border-radius: 7px;
+  font-family: var(--font-display);
+  color: #333;
+  font-weight: 200;
+  font-size: 0.9rem;
 }
 @media screen and (max-width: 1080px) {
-    .stashesOverview
-        .stashstorage
-        .storage-itemsContainer.storage-container-cardsLayout
-        .storageitem
-        .details
-        .sizes
-        .size-box {
-        width: 25px;
-        height: 25px;
-        margin: 2px 2px;
-        font-size: 0.84rem;
-    }
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .sizes .size-box {
+    width: 25px;
+    height: 25px;
+    margin: 2px 2px;
+    font-size: 0.84rem;
+  }
 }
 @media screen and (max-width: 420px) {
-    .stashesOverview
-        .stashstorage
-        .storage-itemsContainer.storage-container-cardsLayout
-        .storageitem
-        .details
-        .sizes
-        .size-box {
-        width: 22px;
-        height: 22px;
-        margin: 1px 1px;
-        font-size: 0.74rem;
-    }
-}
-.stashesOverview
-    .stashstorage
-    .storage-itemsContainer.storage-container-cardsLayout
-    .storageitem
-    .details
-    .sizes
-    .size-box.fill {
-    background-color: var(--off-red);
-}
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .hearticon {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 7px;
-    right: 7px;
-    display: grid;
-    place-items: center;
-}
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .hearticon svg {
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    color: #333;
-}
-.stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .hearticon svg:hover {
-    fill: red;
-}
-.stashesOverview
-    .stashstorage
-    .storage-itemsContainer.storage-container-cardsLayout
-    .storageitem
-    .hearticon-filledHeart
-    svg {
-    fill: red;
-}
-@media screen and (max-width: 420px) {
-    .stashesOverview .stashstorage .storage-itemsContainer.storage-container-cardsLayout .storageitem .hearticon {
-        width: 27px;
-        height: 27px;
-        top: 5px;
-        right: 5px;
-        display: grid;
-    }
-}
-.stashesOverview .stashstorage .newitemform {
-    width: 100vw;
-    height: 750px;
-    padding: 20px;
-    position: relative;
-    background-color: white;
-    font-family: var(--font-display);
-}
-.stashesOverview .stashstorage .newitemform .content {
-    height: 90%;
-    display: grid;
-    grid-template-columns: 0.35fr 0.65fr;
-    --input-color: #99a3ba;
-    --input-border: #cdd9ed;
-    --input-background: #fff;
-    --input-placeholder: #cbd1dc;
-    --input-border-focus: var(--off-red);
-    --group-color: var(--input-color);
-    --group-border: var(--input-border);
-    --group-background: #eef4ff;
-    --group-color-focus: #fff;
-    --group-border-focus: var(--input-border-focus);
-    --group-background-focus: var(--off-red);
-}
-.stashesOverview .stashstorage .newitemform .content .inputs {
-    width: 90%;
-    margin: 0px auto;
-}
-.stashesOverview .stashstorage .newitemform .content .inputs .button {
-    cursor: pointer;
-    padding: 0 1.2rem;
-    margin: 20px auto;
-    width: 140px;
-    text-align: center;
-    font-size: 1.65rem;
-    font-weight: 200;
-    border-radius: 20px;
-    background-color: var(--off-red);
-}
-.stashesOverview .stashstorage .newitemform .content .inputs .button:hover {
-    opacity: 0.92;
-}
-.stashesOverview .stashstorage .newitemform .content .inputs .form {
-    padding: 10px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 1em;
-}
-.stashesOverview .stashstorage .newitemform .content .inputs .form .form-field {
-    display: block;
-    margin: 5px 0px;
-    width: 100%;
-    padding: 8px 16px;
-    line-height: 25px;
-    font-size: 14px;
-    font-weight: 500;
-    font-family: inherit;
-    border-radius: 6px;
-    -webkit-appearance: none;
-    color: var(--input-color);
-    border: 1px solid var(--input-border);
-    background: var(--input-background);
-    transition: border 0.3s ease;
-}
-.stashesOverview .stashstorage .newitemform .content .inputs .form .form-field::placeholder {
-    color: var(--input-placeholder);
-}
-.stashesOverview .stashstorage .newitemform .content .inputs .form .form-field:focus {
-    outline: none;
-    border-color: var(--input-border-focus);
-}
-.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    margin: 5px 0;
-    grid-column-start: auto;
-    grid-row-start: auto;
-}
-.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .error {
-    padding: 0px 0px;
-    display: flex;
-    width: 100%;
-    align-items: center;
-    box-sizing: border-box;
-    overflow: hidden;
-    color: #c90303;
-    height: 0px;
-    transition: height 430ms, padding 430ms;
-    line-height: 1rem;
-}
-.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .error.show {
-    height: 45px;
-}
-.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .error.show svg {
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .sizes .size-box {
     width: 22px;
     height: 22px;
-    margin: 0px 5px;
+    margin: 1px 1px;
+    font-size: 0.74rem;
+  }
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .sizes .size-box.fill {
+  background-color: var(--off-red);
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .hearticon {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  display: grid;
+  place-items: center;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .hearticon svg {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  color: #333;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .hearticon svg:hover {
+  fill: red;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .hearticon-filledHeart svg {
+  fill: red;
+}
+@media screen and (max-width: 420px) {
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .hearticon {
+    width: 27px;
+    height: 27px;
+    top: 5px;
+    right: 5px;
+    display: grid;
+  }
+}
+.stashesOverview .stashstorage .newitemform {
+  width: 100vw;
+  height: 750px;
+  padding: 20px;
+  position: relative;
+  background-color: white;
+  font-family: var(--font-display);
+}
+.stashesOverview .stashstorage .newitemform .content {
+  height: 90%;
+  display: grid;
+  grid-template-columns: 0.35fr 0.65fr;
+  --input-color: #99a3ba;
+  --input-border: #cdd9ed;
+  --input-background: #fff;
+  --input-placeholder: #cbd1dc;
+  --input-border-focus: var(--off-red);
+  --group-color: var(--input-color);
+  --group-border: var(--input-border);
+  --group-background: #eef4ff;
+  --group-color-focus: #fff;
+  --group-border-focus: var(--input-border-focus);
+  --group-background-focus: var(--off-red);
+}
+.stashesOverview .stashstorage .newitemform .content .inputs {
+  width: 90%;
+  margin: 0px auto;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .button {
+  cursor: pointer;
+  padding: 0 1.2rem;
+  margin: 20px auto;
+  width: 140px;
+  text-align: center;
+  font-size: 1.65rem;
+  font-weight: 200;
+  border-radius: 20px;
+  background-color: var(--off-red);
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .button:hover {
+  opacity: 0.92;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1em;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-field {
+  display: block;
+  margin: 5px 0px;
+  width: 100%;
+  padding: 8px 16px;
+  line-height: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  border-radius: 6px;
+  -webkit-appearance: none;
+  color: var(--input-color);
+  border: 1px solid var(--input-border);
+  background: var(--input-background);
+  transition: border 0.3s ease;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-field::placeholder {
+  color: var(--input-placeholder);
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-field:focus {
+  outline: none;
+  border-color: var(--input-border-focus);
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 5px 0;
+  grid-column-start: auto;
+  grid-row-start: auto;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .error {
+  padding: 0px 0px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: #c90303;
+  height: 0px;
+  transition: height 430ms, padding 430ms;
+  line-height: 1rem;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .error.show {
+  height: 45px;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .error.show svg {
+  width: 22px;
+  height: 22px;
+  margin: 0px 5px;
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group.wideForm {
-    grid-column-end: span 2;
+  grid-column-end: span 2;
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group > span,
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .form-field {
-    white-space: nowrap;
-    display: block;
-    max-height: 46px;
+  white-space: nowrap;
+  display: block;
+  max-height: 46px;
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group > span:not(:first-child):not(:last-child),
-.stashesOverview
-    .stashstorage
-    .newitemform
-    .content
-    .inputs
-    .form
-    .form-group
-    .form-field:not(:first-child):not(:last-child) {
-    border-radius: 0 6px 6px 0;
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .form-field:not(:first-child):not(:last-child) {
+  border-radius: 0 6px 6px 0;
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group > span:first-child,
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .form-field:first-child {
-    border-radius: 6px 0 0 6px;
+  border-radius: 6px 0 0 6px;
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group > span:last-child,
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .form-field:last-child {
-    border-radius: 0px 6px 6px 0;
+  border-radius: 0px 6px 6px 0;
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group > span:not(:first-child),
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .form-field:not(:first-child) {
-    margin-left: -1px;
+  margin-left: -1px;
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .form-field {
-    position: relative;
-    z-index: 1;
-    flex: 1 1 auto;
-    width: 1%;
-    margin-top: 0;
-    margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  width: 1%;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group > span {
-    text-align: center;
-    padding: 8px 12px;
-    font-size: 14px;
-    line-height: 25px;
-    color: var(--group-color);
-    background: var(--group-background);
-    border: 1px solid var(--group-border);
-    transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
+  text-align: center;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 25px;
+  color: var(--group-color);
+  background: var(--group-background);
+  border: 1px solid var(--group-border);
+  transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group:focus-within > span {
-    color: var(--group-color-focus);
-    background: var(--group-background-focus);
-    border-color: var(--group-border-focus);
+  color: var(--group-color-focus);
+  background: var(--group-background-focus);
+  border-color: var(--group-border-focus);
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container {
-    position: relative;
-    padding-left: 12px;
-    display: flex;
+  position: relative;
+  padding-left: 12px;
+  display: flex;
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box {
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
-    display: block;
-    margin: 0 4px;
-    width: 31px;
-    height: 31px;
-    border: solid 1px black;
-    border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  margin: 0 4px;
+  width: 31px;
+  height: 31px;
+  border: solid 1px black;
+  border-radius: 8px;
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box input {
-    width: 100%;
-    position: absolute;
-    height: 100%;
-    border: none;
-    outline: none;
-    opacity: 0;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  border: none;
+  outline: none;
+  opacity: 0;
 }
-.stashesOverview
-    .stashstorage
-    .newitemform
-    .content
-    .inputs
-    .form
-    .form-group
-    .sizes-container
-    .size-box
-    input:checked
-    + label:after {
-    transform: translate(0%, 0%);
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box input:checked + label:after {
+  transform: translate(0%, 0%);
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box label {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-    position: absolute;
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: #333;
-    font-family: var(--font-display);
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  position: absolute;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #333;
+  font-family: var(--font-display);
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box label:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    border: none;
-    outline: none;
-    z-index: -1;
-    transform: translate(-100%, 0%);
-    background-color: var(--off-red);
-    transition: 300ms ease-in-out;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  z-index: -1;
+  transform: translate(-100%, 0%);
+  background-color: var(--off-red);
+  transition: 300ms ease-in-out;
 }
 .stashesOverview .stashstorage .newitemform .content .gallery {
-    padding: 12px;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    row-gap: 0.5em;
-    column-gap: 0.5em;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  row-gap: 0.5em;
+  column-gap: 0.5em;
 }
 .stashesOverview .stashstorage .newitemform .content .gallery .image {
-    position: relative;
-    grid-column-start: auto;
-    grid-row-start: auto;
-    background: url('https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F3a%2Ff8%2F3af8a9d35e804a3ce64591f3fcb743d12072fb5a.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_hoodiessweatshirts_hoodies%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]');
-    background-position: center;
-    background-size: cover;
-    transition: transform 300ms ease-in-out;
+  position: relative;
+  grid-column-start: auto;
+  grid-row-start: auto;
+  background: url("https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F3a%2Ff8%2F3af8a9d35e804a3ce64591f3fcb743d12072fb5a.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_hoodiessweatshirts_hoodies%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]");
+  background-position: center;
+  background-size: cover;
+  transition: transform 300ms ease-in-out;
 }
-.stashesOverview .stashstorage .newitemform .content .gallery .image input[type='file'] {
-    display: none;
+.stashesOverview .stashstorage .newitemform .content .gallery .image input[type=file] {
+  display: none;
 }
 .stashesOverview .stashstorage .newitemform .content .gallery .image .textbox {
-    cursor: pointer;
-    z-index: 4;
-    background-color: var(--off-red);
-    padding: 5px;
-    width: 100%;
-    text-align: center;
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 300;
-    position: absolute;
-    bottom: 0px;
+  cursor: pointer;
+  z-index: 4;
+  background-color: var(--off-red);
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 300;
+  position: absolute;
+  bottom: 0px;
 }
 .stashesOverview .stashstorage .newitemform .content .gallery .image:after {
-    content: '';
-    transition: opacity 300ms ease-in-out;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0.15;
-    background-color: black;
+  content: "";
+  transition: opacity 300ms ease-in-out;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  background-color: black;
 }
-.stashesOverview .stashstorage .newitemform .content .gallery .image:hover,
-.stashesOverview .stashstorage .newitemform .content .gallery .image:active {
-    transform: scale(1.03);
+.stashesOverview .stashstorage .newitemform .content .gallery .image:hover, .stashesOverview .stashstorage .newitemform .content .gallery .image:active {
+  transform: scale(1.03);
 }
-.stashesOverview .stashstorage .newitemform .content .gallery .image:hover:after,
-.stashesOverview .stashstorage .newitemform .content .gallery .image:active:after {
-    opacity: 0;
+.stashesOverview .stashstorage .newitemform .content .gallery .image:hover:after, .stashesOverview .stashstorage .newitemform .content .gallery .image:active:after {
+  opacity: 0;
 }
 .stashesOverview .stashstorage .newitemform .content .gallery .image-small {
-    grid-row-end: span 10;
-    grid-column-end: span 4;
+  grid-row-end: span 10;
+  grid-column-end: span 4;
 }
 .stashesOverview .stashstorage .newitemform .content .gallery .image-flat {
-    grid-row-end: span 4;
-    grid-column-end: span 6;
+  grid-row-end: span 4;
+  grid-column-end: span 6;
 }
 .stashesOverview .stashstorage .newitemform .content .gallery .image-square {
-    grid-row-end: span 6;
-    grid-column-end: span 3;
+  grid-row-end: span 6;
+  grid-column-end: span 3;
 }
 .stashesOverview .stashstorage .newitemform .footer {
-    width: 100%;
-    height: 10%;
-    display: grid;
-    place-items: center;
-    padding: 0px 6px;
-    margin: 10px 0;
+  width: 100%;
+  height: 10%;
+  display: grid;
+  place-items: center;
+  padding: 0px 6px;
+  margin: 10px 0;
 }
 .stashesOverview .stashstorage .newitemform .footer .button {
-    cursor: pointer;
-    padding: 0 3rem;
-    font-size: 1.65rem;
-    font-weight: 200;
-    border-radius: 20px;
-    background-color: var(--off-red);
+  cursor: pointer;
+  padding: 0 3rem;
+  font-size: 1.65rem;
+  font-weight: 200;
+  border-radius: 20px;
+  background-color: var(--off-red);
 }
 .stashesOverview .stashstorage .newitemform .footer .button:hover {
-    opacity: 0.92;
+  opacity: 0.92;
 }
 .stashesOverview .stashesContainer {
-    width: 100%;
-    height: 100vh;
-    background: var(--main-white);
-    overflow-y: scroll;
+  width: 100%;
+  height: 100vh;
+  background: var(--main-white);
+  overflow-y: scroll;
 }
 .stashesOverview .stashesContainer .currentStashes {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    width: 90%;
-    border-radius: 12px;
-    margin: 30px auto;
-    padding: 35px 5px;
-    box-shadow: 0px 0px 20px var(--dark-blue);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 90%;
+  border-radius: 12px;
+  margin: 30px auto;
+  padding: 35px 5px;
+  box-shadow: 0px 0px 20px var(--dark-blue);
 }
 .stashesOverview .stashesContainer .currentStashes .stashcard {
-    margin: 10px 5px;
+  margin: 10px 5px;
 }
 .stashesOverview .dashboard {
-    width: 100%;
-    height: 100vh;
-    background-color: var(--dark-blue-light);
-    overflow-y: scroll;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--dark-blue-light);
+  overflow-y: scroll;
 }
 .stashesOverview .dashboard .analyticsheader {
-    width: 100%;
-    background-color: var(--dark-blue);
-    padding: 30px 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: var(--font-display);
+  width: 100%;
+  background-color: var(--dark-blue);
+  padding: 30px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-display);
 }
 .stashesOverview .dashboard .analyticsheader h2 {
-    font-size: 2.1rem;
-    font-weight: 300;
-    color: var(--analytics-text-color);
+  font-size: 2.1rem;
+  font-weight: 300;
+  color: var(--analytics-text-color);
 }
 .stashesOverview .dashboard .quickShowContainer {
-    width: 95%;
-    margin: 42px auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+  width: 95%;
+  margin: 42px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .stashesOverview .dashboard .quickShowContainer .quickShowItem {
-    width: 31%;
-    height: 140px;
-    color: var(--analytics-text-color);
-    background-color: var(--dark-blue);
-    box-shadow: 1px 1px 10px #181818;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    font-family: var(--font-display);
+  width: 31%;
+  height: 140px;
+  color: var(--analytics-text-color);
+  background-color: var(--dark-blue);
+  box-shadow: 1px 1px 10px #181818;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: var(--font-display);
 }
 .stashesOverview .dashboard .quickShowContainer .quickShowItem .quickShowItem-text h4 {
-    font-weight: 600;
-    font-size: 1.2rem;
-    color: inherit;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: inherit;
 }
 .stashesOverview .dashboard .quickShowContainer .quickShowItem .quickShowItem-text p {
-    opacity: 0.7;
-    font-size: 1rem;
-    color: inherit;
+  opacity: 0.7;
+  font-size: 1rem;
+  color: inherit;
 }
 .stashesOverview .dashboard .quickShowContainer .quickShowItem .quickShowItem-icon {
-    width: 75px;
-    height: 75px;
-    display: grid;
-    border-radius: 50%;
-    border: solid 1px var(--off-red);
-    place-items: center;
+  width: 75px;
+  height: 75px;
+  display: grid;
+  border-radius: 50%;
+  border: solid 1px var(--off-red);
+  place-items: center;
 }
 .stashesOverview .dashboard .quickShowContainer .quickShowItem .quickShowItem-icon svg {
-    width: auto;
-    height: 50%;
-    color: var(--off-red);
+  width: auto;
+  height: 50%;
+  color: var(--off-red);
 }
 .stashesOverview .dashboard .quickShowContainer .quickShowItem .quickShowItem-icon svg:nth-child(2) {
-    color: #45ffff;
+  color: #45ffff;
 }
 .stashesOverview .dashboard .quickShowContainer .quickShowItem:nth-child(2) .quickShowItem-icon {
-    border-color: #45ffff;
+  border-color: #45ffff;
 }
 .stashesOverview .dashboard .quickShowContainer .quickShowItem:nth-child(2) .quickShowItem-icon svg {
-    color: #45ffff;
+  color: #45ffff;
 }
 .stashesOverview .dashboard .quickShowContainer .quickShowItem:nth-child(3) .quickShowItem-icon {
-    border-color: #ff23f0;
+  border-color: #ff23f0;
 }
 .stashesOverview .dashboard .quickShowContainer .quickShowItem:nth-child(3) .quickShowItem-icon svg {
-    color: #ff23f0;
+  color: #ff23f0;
 }
 .stashesOverview .dashboard .quickShowContainer .quickShowItem .quickShowItem-graph {
-    padding-left: 5px;
-    display: grid;
-    place-items: center;
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 300;
-    color: #30ee00;
-    border-left: solid 1px #30ee00;
+  padding-left: 5px;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: #30ee00;
+  border-left: solid 1px #30ee00;
 }
 .stashesOverview .dashboard .quickShowContainer .quickShowItem .red {
-    color: #ee0000;
-    border-left: solid 1px #ee0000;
+  color: #ee0000;
+  border-left: solid 1px #ee0000;
 }
 .stashesOverview .dashboard .analytics-graph {
-    width: 95%;
-    height: 400px;
-    margin: 0 auto;
-    background-color: var(--dark-blue);
-    position: relative;
-    color: #ff00002d;
-    box-shadow: 0px 0px 8px #070707;
+  width: 95%;
+  height: 400px;
+  margin: 0 auto;
+  background-color: var(--dark-blue);
+  position: relative;
+  color: #ff00002d;
+  box-shadow: 0px 0px 8px #070707;
+}
+
+.stashesOverview {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+.stashesOverview .sidebar {
+  height: 100vh;
+  background-color: var(--dark-blue);
+  flex: 0.1;
+  position: sticky;
+  left: 0;
+  top: 0;
+}
+.stashesOverview .sidebar .sidebar-logo {
+  cursor: pointer;
+  padding: 1.2rem;
+  color: var(--off-red);
+  font-size: 2.7rem;
+  font-family: var(--font-logo);
+  font-weight: 900;
+  text-align: center;
+}
+.stashesOverview .sidebar .sidebar-option {
+  cursor: pointer;
+  padding: 0.3rem 0.7rem;
+  display: flex;
+  align-items: center;
+  margin: 12px 0px;
+  font-size: 1.3rem;
+  font-weight: 300;
+  font-family: var(--font-display);
+  color: var(--main-white);
+  transition: background-color 100ms;
+}
+.stashesOverview .sidebar .sidebar-option svg {
+  font-size: 1.5rem;
+  margin-right: 12px;
+  color: var(--main-white);
+}
+.stashesOverview .sidebar .sidebar-option:hover {
+  opacity: 0.9;
+  color: var(--off-red);
+}
+.stashesOverview .sidebar .sidebar-option:hover svg {
+  color: var(--off-red);
+}
+.stashesOverview .stashstorage {
+  flex: 1;
+  min-height: 100vh;
+}
+.stashesOverview .stashstorage .filterform {
+  position: sticky;
+  cursor: alias;
+  top: 15px;
+  width: 84%;
+  height: 90px;
+  margin: 32px auto;
+  padding: 0.8rem;
+  background-color: #fbf9f9;
+  z-index: 3;
+  box-shadow: 0px 0px 5px black;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+}
+@media screen and (max-width: 1080px) {
+  .stashesOverview .stashstorage .filterform {
+    background-color: red;
+  }
+}
+.stashesOverview .stashstorage .filterform select {
+  cursor: pointer;
+  width: 230px;
+  background-color: #dbdbec;
+  padding: 0.3rem 0.4rem;
+  font-size: 1.4rem;
+  font-family: var(--font-display);
+}
+.stashesOverview .stashstorage .filterform select option .option {
+  width: 100%;
+  padding: 6rem;
+}
+.stashesOverview .stashstorage .filterform .addnewitem {
+  cursor: cursor;
+  font-size: 1.8rem;
+  padding: 0.3rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  background-color: var(--off-red);
+}
+.stashesOverview .stashstorage .storage-itemsContainer {
+  margin: 0 auto;
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 10px 0px;
+  row-gap: 1.49em;
+  column-gap: 1.5em;
+}
+@media screen and (max-width: 1080px) {
+  .stashesOverview .stashstorage .storage-itemsContainer {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1em;
+    column-gap: 0.4em;
+  }
+}
+@media screen and (max-width: 420px) {
+  .stashesOverview .stashstorage .storage-itemsContainer {
+    width: 93%;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 0.7em;
+    column-gap: 0.4em;
+  }
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem {
+  width: 100%;
+  min-height: 480px;
+  position: relative;
+}
+@media screen and (max-width: 1080px) {
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem {
+    min-height: 430px;
+  }
+}
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem {
+    min-height: 390px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem {
+    min-height: 320px;
+  }
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-image {
+  cursor: pointer;
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+}
+@media screen and (max-width: 1080px) {
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-image {
+    height: 310px;
+  }
+}
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-image {
+    height: 240px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-image {
+    height: 210px;
+  }
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .details {
+  padding: 10px 0px;
+  font-family: var(--font-display);
+}
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details {
+    padding: 5px 0px;
+  }
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .name {
+  cursor: pointer;
+  padding-bottom: 9px;
+  line-height: 1rem;
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .name {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 420px) {
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .name {
+    font-size: 0.94rem;
+  }
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .name:hover, .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .name:active, .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .name:focus {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .info {
+  border-style: dashed;
+  font-size: 1.05rem;
+  line-height: 1rem;
+  font-weight: 200;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-right: 10px;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .info span:nth-child(1) {
+  padding-right: 11px;
+}
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .info {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 420px) {
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .info {
+    font-size: 0.88rem;
+  }
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .sizes {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 8px;
+}
+@media screen and (max-width: 1080px) {
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .sizes {
+    padding-top: 6px;
+  }
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .sizes .size-box {
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  margin: 3px 3px;
+  width: 28px;
+  height: 28px;
+  border: solid 1px black;
+  border-radius: 7px;
+  font-family: var(--font-display);
+  color: #333;
+  font-weight: 200;
+  font-size: 0.9rem;
+}
+@media screen and (max-width: 1080px) {
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .sizes .size-box {
+    width: 25px;
+    height: 25px;
+    margin: 2px 2px;
+    font-size: 0.84rem;
+  }
+}
+@media screen and (max-width: 420px) {
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .sizes .size-box {
+    width: 22px;
+    height: 22px;
+    margin: 1px 1px;
+    font-size: 0.74rem;
+  }
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .sizes .size-box.fill {
+  background-color: var(--off-red);
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .hearticon {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  display: grid;
+  place-items: center;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .hearticon svg {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  color: #333;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .hearticon svg:hover {
+  fill: red;
+}
+.stashesOverview .stashstorage .storage-itemsContainer .storageitem .hearticon-filledHeart svg {
+  fill: red;
+}
+@media screen and (max-width: 420px) {
+  .stashesOverview .stashstorage .storage-itemsContainer .storageitem .hearticon {
+    width: 27px;
+    height: 27px;
+    top: 5px;
+    right: 5px;
+    display: grid;
+  }
+}
+.stashesOverview .stashstorage .newitemform {
+  width: 100vw;
+  height: 750px;
+  padding: 20px;
+  position: relative;
+  background-color: white;
+  font-family: var(--font-display);
+}
+.stashesOverview .stashstorage .newitemform .content {
+  height: 90%;
+  display: grid;
+  grid-template-columns: 0.35fr 0.65fr;
+  --input-color: #99a3ba;
+  --input-border: #cdd9ed;
+  --input-background: #fff;
+  --input-placeholder: #cbd1dc;
+  --input-border-focus: var(--off-red);
+  --group-color: var(--input-color);
+  --group-border: var(--input-border);
+  --group-background: #eef4ff;
+  --group-color-focus: #fff;
+  --group-border-focus: var(--input-border-focus);
+  --group-background-focus: var(--off-red);
+}
+.stashesOverview .stashstorage .newitemform .content .inputs {
+  width: 90%;
+  margin: 0px auto;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .button {
+  cursor: pointer;
+  padding: 0 1.2rem;
+  margin: 20px auto;
+  width: 140px;
+  text-align: center;
+  font-size: 1.65rem;
+  font-weight: 200;
+  border-radius: 20px;
+  background-color: var(--off-red);
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .button:hover {
+  opacity: 0.92;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1em;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-field {
+  display: block;
+  margin: 5px 0px;
+  width: 100%;
+  padding: 8px 16px;
+  line-height: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  border-radius: 6px;
+  -webkit-appearance: none;
+  color: var(--input-color);
+  border: 1px solid var(--input-border);
+  background: var(--input-background);
+  transition: border 0.3s ease;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-field::placeholder {
+  color: var(--input-placeholder);
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-field:focus {
+  outline: none;
+  border-color: var(--input-border-focus);
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 5px 0;
+  grid-column-start: auto;
+  grid-row-start: auto;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .error {
+  padding: 0px 0px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: #c90303;
+  height: 0px;
+  transition: height 430ms, padding 430ms;
+  line-height: 1rem;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .error.show {
+  height: 45px;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .error.show svg {
+  width: 22px;
+  height: 22px;
+  margin: 0px 5px;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group.wideForm {
+  grid-column-end: span 2;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group > span,
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .form-field {
+  white-space: nowrap;
+  display: block;
+  max-height: 46px;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group > span:not(:first-child):not(:last-child),
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .form-field:not(:first-child):not(:last-child) {
+  border-radius: 0 6px 6px 0;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group > span:first-child,
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .form-field:first-child {
+  border-radius: 6px 0 0 6px;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group > span:last-child,
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .form-field:last-child {
+  border-radius: 0px 6px 6px 0;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group > span:not(:first-child),
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .form-field:not(:first-child) {
+  margin-left: -1px;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .form-field {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  width: 1%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group > span {
+  text-align: center;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 25px;
+  color: var(--group-color);
+  background: var(--group-background);
+  border: 1px solid var(--group-border);
+  transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group:focus-within > span {
+  color: var(--group-color-focus);
+  background: var(--group-background-focus);
+  border-color: var(--group-border-focus);
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container {
+  position: relative;
+  padding-left: 12px;
+  display: flex;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box {
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  margin: 0 4px;
+  width: 31px;
+  height: 31px;
+  border: solid 1px black;
+  border-radius: 8px;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box input {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  border: none;
+  outline: none;
+  opacity: 0;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box input:checked + label:after {
+  transform: translate(0%, 0%);
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box label {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  position: absolute;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #333;
+  font-family: var(--font-display);
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box label:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  z-index: -1;
+  transform: translate(-100%, 0%);
+  background-color: var(--off-red);
+  transition: 300ms ease-in-out;
+}
+.stashesOverview .stashstorage .newitemform .content .gallery {
+  padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  row-gap: 0.5em;
+  column-gap: 0.5em;
+}
+.stashesOverview .stashstorage .newitemform .content .gallery .image {
+  position: relative;
+  grid-column-start: auto;
+  grid-row-start: auto;
+  background: url("https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F3a%2Ff8%2F3af8a9d35e804a3ce64591f3fcb743d12072fb5a.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_hoodiessweatshirts_hoodies%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]");
+  background-position: center;
+  background-size: cover;
+  transition: transform 300ms ease-in-out;
+}
+.stashesOverview .stashstorage .newitemform .content .gallery .image input[type=file] {
+  display: none;
+}
+.stashesOverview .stashstorage .newitemform .content .gallery .image .textbox {
+  cursor: pointer;
+  z-index: 4;
+  background-color: var(--off-red);
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 300;
+  position: absolute;
+  bottom: 0px;
+}
+.stashesOverview .stashstorage .newitemform .content .gallery .image:after {
+  content: "";
+  transition: opacity 300ms ease-in-out;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  background-color: black;
+}
+.stashesOverview .stashstorage .newitemform .content .gallery .image:hover, .stashesOverview .stashstorage .newitemform .content .gallery .image:active {
+  transform: scale(1.03);
+}
+.stashesOverview .stashstorage .newitemform .content .gallery .image:hover:after, .stashesOverview .stashstorage .newitemform .content .gallery .image:active:after {
+  opacity: 0;
+}
+.stashesOverview .stashstorage .newitemform .content .gallery .image-small {
+  grid-row-end: span 10;
+  grid-column-end: span 4;
+}
+.stashesOverview .stashstorage .newitemform .content .gallery .image-flat {
+  grid-row-end: span 4;
+  grid-column-end: span 6;
+}
+.stashesOverview .stashstorage .newitemform .content .gallery .image-square {
+  grid-row-end: span 6;
+  grid-column-end: span 3;
+}
+.stashesOverview .stashstorage .newitemform .footer {
+  width: 100%;
+  height: 10%;
+  display: grid;
+  place-items: center;
+  padding: 0px 6px;
+  margin: 10px 0;
+}
+.stashesOverview .stashstorage .newitemform .footer .button {
+  cursor: pointer;
+  padding: 0 3rem;
+  font-size: 1.65rem;
+  font-weight: 200;
+  border-radius: 20px;
+  background-color: var(--off-red);
+}
+.stashesOverview .stashstorage .newitemform .footer .button:hover {
+  opacity: 0.92;
+}
+.stashesOverview .stashesContainer {
+  width: 100%;
+  height: 100vh;
+  background: var(--main-white);
+  overflow-y: scroll;
+}
+.stashesOverview .stashesContainer .currentStashes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 90%;
+  border-radius: 12px;
+  margin: 30px auto;
+  padding: 35px 5px;
+  box-shadow: 0px 0px 20px var(--dark-blue);
+}
+.stashesOverview .stashesContainer .currentStashes .stashcard {
+  margin: 10px 5px;
+}
+.stashesOverview .dashboard {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--dark-blue-light);
+  overflow-y: scroll;
+}
+.stashesOverview .dashboard .analyticsheader {
+  width: 100%;
+  background-color: var(--dark-blue);
+  padding: 30px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-display);
+}
+.stashesOverview .dashboard .analyticsheader h2 {
+  font-size: 2.1rem;
+  font-weight: 300;
+  color: var(--analytics-text-color);
+}
+.stashesOverview .dashboard .quickShowContainer {
+  width: 95%;
+  margin: 42px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.stashesOverview .dashboard .quickShowContainer .quickShowItem {
+  width: 31%;
+  height: 140px;
+  color: var(--analytics-text-color);
+  background-color: var(--dark-blue);
+  box-shadow: 1px 1px 10px #181818;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: var(--font-display);
+}
+.stashesOverview .dashboard .quickShowContainer .quickShowItem .quickShowItem-text h4 {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: inherit;
+}
+.stashesOverview .dashboard .quickShowContainer .quickShowItem .quickShowItem-text p {
+  opacity: 0.7;
+  font-size: 1rem;
+  color: inherit;
+}
+.stashesOverview .dashboard .quickShowContainer .quickShowItem .quickShowItem-icon {
+  width: 75px;
+  height: 75px;
+  display: grid;
+  border-radius: 50%;
+  border: solid 1px var(--off-red);
+  place-items: center;
+}
+.stashesOverview .dashboard .quickShowContainer .quickShowItem .quickShowItem-icon svg {
+  width: auto;
+  height: 50%;
+  color: var(--off-red);
+}
+.stashesOverview .dashboard .quickShowContainer .quickShowItem .quickShowItem-icon svg:nth-child(2) {
+  color: #45ffff;
+}
+.stashesOverview .dashboard .quickShowContainer .quickShowItem:nth-child(2) .quickShowItem-icon {
+  border-color: #45ffff;
+}
+.stashesOverview .dashboard .quickShowContainer .quickShowItem:nth-child(2) .quickShowItem-icon svg {
+  color: #45ffff;
+}
+.stashesOverview .dashboard .quickShowContainer .quickShowItem:nth-child(3) .quickShowItem-icon {
+  border-color: #ff23f0;
+}
+.stashesOverview .dashboard .quickShowContainer .quickShowItem:nth-child(3) .quickShowItem-icon svg {
+  color: #ff23f0;
+}
+.stashesOverview .dashboard .quickShowContainer .quickShowItem .quickShowItem-graph {
+  padding-left: 5px;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: #30ee00;
+  border-left: solid 1px #30ee00;
+}
+.stashesOverview .dashboard .quickShowContainer .quickShowItem .red {
+  color: #ee0000;
+  border-left: solid 1px #ee0000;
+}
+.stashesOverview .dashboard .analytics-graph {
+  width: 95%;
+  height: 400px;
+  margin: 0 auto;
+  background-color: var(--dark-blue);
+  position: relative;
+  color: #ff00002d;
+  box-shadow: 0px 0px 8px #070707;
 }
 
 .logincontainer {
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    place-items: center;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
 }
 .logincontainer .login-btn {
-    width: 400px;
-    max-width: 85%;
-    padding: 20px;
-    height: 350px;
-    border: solid 1px black;
-    font-family: var(--font-logo);
-    text-align: center;
+  width: 400px;
+  max-width: 85%;
+  padding: 20px;
+  height: 350px;
+  border: solid 1px black;
+  font-family: var(--font-logo);
+  text-align: center;
 }
 .logincontainer .login-btn h3 {
-    color: var(--off-red);
-    font-weight: 300;
-    font-size: 1.7rem;
+  color: var(--off-red);
+  font-weight: 300;
+  font-size: 1.7rem;
 }
 .logincontainer .login-btn h4 {
-    font-weight: 100;
-    color: #333;
-    font-size: 0.9rem;
+  font-weight: 100;
+  color: #333;
+  font-size: 0.9rem;
 }
 .logincontainer .login-btn .btn {
-    cursor: pointer;
-    width: 80%;
-    height: 50px;
-    margin: 40px auto;
-    padding: 10px 40px;
-    font-weight: 300;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    border-radius: 1px;
-    background-color: #fff;
-    box-shadow: 0px 0px 4px black;
-    transition: background-color 300ms, color 300ms;
+  cursor: pointer;
+  width: 80%;
+  height: 50px;
+  margin: 40px auto;
+  padding: 10px 40px;
+  font-weight: 300;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  border-radius: 1px;
+  background-color: #fff;
+  box-shadow: 0px 0px 4px black;
+  transition: background-color 300ms, color 300ms;
 }
 .logincontainer .login-btn .btn svg {
-    width: 27px;
-    height: 27px;
-    transition: 300ms;
+  width: 27px;
+  height: 27px;
+  transition: 300ms;
 }
 .logincontainer .login-btn .btn:hover {
-    background-color: var(--off-red);
-    color: white;
+  background-color: var(--off-red);
+  color: white;
 }
 .logincontainer .login-btn .btn:hover svg {
-    color: white;
+  color: white;
 }
 
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-    box-sizing: border-box;
-    text-decoration: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
 :root {
-    --main-white: #0197f6;
-    --dark-blue: #02182b;
-    --dark-blue-light: #023150;
-    --off-red: #d7263d;
-    --text-color: black;
-    --font-logo: 'Titan One', cursive;
-    --font-display: 'Mukta', sans-serif;
+  --main-white: #0197f6;
+  --dark-blue: #02182b;
+  --dark-blue-light: #023150;
+  --off-red: #d7263d;
+  --text-color: black;
+  --font-logo: "Titan One", cursive;
+  --font-display: "Mukta", sans-serif;
 }
 
 body {
-    min-height: 100vh;
-    min-width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 body .App {
-    min-width: 100vw;
-    min-height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 body .loadingspinner {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 body .loadingspinner p {
-    padding: 2px;
-    font-size: 5rem;
-    font-family: var(--font-logo);
-    color: var(--dark-blue);
-    position: relative;
-    z-index: -1;
+  padding: 2px;
+  font-size: 5rem;
+  font-family: var(--font-logo);
+  color: var(--dark-blue);
+  position: relative;
+  z-index: -1;
 }
 body .loadingspinner-spinner {
-    position: absolute;
-    width: 351px;
-    height: 351px;
-    max-width: 90vw;
-    max-height: 90vw;
-    padding: 10px;
-    z-index: 999;
+  position: absolute;
+  width: 351px;
+  height: 351px;
+  max-width: 90vw;
+  max-height: 90vw;
+  padding: 10px;
+  z-index: 999;
 }
 body .loadingspinner-spinner .circle-line {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    position: absolute;
-    border-radius: 100%;
-    animation: rotate180 2000ms infinite;
-    border: 5px solid transparent;
-    border-top-color: var(--off-red);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  border-radius: 100%;
+  animation: rotate180 2000ms infinite;
+  border: 5px solid transparent;
+  border-top-color: var(--off-red);
 }
 body .loadingspinner-spinner .circle-line:nth-child(1) {
-    left: 0%;
-    top: 0%;
-    width: 100%;
-    height: 100%;
-    animation-delay: 0s;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  animation-delay: 0s;
 }
 body .loadingspinner-spinner .circle-line:nth-child(2) {
-    left: 10%;
-    top: 10%;
-    width: 80%;
-    height: 80%;
-    animation-delay: 0.4s;
+  left: 10%;
+  top: 10%;
+  width: 80%;
+  height: 80%;
+  animation-delay: 0.4s;
 }
 body .loadingspinner-spinner .circle-line:nth-child(3) {
-    left: 20%;
-    top: 20%;
-    width: 60%;
-    height: 60%;
-    animation-delay: 0.8s;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%;
+  animation-delay: 0.8s;
 }
 body .loadingspinner-spinner .circle-line:nth-child(4) {
-    left: 30%;
-    top: 30%;
-    width: 40%;
-    height: 40%;
-    animation-delay: 1.2s;
+  left: 30%;
+  top: 30%;
+  width: 40%;
+  height: 40%;
+  animation-delay: 1.2s;
 }
 body .loadingspinner-spinner .circle-line:nth-child(5) {
-    left: 40%;
-    top: 40%;
-    width: 20%;
-    height: 20%;
-    animation-delay: 1.6s;
+  left: 40%;
+  top: 40%;
+  width: 20%;
+  height: 20%;
+  animation-delay: 1.6s;
 }
 @keyframes rotate180 {
-    0% {
-        transform: rotate(0deg);
-    }
-    50% {
-        transform: rotate(180deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 body .stashcard {
-    margin: 0px 10px;
-    cursor: pointer;
-    width: 260px;
-    min-height: 380px;
-    border-radius: 3%;
-    background-color: var(--dark-blue);
-    box-shadow: 2px 2px 5px var(--off-red);
-    position: relative;
+  margin: 0px 10px;
+  cursor: pointer;
+  width: 260px;
+  min-height: 380px;
+  border-radius: 3%;
+  background-color: var(--dark-blue);
+  box-shadow: 2px 2px 5px var(--off-red);
+  position: relative;
 }
 body .stashcard .stashcard-image {
-    height: 185px;
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+  height: 185px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 body .stashcard .stashcard-info {
-    padding: 0.6rem 1rem;
-    font-family: var(--font-display);
+  padding: 0.6rem 1rem;
+  font-family: var(--font-display);
 }
 body .stashcard .stashcard-info .stashcard-header {
-    font-size: 1.7rem;
-    font-weight: 500;
-    color: var(--off-red);
-    margin-bottom: 13px;
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--off-red);
+  margin-bottom: 13px;
 }
 body .stashcard .stashcard-info p {
-    margin: 3px 0px;
-    padding: 0.1rem 0;
-    letter-spacing: 2px;
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: var(--main-white);
+  margin: 3px 0px;
+  padding: 0.1rem 0;
+  letter-spacing: 2px;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--main-white);
 }
 body .stashcard .stashcard-info p span {
-    color: var(--off-red);
-    text-shadow: 0px 0px 0px var(--off-red);
+  color: var(--off-red);
+  text-shadow: 0px 0px 0px var(--off-red);
 }
 body .stashcard .stashcard-CreateNew {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
 }
 body .stashcard .stashcard-CreateNew .stashcard-Circle {
-    width: 82px;
-    height: 82px;
-    border-radius: 50%;
-    background-color: var(--off-red);
-    position: relative;
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background-color: var(--off-red);
+  position: relative;
 }
 body .stashcard .stashcard-CreateNew .stashcard-Circle div {
-    width: 47px;
-    height: 6px;
-    border-radius: 5px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--dark-blue);
+  width: 47px;
+  height: 6px;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--dark-blue);
 }
 body .stashcard .stashcard-CreateNew .stashcard-Circle div:nth-child(1) {
-    transform: translate(-50%, -50%) rotate(90deg);
+  transform: translate(-50%, -50%) rotate(90deg);
 }
 body .stashcard .stashcard-CreateNew p {
-    padding-top: 10px;
-    color: var(--off-red);
-    font-size: 1.2rem;
-    font-family: var(--font-display);
-    font-weight: 300;
+  padding-top: 10px;
+  color: var(--off-red);
+  font-size: 1.2rem;
+  font-family: var(--font-display);
+  font-weight: 300;
 }
 
 /*# sourceMappingURL=global.css.map */
