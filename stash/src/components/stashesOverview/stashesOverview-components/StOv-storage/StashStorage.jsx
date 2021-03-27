@@ -5,6 +5,7 @@ import 'firebase/firestore'
 import 'firebase/auth'
 import { auth } from '../../../../App'
 import { firestore } from '../../../../App'
+import '../../../../global.css'
 
 import StorageItem from './StorageItem'
 import CreateNewItem from './CreateNewItem'
@@ -13,7 +14,7 @@ import LoadingSpinner from '../../../LoadingSpinner'
 
 function StashStorage() {
     const [fetchedData, setFetchedData] = useState(null)
-    const ref = firestore.collection('users')
+    const ref = firestore.collection('users').doc('eKQXvbnl8OQ4Fq4b3rfV').collection('products')
 
     const getItems = () => {
         setLoading(true)
@@ -21,24 +22,30 @@ function StashStorage() {
             const dummyItems = []
             querySnapshot.forEach((doc) => {
                 dummyItems.push(doc.data())
+                console.log(doc.data())
             })
             setFetchedData(dummyItems)
             console.log(fetchedData)
-            setLoading(false)
         })
     }
     useEffect(() => {
-        getItems()
-        console.log(fetchedData)
+        const dummyFunc = () => {
+            getItems()
+            console.log(fetchedData)
+            setLoadedItems(
+                fetchedData?.map((item) => {
+                    return <StorageItem itemName={item.name} />
+                })
+            )
+            console.log(fetchedData)
+            setLoading(false)
+        }
+        dummyFunc()
     }, [])
 
     const [loading, setLoading] = useState(false)
     const [loadedItems, setLoadedItems] = useState([<StorageItem />, <StorageItem />])
     const [toggleCreateNewItem, setToggleCreateNewItem] = useState(false)
-
-    setTimeout(() => {
-        setLoading(false)
-    }, 1200)
 
     return (
         <div className='stashstorage'>
@@ -58,7 +65,8 @@ function StashStorage() {
                         setItems={setLoadedItems}
                     />
                     {/* the items */}
-                    <div className='storage-itemsContainer'>{loadedItems && loadedItems}</div>
+                    <div className={'storage-itemsContainer'}>{loadedItems && loadedItems}</div>
+                    <StorageItem />
                 </>
             )}
         </div>

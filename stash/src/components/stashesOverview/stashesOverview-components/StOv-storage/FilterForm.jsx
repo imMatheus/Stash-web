@@ -58,31 +58,24 @@ function FilterForm({ items, setItems, setToggleCreateNewItem, toggleCreateNewIt
     }
     */
     const addItemHandler = () => {
-        // setItems(
-        //     [
-        //         <StorageItem
-        //             itemName={Math.floor(Math.random() * 200 + 1000)}
-        //             itemPrice={99}
-        //         />,
-        //     ].concat(items)
-        //     // concating so that the new item is first in the list
-        // )
         setToggleCreateNewItem(!toggleCreateNewItem)
     }
     return (
-        // <div className='filterform'>
-        //     <select name='sortBy' id='storage-sortBy'>
-        //         <option value='standard'>Sort by</option>
-        //         <option value='cheap'>Lowest price</option>
-        //         <option value='expensive'>Highest Price</option>
-        //     </select>
-        //     <div className='addnewitem' onClick={addItemHandler}>
-        //         Add new item
-        //     </div>
-        // </div>
-        <div className='addnewitem' onClick={addItemHandler}>
-            Add new item
-        </div>
+        <>
+            <div className='filterform'>
+                <select name='sortBy' id='storage-sortBy'>
+                    <option value='standard'>Sort by</option>
+                    <option value='cheap'>Lowest price</option>
+                    <option value='expensive'>Highest Price</option>
+                </select>
+                <div className='addnewitem' onClick={addItemHandler}>
+                    Add new item
+                </div>
+            </div>
+            <div className='addnewitem' onClick={addItemHandler}>
+                Add new item
+            </div>
+        </>
     )
 }
 
