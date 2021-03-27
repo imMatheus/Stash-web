@@ -3,6 +3,7 @@
 // @import './components/navbar/navbar';
 //stashesOverview
 @import './components/stashesOverview/stashesOverview';
+@import './components/login';
 
 //sass --watch src/global.scss:src/global.css
 
@@ -75,11 +76,16 @@
 
 body {
     min-height: 100vh;
+    min-width: 100vw;
 
+    .App {
+        min-width: 100vw;
+        min-height: 100vh;
+    }
     //the genarl stash loading spinner
     & .loadingspinner {
         width: 100%;
-        height: 100%;
+        height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
