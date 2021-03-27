@@ -6,9 +6,8 @@ function FilterForm({ items, setItems, setToggleCreateNewItem, toggleCreateNewIt
         if (items) {
             let itemsArray = []
             items.map((item) => {
-                return itemsArray.push(item)
+                return itemsArray.push(item.props)
             })
-            console.log(items)
 
             const quicksort = (testArr) => {
                 let array = testArr
@@ -22,9 +21,13 @@ function FilterForm({ items, setItems, setToggleCreateNewItem, toggleCreateNewIt
 
                 for (var i = 1; i < array.length; i++) {
                     if (e.target.value === 'cheap') {
-                        array[i]?.price < pivot?.price ? left.push(array[i]) : right.push(array[i])
+                        parseInt(array[i]?.itemPrice) < parseInt(pivot?.itemPrice)
+                            ? left.push(array[i])
+                            : right.push(array[i])
                     } else if (e.target.value === 'expensive') {
-                        array[i]?.price > pivot?.price ? left.push(array[i]) : right.push(array[i])
+                        parseInt(array[i]?.itemPrice) > parseInt(pivot?.itemPrice)
+                            ? left.push(array[i])
+                            : right.push(array[i])
                     }
                 }
 
@@ -36,21 +39,23 @@ function FilterForm({ items, setItems, setToggleCreateNewItem, toggleCreateNewIt
                 console.log(itemsArray)
             }
 
-            // updateing the loaded elements to be in order
-            // setItems(
-            //     itemsArray &&
-            //         itemsArray.map((item) => {
-            //             return (
-            //                 <StorageItem
-            //                     key={item.id}
-            //                     // itemModelImage={item.image}
-            //                     itemName={item.title}
-            //                     itemPrice={item.price}
-            //                     itemsInStore={item.id}
-            //                 />
-            //             )
-            //         })
-            // )
+            //updateing the loaded elements to be in order
+            setItems(
+                itemsArray &&
+                    itemsArray.map((item) => {
+                        return (
+                            <StorageItem
+                                key={item.id}
+                                itemModelImage={item.itemModelImage}
+                                itemProductImage={item.itemProductImage}
+                                itemName={item.itemName}
+                                itemPrice={item.itemPrice}
+                                itemsInStore={item.itemsInStore}
+                                updateToogler={setToggleCreateNewItem}
+                            />
+                        )
+                    })
+            )
         }
     }
 

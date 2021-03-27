@@ -18,6 +18,8 @@ function StashStorage() {
     const emailRef = user.email
     const usersRef = firestore.collection('users')
 
+    const [currentId, setCurrentId] = useState(null)
+
     useEffect(() => {
         usersRef.doc(emailRef).set({
             email: emailRef,
@@ -48,20 +50,24 @@ function StashStorage() {
         ref.onSnapshot((querySnapshot) => {
             const dummyItems = []
             querySnapshot.forEach((doc) => {
-                dummyItems.push(doc.data())
+                dummyItems.push([doc.data(), doc.Df.key.path.segments[8]])
             })
+
             setLoadedItems(
                 dummyItems?.map((item) => {
-                    if (item.name !== undefined) {
+                    if (item[0].name !== undefined) {
                         return (
                             <StorageItem
-                                key={Math.floor(Math.random() * 99999)}
-                                itemsInStore={item.inStore}
-                                itemPrice={item.price}
-                                itemName={item.name}
-                                itemSizes={item.itemSizes}
-                                itemModelImage={item.modelImg}
-                                itemProductImage={item.productImg}
+                                key={item[1]}
+                                firebaseId={item[1]}
+                                setCurrent={setCurrentId}
+                                itemsInStore={item[0].inStore}
+                                itemPrice={item[0].price}
+                                itemName={item[0].name}
+                                itemSizes={item[0].itemSizes}
+                                itemModelImage={item[0].modelImg}
+                                itemProductImage={item[0].productImg}
+                                updateToogler={setToggleCreateNewItem}
                             />
                         )
                     }
@@ -75,29 +81,25 @@ function StashStorage() {
     }, [])
 
     const [loading, setLoading] = useState(false)
-    const [loadedItems, setLoadedItems] = useState([<StorageItem />, <StorageItem />])
+    const [loadedItems, setLoadedItems] = useState(null)
     const [toggleCreateNewItem, setToggleCreateNewItem] = useState(false)
 
-    const signOutHandler = () => {
-        auth.signOut()
-        firebase
-            .firestore()
-            .clearPersistence()
-            .catch((error) => {
-                console.error('Could not enable persistence:', error.code)
-            })
-    }
     return (
         <div className='stashstorage'>
             {toggleCreateNewItem ? (
-                <CreateNewItem setToogler={setToggleCreateNewItem} items={loadedItems} setItems={setLoadedItems} />
+                <CreateNewItem
+                    emailRef={emailRef}
+                    setToogler={setToggleCreateNewItem}
+                    itemId={currentId}
+                    items={loadedItems}
+                    setItems={setLoadedItems}
+                />
             ) : loading ? (
                 // if we dont have our items show loading spinner
                 <LoadingSpinner />
             ) : (
                 // else show the items
                 <>
-                    {auth.currentUser && <button onClick={signOutHandler}>Sign Out</button>}
                     <FilterForm
                         setToggleCreateNewItem={setToggleCreateNewItem}
                         toggleCreateNewItem={toggleCreateNewItem}

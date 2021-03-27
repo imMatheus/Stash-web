@@ -4,30 +4,45 @@ import firebase from 'firebase'
 import 'firebase/firestore'
 import { firestore } from '../../../../App'
 
-function CreateNewItem({ items, setItems, setToogler }) {
+function CreateNewItem({ itemId, setToogler, emailRef }) {
     var currentUser = firebase.auth().currentUser
-    const emailRef = currentUser.email
     const ref = firestore.collection('users').doc(emailRef).collection('products')
+    var currentItem
 
     const url =
         'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fd5%2F58%2Fd558d5eff3e0de84c68b909af2c7da91f4f545d7.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_hoodiessweatshirts_hoodies%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]'
-    const [modelImg, setModelImg] = useState(url)
+    const [modelImg, setModelImg] = useState(currentItem?.modelImg || url)
     const [secondModelImg, setSecondModelImg] = useState(url)
     const [CloseUpImg, setCloseUpImg] = useState(url)
-    const [productImg, setProductImg] = useState(url)
-    const [name, setName] = useState('')
-    const [price, setPrice] = useState('')
-    const [itemsInStore, setItemsInStore] = useState('')
-    const [itemSizes, setitemSizes] = useState([
-        { size: 'xxs', inStore: false },
-        { size: 'xs', inStore: false },
-        { size: 's', inStore: false },
-        { size: 'm', inStore: false },
-        { size: 'l', inStore: false },
-        { size: 'xl', inStore: false },
-        { size: 'xxl', inStore: false },
-    ])
+    const [productImg, setProductImg] = useState(currentItem?.productImg || url)
+    const [name, setName] = useState(currentItem?.name || '')
+    const [price, setPrice] = useState(currentItem?.price || '')
+    const [itemsInStore, setItemsInStore] = useState(currentItem?.inStore || '')
+    const [itemSizes, setitemSizes] = useState(
+        currentItem?.sizes || [
+            { size: 'xxs', inStore: false },
+            { size: 'xs', inStore: false },
+            { size: 's', inStore: false },
+            { size: 'm', inStore: false },
+            { size: 'l', inStore: false },
+            { size: 'xl', inStore: false },
+            { size: 'xxl', inStore: false },
+        ]
+    )
+    if (itemId) {
+        const docRef = firestore.collection('users').doc(emailRef).collection('products').doc(itemId)
+        docRef.get().then((doc) => {
+            currentItem = doc.data()
+            console.log(currentItem.price)
+        })
 
+        setModelImg(currentItem.modelImg)
+        setProductImg(currentItem.productImg)
+        setName(currentItem.name)
+        setPrice(currentItem.price)
+        itemsInStore(currentItem.inStore)
+        setItemsInStore(currentItem.inStore)
+    }
     const [nameError, setNameError] = useState({ show: false, msg: '' })
     const [priceError, setPriceError] = useState({ show: false, msg: '' })
     const [itemsInStoreError, setItemsInStoreError] = useState({ show: false, msg: '' })

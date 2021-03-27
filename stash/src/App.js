@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import StashesOverview from './components/stashesOverview/StashesOverview'
 import LoadingSpinner from './components/LoadingSpinner'
 import './global.css'
@@ -27,7 +27,44 @@ export const products = firestore.collection('users')
 const App = () => {
     const [user, loading] = useAuthState(auth)
 
-    return <>{loading ? <LoadingSpinner /> : <div className='App'>{user ? <StashesOverview /> : <Login />}</div>}</>
+    const signOutHandler = () => {
+        auth.signOut()
+        firebase
+            .firestore()
+            .clearPersistence()
+            .catch((error) => {
+                console.error('Could not enable persistence:', error.code)
+            })
+    }
+    return (
+        <>
+            {loading ? (
+                <LoadingSpinner />
+            ) : (
+                <div className='App'>
+                    {user ? (
+                        <>
+                            <div className='navbar'>
+                                <h2>STASH</h2>
+                                <div className='user'>
+                                    <div className='circle' style={{ backgroundImage: `url(${user.photoURL})` }}></div>
+                                    <h3>Welcome {user.displayName}</h3>
+                                    {auth.currentUser && (
+                                        <button className='btn' onClick={signOutHandler}>
+                                            Sign Out
+                                        </button>
+                                    )}
+                                </div>
+                            </div>{' '}
+                            <StashesOverview />
+                        </>
+                    ) : (
+                        <Login />
+                    )}
+                </div>
+            )}
+        </>
+    )
 }
 
 function Login() {

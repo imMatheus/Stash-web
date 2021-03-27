@@ -83,6 +83,64 @@ body {
     .App {
         min-width: 100vw;
         min-height: 100vh;
+
+        & .navbar {
+            padding: 0 2rem;
+            min-height: 126px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: var(--off-red);
+
+            position: relative;
+
+            & h2 {
+                font-size: 2.3rem;
+                font-weight: 300;
+                font-family: var(--font-logo);
+            }
+
+            & .user {
+                // width: 180px;
+                padding: 0.4rem 0.7rem;
+                height: 100%;
+                position: absolute;
+                left: 2rem;
+                top: 0;
+                color: var(--off-red);
+                display: grid;
+                place-items: center;
+                font-size: 1.2rem;
+                font-family: var(--font-display);
+
+                & .circle {
+                    width: 46px;
+                    height: 46px;
+                    border-radius: 50%;
+                    display: block;
+                    background-position: center;
+                    background-size: cover;
+                }
+
+                & .btn {
+                    cursor: pointer;
+                    padding: 0.2rem 0.5rem;
+                    font-size: 1.12rem;
+                    background: var(--off-red);
+                    color: #333;
+                    font-weight: 100;
+                    transition: background 300ms, color 300ms;
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        background: #333;
+                        color: var(--off-red);
+                    }
+                }
+            }
+        }
     }
     //the genarl stash loading spinner
     & .loadingspinner {

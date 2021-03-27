@@ -90,6 +90,7 @@
 .stashesOverview .stashstorage .storage-itemsContainer {
   margin: 0 auto;
   width: 90%;
+  max-width: 1800px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding: 10px 0px;
@@ -167,6 +168,7 @@
   line-height: 1rem;
   font-weight: 400;
   font-size: 1.1rem;
+  word-break: break-all;
 }
 @media screen and (max-width: 710px) {
   .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .name {
@@ -772,6 +774,7 @@
 .stashesOverview .stashstorage .storage-itemsContainer {
   margin: 0 auto;
   width: 90%;
+  max-width: 1800px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding: 10px 0px;
@@ -849,6 +852,7 @@
   line-height: 1rem;
   font-weight: 400;
   font-size: 1.1rem;
+  word-break: break-all;
 }
 @media screen and (max-width: 710px) {
   .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .name {
@@ -1446,6 +1450,53 @@ body {
 body .App {
   min-width: 100vw;
   min-height: 100vh;
+}
+body .App .navbar {
+  padding: 0 2rem;
+  min-height: 126px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--off-red);
+  position: relative;
+}
+body .App .navbar h2 {
+  font-size: 2.3rem;
+  font-weight: 300;
+  font-family: var(--font-logo);
+}
+body .App .navbar .user {
+  padding: 0.4rem 0.7rem;
+  height: 100%;
+  position: absolute;
+  left: 2rem;
+  top: 0;
+  color: var(--off-red);
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  font-family: var(--font-display);
+}
+body .App .navbar .user .circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: block;
+  background-position: center;
+  background-size: cover;
+}
+body .App .navbar .user .btn {
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  font-size: 1.12rem;
+  background: var(--off-red);
+  color: #333;
+  font-weight: 100;
+  transition: background 300ms, color 300ms;
+}
+body .App .navbar .user .btn:hover, body .App .navbar .user .btn:focus, body .App .navbar .user .btn:active {
+  background: #333;
+  color: var(--off-red);
 }
 body .loadingspinner {
   width: 100%;

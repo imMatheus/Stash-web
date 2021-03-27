@@ -5,19 +5,34 @@ import background2 from '../../../../images/hmgoepprod.jpeg'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 
-function StorageItem({ itemModelImage, itemProductImage, itemName, itemsInStore, itemPrice, itemSizes, updateToogler }) {
+function StorageItem({
+    firebaseId,
+    setCurrent,
+    itemModelImage,
+    itemProductImage,
+    itemName,
+    itemsInStore,
+    itemPrice,
+    itemSizes,
+    updateToogler,
+}) {
     const [heartFilled, setHeartFilled] = useState(false)
 
     itemModelImage = itemModelImage || background2
     itemProductImage = itemProductImage || background1
-    itemName = itemName || 'Huvudtröja med tryck '
-    itemsInStore = itemsInStore || Math.floor(Math.random() * 20 + 1)
-    itemPrice = itemPrice || Math.floor(Math.random() * 100 + 100)
+    itemName = itemName || 'No name given'
+    itemsInStore = itemsInStore || 0
+    itemPrice = itemPrice || 0
 
     //fill heart handler
     const fillHeartHandler = () => {
         //inverting the boolean that is the value of heartFilled
         setHeartFilled(!heartFilled)
+    }
+
+    const updateHandler = () => {
+        setCurrent(firebaseId)
+        updateToogler(true)
     }
 
     // changing the background image on hover
@@ -41,14 +56,7 @@ function StorageItem({ itemModelImage, itemProductImage, itemName, itemsInStore,
                 style={{ backgroundImage: `url(${itemModelImage})` }}
             ></div>
             <div className='details'>
-                <p
-                    className='name'
-                    onClick={() => {
-                        if (updateToogler) {
-                            updateToogler(true)
-                        }
-                    }}
-                >
+                <p className='name' onClick={updateHandler}>
                     {itemName}
                 </p>
                 <div className='info'>
