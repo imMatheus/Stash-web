@@ -1,7 +1,7 @@
 import React from 'react'
 import StorageItem from './StorageItem'
 
-function FilterForm({ items, setItems, setToggleCreateNewItem, toggleCreateNewItem }) {
+function FilterForm({ items, setItems, setToggleCreateNewItem, toggleCreateNewItem, setCurrentId }) {
     const sortElementsByPrice = (e) => {
         if (items) {
             let itemsArray = []
@@ -52,6 +52,7 @@ function FilterForm({ items, setItems, setToggleCreateNewItem, toggleCreateNewIt
                                 itemPrice={item.itemPrice}
                                 itemsInStore={item.itemsInStore}
                                 updateToogler={setToggleCreateNewItem}
+                                itemSizes={item.itemSizes}
                             />
                         )
                     })
@@ -60,6 +61,7 @@ function FilterForm({ items, setItems, setToggleCreateNewItem, toggleCreateNewIt
     }
 
     const addItemHandler = () => {
+        setCurrentId(null)
         setToggleCreateNewItem(!toggleCreateNewItem)
     }
     return (

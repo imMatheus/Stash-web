@@ -46,9 +46,9 @@ function StorageItem({
     }
     return (
         <div className='storageitem' load='lazy'>
-            <div className={heartFilled ? 'hearticon hearticon-filledHeart' : 'hearticon'} onClick={fillHeartHandler}>
+            {/* <div className={heartFilled ? 'hearticon hearticon-filledHeart' : 'hearticon'} onClick={fillHeartHandler}>
                 {heartFilled ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-            </div>
+            </div> */}
             <div
                 className='storageitem-image'
                 onMouseEnter={toggleImageHoverHandler}

@@ -93,6 +93,7 @@ function StashStorage() {
                     itemId={currentId}
                     items={loadedItems}
                     setItems={setLoadedItems}
+                    setCurrent={setCurrentId}
                 />
             ) : loading ? (
                 // if we dont have our items show loading spinner
@@ -105,6 +106,7 @@ function StashStorage() {
                         toggleCreateNewItem={toggleCreateNewItem}
                         items={loadedItems}
                         setItems={setLoadedItems}
+                        setCurrentId={setCurrentId}
                     />
 
                     {/* the items */}

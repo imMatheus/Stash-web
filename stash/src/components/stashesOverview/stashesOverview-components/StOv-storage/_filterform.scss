@@ -2,23 +2,30 @@
     position: sticky;
     top: 15px;
     width: 84%;
-    height: 90px;
+    // height: 90px;
     margin: 32px auto;
     padding: 0.8rem;
     background-color: #fbf9f9;
     z-index: 3;
-    box-shadow: 0px 0px 5px black;
+    box-shadow: 0px 0px 3px black;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     place-items: center;
 
-    @include mq--normal() {
-        background-color: red;
+    @include mq--tablet() {
+        grid-template-columns: 1fr;
+        row-gap: 0.5em;
     }
     & select {
         cursor: pointer;
         width: 230px;
-        background-color: #dbdbec;
+
+        @include mq--mobile() {
+            padding: 0.25rem 0.3rem;
+            width: 150px;
+            font-size: 1.1rem;
+        }
+        background-color: #f1f1f8;
         padding: 0.3rem 0.4rem;
         font-size: 1.4rem;
         font-family: var(--font-display);

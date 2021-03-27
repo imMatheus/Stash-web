@@ -52,28 +52,35 @@
   position: sticky;
   top: 15px;
   width: 84%;
-  height: 90px;
   margin: 32px auto;
   padding: 0.8rem;
   background-color: #fbf9f9;
   z-index: 3;
-  box-shadow: 0px 0px 5px black;
+  box-shadow: 0px 0px 3px black;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   place-items: center;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 710px) {
   .stashesOverview .stashstorage .filterform {
-    background-color: red;
+    grid-template-columns: 1fr;
+    row-gap: 0.5em;
   }
 }
 .stashesOverview .stashstorage .filterform select {
   cursor: pointer;
   width: 230px;
-  background-color: #dbdbec;
+  background-color: #f1f1f8;
   padding: 0.3rem 0.4rem;
   font-size: 1.4rem;
   font-family: var(--font-display);
+}
+@media screen and (max-width: 420px) {
+  .stashesOverview .stashstorage .filterform select {
+    padding: 0.25rem 0.3rem;
+    width: 150px;
+    font-size: 1.1rem;
+  }
 }
 .stashesOverview .stashstorage .filterform select option .option {
   width: 100%;
@@ -97,7 +104,7 @@
   row-gap: 1.49em;
   column-gap: 1.5em;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1180px) {
   .stashesOverview .stashstorage .storage-itemsContainer {
     grid-template-columns: repeat(3, 1fr);
     row-gap: 1em;
@@ -117,7 +124,7 @@
   min-height: 480px;
   position: relative;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1180px) {
   .stashesOverview .stashstorage .storage-itemsContainer .storageitem {
     min-height: 430px;
   }
@@ -138,7 +145,7 @@
   background-size: cover;
   background-position: center;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1180px) {
   .stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-image {
     height: 310px;
   }
@@ -213,7 +220,7 @@
   flex-wrap: wrap;
   padding-top: 8px;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1180px) {
   .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .sizes {
     padding-top: 6px;
   }
@@ -232,7 +239,7 @@
   font-weight: 200;
   font-size: 0.9rem;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1180px) {
   .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .sizes .size-box {
     width: 25px;
     height: 25px;
@@ -283,14 +290,19 @@
 }
 .stashesOverview .stashstorage .newitemform {
   width: 100vw;
-  height: 750px;
+  min-height: 750px;
+  height: 100%;
   padding: 20px;
   position: relative;
-  background-color: white;
   font-family: var(--font-display);
 }
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .newitemform {
+    padding: 15px 8px;
+  }
+}
 .stashesOverview .stashstorage .newitemform .content {
-  height: 90%;
+  height: 100%;
   display: grid;
   grid-template-columns: 0.35fr 0.65fr;
   --input-color: #99a3ba;
@@ -305,29 +317,60 @@
   --group-border-focus: var(--input-border-focus);
   --group-background-focus: var(--off-red);
 }
+@media screen and (max-width: 1180px) {
+  .stashesOverview .stashstorage .newitemform .content {
+    grid-template-columns: 1fr;
+  }
+}
 .stashesOverview .stashstorage .newitemform .content .inputs {
   width: 90%;
   margin: 0px auto;
 }
-.stashesOverview .stashstorage .newitemform .content .inputs .button {
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .newitemform .content .inputs {
+    width: 97%;
+  }
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 8px 12px;
+  flex-wrap: wrap;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .buttons .button {
   cursor: pointer;
   padding: 0 1.2rem;
-  margin: 20px auto;
   width: 140px;
+  margin: 3px;
   text-align: center;
   font-size: 1.65rem;
   font-weight: 200;
   border-radius: 20px;
   background-color: var(--off-red);
 }
-.stashesOverview .stashstorage .newitemform .content .inputs .button:hover {
+.stashesOverview .stashstorage .newitemform .content .inputs .buttons .button:hover {
   opacity: 0.92;
+}
+@media screen and (max-width: 1180px) {
+  .stashesOverview .stashstorage .newitemform .content .inputs .buttons .button {
+    float: left;
+    width: 110px;
+    padding: 0 0.8rem;
+    font-size: 1.25rem;
+    border-radius: 20px;
+  }
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form {
   padding: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 1em;
+}
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .newitemform .content .inputs .form {
+    padding: 4px;
+  }
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-field {
   display: block;
@@ -360,6 +403,11 @@
   margin: 5px 0;
   grid-column-start: auto;
   grid-row-start: auto;
+}
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group {
+    grid-column-end: span 2;
+  }
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .error {
   padding: 0px 0px;
@@ -434,6 +482,13 @@
   padding-left: 12px;
   display: flex;
 }
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container {
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 3px;
+  }
+}
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box {
   cursor: pointer;
   overflow: hidden;
@@ -444,6 +499,13 @@
   height: 31px;
   border: solid 1px black;
   border-radius: 8px;
+}
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box {
+    margin: 0;
+    width: 26px;
+    height: 26px;
+  }
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box input {
   width: 100%;
@@ -468,6 +530,11 @@
   color: #333;
   font-family: var(--font-display);
 }
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box label {
+    font-size: 0.9rem;
+  }
+}
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box label:after {
   content: "";
   display: block;
@@ -486,16 +553,24 @@
 .stashesOverview .stashstorage .newitemform .content .gallery {
   padding: 12px;
   display: grid;
+  min-height: 550px;
+  height: 100%;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
   row-gap: 0.5em;
   column-gap: 0.5em;
 }
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .newitemform .content .gallery {
+    padding: 0px;
+    row-gap: 0.2em;
+    column-gap: 0.2em;
+  }
+}
 .stashesOverview .stashstorage .newitemform .content .gallery .image {
   position: relative;
   grid-column-start: auto;
   grid-row-start: auto;
-  background: url("https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F3a%2Ff8%2F3af8a9d35e804a3ce64591f3fcb743d12072fb5a.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_hoodiessweatshirts_hoodies%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]");
   background-position: center;
   background-size: cover;
   transition: transform 300ms ease-in-out;
@@ -533,7 +608,7 @@
 }
 .stashesOverview .stashstorage .newitemform .content .gallery .image-small {
   grid-row-end: span 10;
-  grid-column-end: span 4;
+  grid-column-end: span 5;
 }
 .stashesOverview .stashstorage .newitemform .content .gallery .image-flat {
   grid-row-end: span 4;
@@ -736,28 +811,35 @@
   position: sticky;
   top: 15px;
   width: 84%;
-  height: 90px;
   margin: 32px auto;
   padding: 0.8rem;
   background-color: #fbf9f9;
   z-index: 3;
-  box-shadow: 0px 0px 5px black;
+  box-shadow: 0px 0px 3px black;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   place-items: center;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 710px) {
   .stashesOverview .stashstorage .filterform {
-    background-color: red;
+    grid-template-columns: 1fr;
+    row-gap: 0.5em;
   }
 }
 .stashesOverview .stashstorage .filterform select {
   cursor: pointer;
   width: 230px;
-  background-color: #dbdbec;
+  background-color: #f1f1f8;
   padding: 0.3rem 0.4rem;
   font-size: 1.4rem;
   font-family: var(--font-display);
+}
+@media screen and (max-width: 420px) {
+  .stashesOverview .stashstorage .filterform select {
+    padding: 0.25rem 0.3rem;
+    width: 150px;
+    font-size: 1.1rem;
+  }
 }
 .stashesOverview .stashstorage .filterform select option .option {
   width: 100%;
@@ -781,7 +863,7 @@
   row-gap: 1.49em;
   column-gap: 1.5em;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1180px) {
   .stashesOverview .stashstorage .storage-itemsContainer {
     grid-template-columns: repeat(3, 1fr);
     row-gap: 1em;
@@ -801,7 +883,7 @@
   min-height: 480px;
   position: relative;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1180px) {
   .stashesOverview .stashstorage .storage-itemsContainer .storageitem {
     min-height: 430px;
   }
@@ -822,7 +904,7 @@
   background-size: cover;
   background-position: center;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1180px) {
   .stashesOverview .stashstorage .storage-itemsContainer .storageitem .storageitem-image {
     height: 310px;
   }
@@ -897,7 +979,7 @@
   flex-wrap: wrap;
   padding-top: 8px;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1180px) {
   .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .sizes {
     padding-top: 6px;
   }
@@ -916,7 +998,7 @@
   font-weight: 200;
   font-size: 0.9rem;
 }
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1180px) {
   .stashesOverview .stashstorage .storage-itemsContainer .storageitem .details .sizes .size-box {
     width: 25px;
     height: 25px;
@@ -967,14 +1049,19 @@
 }
 .stashesOverview .stashstorage .newitemform {
   width: 100vw;
-  height: 750px;
+  min-height: 750px;
+  height: 100%;
   padding: 20px;
   position: relative;
-  background-color: white;
   font-family: var(--font-display);
 }
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .newitemform {
+    padding: 15px 8px;
+  }
+}
 .stashesOverview .stashstorage .newitemform .content {
-  height: 90%;
+  height: 100%;
   display: grid;
   grid-template-columns: 0.35fr 0.65fr;
   --input-color: #99a3ba;
@@ -989,29 +1076,60 @@
   --group-border-focus: var(--input-border-focus);
   --group-background-focus: var(--off-red);
 }
+@media screen and (max-width: 1180px) {
+  .stashesOverview .stashstorage .newitemform .content {
+    grid-template-columns: 1fr;
+  }
+}
 .stashesOverview .stashstorage .newitemform .content .inputs {
   width: 90%;
   margin: 0px auto;
 }
-.stashesOverview .stashstorage .newitemform .content .inputs .button {
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .newitemform .content .inputs {
+    width: 97%;
+  }
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 8px 12px;
+  flex-wrap: wrap;
+}
+.stashesOverview .stashstorage .newitemform .content .inputs .buttons .button {
   cursor: pointer;
   padding: 0 1.2rem;
-  margin: 20px auto;
   width: 140px;
+  margin: 3px;
   text-align: center;
   font-size: 1.65rem;
   font-weight: 200;
   border-radius: 20px;
   background-color: var(--off-red);
 }
-.stashesOverview .stashstorage .newitemform .content .inputs .button:hover {
+.stashesOverview .stashstorage .newitemform .content .inputs .buttons .button:hover {
   opacity: 0.92;
+}
+@media screen and (max-width: 1180px) {
+  .stashesOverview .stashstorage .newitemform .content .inputs .buttons .button {
+    float: left;
+    width: 110px;
+    padding: 0 0.8rem;
+    font-size: 1.25rem;
+    border-radius: 20px;
+  }
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form {
   padding: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 1em;
+}
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .newitemform .content .inputs .form {
+    padding: 4px;
+  }
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-field {
   display: block;
@@ -1044,6 +1162,11 @@
   margin: 5px 0;
   grid-column-start: auto;
   grid-row-start: auto;
+}
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group {
+    grid-column-end: span 2;
+  }
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .error {
   padding: 0px 0px;
@@ -1118,6 +1241,13 @@
   padding-left: 12px;
   display: flex;
 }
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container {
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 3px;
+  }
+}
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box {
   cursor: pointer;
   overflow: hidden;
@@ -1128,6 +1258,13 @@
   height: 31px;
   border: solid 1px black;
   border-radius: 8px;
+}
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box {
+    margin: 0;
+    width: 26px;
+    height: 26px;
+  }
 }
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box input {
   width: 100%;
@@ -1152,6 +1289,11 @@
   color: #333;
   font-family: var(--font-display);
 }
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box label {
+    font-size: 0.9rem;
+  }
+}
 .stashesOverview .stashstorage .newitemform .content .inputs .form .form-group .sizes-container .size-box label:after {
   content: "";
   display: block;
@@ -1170,16 +1312,24 @@
 .stashesOverview .stashstorage .newitemform .content .gallery {
   padding: 12px;
   display: grid;
+  min-height: 550px;
+  height: 100%;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
   row-gap: 0.5em;
   column-gap: 0.5em;
 }
+@media screen and (max-width: 710px) {
+  .stashesOverview .stashstorage .newitemform .content .gallery {
+    padding: 0px;
+    row-gap: 0.2em;
+    column-gap: 0.2em;
+  }
+}
 .stashesOverview .stashstorage .newitemform .content .gallery .image {
   position: relative;
   grid-column-start: auto;
   grid-row-start: auto;
-  background: url("https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F3a%2Ff8%2F3af8a9d35e804a3ce64591f3fcb743d12072fb5a.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_hoodiessweatshirts_hoodies%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]");
   background-position: center;
   background-size: cover;
   transition: transform 300ms ease-in-out;
@@ -1217,7 +1367,7 @@
 }
 .stashesOverview .stashstorage .newitemform .content .gallery .image-small {
   grid-row-end: span 10;
-  grid-column-end: span 4;
+  grid-column-end: span 5;
 }
 .stashesOverview .stashstorage .newitemform .content .gallery .image-flat {
   grid-row-end: span 4;
@@ -1452,11 +1602,9 @@ body .App {
   min-height: 100vh;
 }
 body .App .navbar {
-  padding: 0 2rem;
   min-height: 126px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100vw;
+  padding: 1rem 0;
   color: var(--off-red);
   position: relative;
 }
@@ -1464,18 +1612,23 @@ body .App .navbar h2 {
   font-size: 2.3rem;
   font-weight: 300;
   font-family: var(--font-logo);
+  width: 100vw;
+  text-align: center;
 }
 body .App .navbar .user {
+  margin-top: 15px;
   padding: 0.4rem 0.7rem;
   height: 100%;
-  position: absolute;
-  left: 2rem;
-  top: 0;
   color: var(--off-red);
   display: grid;
   place-items: center;
   font-size: 1.2rem;
   font-family: var(--font-display);
+}
+@media screen and (max-width: 900px) {
+  body .App .navbar .user {
+    position: block;
+  }
 }
 body .App .navbar .user .circle {
   width: 46px;
@@ -1487,16 +1640,14 @@ body .App .navbar .user .circle {
 }
 body .App .navbar .user .btn {
   cursor: pointer;
-  padding: 0.2rem 0.5rem;
-  font-size: 1.12rem;
-  background: var(--off-red);
+  padding: 0.24rem 0.7rem;
+  font-size: 1rem;
+  background: transparent;
   color: #333;
   font-weight: 100;
-  transition: background 300ms, color 300ms;
 }
 body .App .navbar .user .btn:hover, body .App .navbar .user .btn:focus, body .App .navbar .user .btn:active {
-  background: #333;
-  color: var(--off-red);
+  text-decoration: underline;
 }
 body .loadingspinner {
   width: 100%;

@@ -85,35 +85,40 @@ body {
         min-height: 100vh;
 
         & .navbar {
-            padding: 0 2rem;
             min-height: 126px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
+            width: 100vw;
+            padding: 1rem 0;
             color: var(--off-red);
-
             position: relative;
+
+            // @media screen and (max-width: 180px) {
+            //     min-height: 176px;
+            // }
 
             & h2 {
                 font-size: 2.3rem;
                 font-weight: 300;
+
                 font-family: var(--font-logo);
+                width: 100vw;
+                text-align: center;
             }
 
             & .user {
                 // width: 180px;
+                margin-top: 15px;
                 padding: 0.4rem 0.7rem;
                 height: 100%;
-                position: absolute;
-                left: 2rem;
-                top: 0;
+
                 color: var(--off-red);
                 display: grid;
                 place-items: center;
                 font-size: 1.2rem;
                 font-family: var(--font-display);
 
+                @media screen and (max-width: 900px) {
+                    position: block;
+                }
                 & .circle {
                     width: 46px;
                     height: 46px;
@@ -125,18 +130,16 @@ body {
 
                 & .btn {
                     cursor: pointer;
-                    padding: 0.2rem 0.5rem;
-                    font-size: 1.12rem;
-                    background: var(--off-red);
+                    padding: 0.24rem 0.7rem;
+                    font-size: 1rem;
+                    background: transparent;
                     color: #333;
                     font-weight: 100;
-                    transition: background 300ms, color 300ms;
 
                     &:hover,
                     &:focus,
                     &:active {
-                        background: #333;
-                        color: var(--off-red);
+                        text-decoration: underline;
                     }
                 }
             }

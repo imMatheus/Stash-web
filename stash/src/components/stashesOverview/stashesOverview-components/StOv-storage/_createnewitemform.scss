@@ -1,15 +1,24 @@
 .newitemform {
     width: 100vw;
-    height: 750px;
+    min-height: 750px;
+    height: 100%;
     padding: 20px;
     position: relative;
-    background-color: rgb(255, 255, 255);
+
     font-family: var(--font-display);
+    @include mq--tablet() {
+        padding: 15px 8px;
+    }
 
     & .content {
-        height: 90%;
+        height: 100%;
         display: grid;
+
         grid-template-columns: 0.35fr 0.65fr;
+
+        @include mq--normal() {
+            grid-template-columns: 1fr;
+        }
 
         --input-color: #99a3ba;
         --input-border: #cdd9ed;
@@ -32,19 +41,39 @@
             width: 90%;
             margin: 0px auto;
 
-            & .button {
-                cursor: pointer;
-                padding: 0 1.2rem;
-                margin: 20px auto;
-                width: 140px;
-                text-align: center;
-                font-size: 1.65rem;
-                font-weight: 200;
-                border-radius: 20px;
-                background-color: var(--off-red);
+            @include mq--tablet() {
+                width: 97%;
+            }
 
-                &:hover {
-                    opacity: 0.92;
+            & .buttons {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+
+                padding: 8px 12px;
+                flex-wrap: wrap;
+                & .button {
+                    cursor: pointer;
+                    padding: 0 1.2rem;
+                    width: 140px;
+                    margin: 3px;
+                    text-align: center;
+                    font-size: 1.65rem;
+                    font-weight: 200;
+                    border-radius: 20px;
+                    background-color: var(--off-red);
+
+                    &:hover {
+                        opacity: 0.92;
+                    }
+
+                    @include mq--normal() {
+                        float: left;
+                        width: 110px;
+                        padding: 0 0.8rem;
+                        font-size: 1.25rem;
+                        border-radius: 20px;
+                    }
                 }
             }
 
@@ -53,6 +82,10 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 column-gap: 1em;
+
+                @include mq--tablet() {
+                    padding: 4px;
+                }
                 .form-field {
                     display: block;
                     margin: 5px 0px;
@@ -85,6 +118,9 @@
                     margin: 5px 0;
                     grid-column-start: auto;
                     grid-row-start: auto;
+                    @include mq--tablet() {
+                        grid-column-end: span 2;
+                    }
 
                     & .error {
                         padding: 0px 0px;
@@ -162,8 +198,11 @@
                         position: relative;
                         padding-left: 12px;
                         display: flex;
-                        // justify-content: space-evenly;
-                        // align-items: center;
+                        @include mq--tablet() {
+                            justify-content: space-evenly;
+                            align-items: center;
+                            padding: 0 3px;
+                        }
                         & .size-box {
                             cursor: pointer;
                             overflow: hidden;
@@ -174,6 +213,11 @@
                             height: 31px;
                             border: solid 1px black;
                             border-radius: 8px;
+                            @include mq--tablet() {
+                                margin: 0;
+                                width: 26px;
+                                height: 26px;
+                            }
                             & input {
                                 width: 100%;
                                 position: absolute;
@@ -202,6 +246,9 @@
                                 font-weight: 300;
                                 color: #333;
                                 font-family: var(--font-display);
+                                @include mq--tablet() {
+                                    font-size: 0.9rem;
+                                }
                                 &:after {
                                     content: '';
                                     display: block;
@@ -226,16 +273,24 @@
         & .gallery {
             padding: 12px;
             display: grid;
+
+            min-height: 550px;
+            height: 100%;
             grid-template-columns: repeat(10, 1fr);
             grid-template-rows: repeat(10, 1fr);
             row-gap: 0.5em;
             column-gap: 0.5em;
 
+            @include mq--tablet() {
+                padding: 0px;
+                row-gap: 0.2em;
+                column-gap: 0.2em;
+            }
+
             & .image {
                 position: relative;
                 grid-column-start: auto;
                 grid-row-start: auto;
-                background: url('https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F3a%2Ff8%2F3af8a9d35e804a3ce64591f3fcb743d12072fb5a.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_hoodiessweatshirts_hoodies%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]');
                 background-position: center;
                 background-size: cover;
                 transition: transform 300ms ease-in-out;
@@ -278,7 +333,7 @@
                 }
                 &-small {
                     grid-row-end: span 10;
-                    grid-column-end: span 4;
+                    grid-column-end: span 5;
                 }
 
                 &-flat {
