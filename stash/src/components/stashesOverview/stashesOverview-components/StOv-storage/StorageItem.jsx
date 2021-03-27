@@ -8,8 +8,6 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 function StorageItem({ itemModelImage, itemProductImage, itemName, itemsInStore, itemPrice, itemSizes, updateToogler }) {
     const [heartFilled, setHeartFilled] = useState(false)
 
-    let testId = itemModelImage + '' + Math.floor(Math.random() * 2000000)
-
     itemModelImage = itemModelImage || background2
     itemProductImage = itemProductImage || background1
     itemName = itemName || 'Huvudtröja med tryck '

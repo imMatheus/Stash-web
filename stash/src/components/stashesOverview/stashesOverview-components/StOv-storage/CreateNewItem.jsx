@@ -1,8 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import WarningIcon from '@material-ui/icons/Warning'
-import StorageItem from './StorageItem'
+import firebase from 'firebase'
+import 'firebase/firestore'
+import { firestore } from '../../../../App'
 
 function CreateNewItem({ items, setItems, setToogler }) {
+    var currentUser = firebase.auth().currentUser
+    const emailRef = currentUser.email
+    const ref = firestore.collection('users').doc(emailRef).collection('products')
+
     const url =
         'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fd5%2F58%2Fd558d5eff3e0de84c68b909af2c7da91f4f545d7.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_hoodiessweatshirts_hoodies%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]'
     const [modelImg, setModelImg] = useState(url)
@@ -137,37 +143,42 @@ function CreateNewItem({ items, setItems, setToogler }) {
         }
     }
 
-    // let testItem = itemSizes.find((size) => size.size === 'xs'.toLowerCase())
-    // console.log(...itemSizes, (testItem.inStore = !testItem.inStore))
-    // console.log(itemSizes)
-
     const addProductHandler = () => {
         if (name === '') {
             setNameError({ show: true, msg: 'Name can not be empty' })
-        } else if (!price && price > 0) {
-            setPriceError({ show: true, msg: 'Price can´t be empty or zero' })
-        } else if (!itemsInStore) {
-            setItemsInStoreError({ show: true, msg: 'Items in store can´t be empty' })
-        } else if (modelImg === url) {
-            alert('fill model picture please')
-        } else if (productImg === url) {
-            alert('choose a product picture please')
-        } else {
+        }
+        //else if (!price && price > 0) {
+        //     setPriceError({ show: true, msg: 'Price can´t be empty or zero' })
+        // } else if (!itemsInStore) {
+        //     setItemsInStoreError({ show: true, msg: 'Items in store can´t be empty' })
+        // } else if (modelImg === url) {
+        //     alert('fill model picture please')
+        // } else if (productImg === url) {
+        //     alert('choose a product picture please')}
+        else {
             setToogler(false)
-            setItems(
-                [
-                    <StorageItem
-                        itemName={name}
-                        itemPrice={price}
-                        itemsInStore={itemsInStore}
-                        itemModelImage={modelImg}
-                        itemProductImage={productImg}
-                        itemSizes={itemSizes}
-                        updateToogler={setToogler}
-                    />,
-                ].concat(items)
-                // concating so that the new item is first in the list
-            )
+            console.log(ref)
+            ref.add({
+                name: name,
+                price: price,
+                inStore: itemsInStore,
+                modelImg: modelImg,
+                productImg: productImg,
+                itemSizes: itemSizes,
+            }).then(() => console.log('det funka jippi'))
+            // setItems(
+            //     [
+            //         <StorageItem
+            //             itemName={name}
+            //             itemPrice={price}
+            //             itemsInStore={itemsInStore}
+            //             itemModelImage={modelImg}
+            //             itemProductImage={productImg}
+            //             itemSizes={itemSizes}
+            //             updateToogler={setToogler}
+            //         />,
+            //     ].concat(items)
+            // concating so that the new item is first in the list
         }
     }
 

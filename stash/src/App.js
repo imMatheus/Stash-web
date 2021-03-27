@@ -1,11 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import StashesOverview from './components/stashesOverview/StashesOverview'
 import LoadingSpinner from './components/LoadingSpinner'
 import './global.css'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
-
-import { useCollection, useDocument } from 'react-firebase-hooks/firestore'
-import { useCollectionData } from 'react-firebase-hooks/firestore'
 
 import firebase from 'firebase/app'
 import 'firebase/firestore'
@@ -27,33 +24,10 @@ export const auth = firebase.auth()
 export const firestore = firebase.firestore()
 export const products = firestore.collection('users')
 
-// console.log(products)
-// console.log(query)
-
-// measurementId: 'G-8JD1812NKB',
-
 const App = () => {
     const [user, loading] = useAuthState(auth)
 
-    // const ref = firestore.collections('users')
-
-    const query = products.orderBy('createdAt')
-    const [messages] = useCollectionData(query, { idField: 'eKQXvbnl8OQ4Fq4b3rfV' })
-    const [roomDetails] = useDocument(firestore.collection('test'))
-    const [roomMessages, loading1] = useCollection(firestore.collection('test'))
-
-    return (
-        <>
-            {loading ? (
-                <LoadingSpinner />
-            ) : (
-                <div className='App'>
-                    {user ? <StashesOverview /> : <Login />}
-                    {/* <StashesOverview /> */}
-                </div>
-            )}
-        </>
-    )
+    return <>{loading ? <LoadingSpinner /> : <div className='App'>{user ? <StashesOverview /> : <Login />}</div>}</>
 }
 
 function Login() {
@@ -69,7 +43,7 @@ function Login() {
             <div className='logincontainer'>
                 <div className='login-btn'>
                     <h3>Welcome to stash</h3>
-                    <h4>Please sign in to google </h4>
+                    <h4>Please sign into google </h4>
                     <div className='btn' onClick={signIn}>
                         <ExitToAppIcon /> Sing in with Google
                     </div>

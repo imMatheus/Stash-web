@@ -1,6 +1,5 @@
 .filterform {
     position: sticky;
-    cursor: alias;
     top: 15px;
     width: 84%;
     height: 90px;
@@ -33,11 +32,11 @@
     }
 
     & .addnewitem {
-        cursor: cursor;
-        font-size: 1.8rem;
-        padding: 0.3rem;
+        cursor: pointer;
+        font-size: 1.4rem;
+        padding: 0.4rem;
         font-family: var(--font-display);
-        font-weight: 400;
+        font-weight: 300;
         background-color: var(--off-red);
     }
 }
